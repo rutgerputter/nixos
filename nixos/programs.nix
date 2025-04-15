@@ -5,6 +5,8 @@
     firefox.enable = true;
     gamemode.enable = true;
     kdeconnect.enable = true;
+    virt-manager.enable = true;
+
     steam = {
       enable = true;
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers

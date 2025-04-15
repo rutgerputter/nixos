@@ -165,14 +165,21 @@
   services.hardware.bolt.enable = true;
   hardware.logitech.wireless.enable = true;
 
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   users.users = {
     rputter = {
       isNormalUser = true;
       description = "Rutger Putter";
-      extraGroups = [ "networkmanager" "wheel" "gamemode"];
+      extraGroups = [ "networkmanager" "wheel" "gamemode" "libvirtd"];
       shell = pkgs.zsh;
     };
   };
