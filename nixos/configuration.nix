@@ -172,7 +172,7 @@
     rputter = {
       isNormalUser = true;
       description = "Rutger Putter";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "gamemode"];
       shell = pkgs.zsh;
     };
   };
