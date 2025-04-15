@@ -22,6 +22,15 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+
+    ./home-manager.nix
+
+    ./boot.nix
+    ./nvidia.nix
+    ./programs.nix
+    ./services.nix
+    ./syspackages.nix
+    ./userpackages.nix
   ];
   
   # Bootloader.
