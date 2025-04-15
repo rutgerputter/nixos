@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     libva-utils
@@ -6,6 +6,8 @@
     git
     direnv
     nix-search-cli
+    nil
+    nixd
     python3Full
     htop
     yakuake
@@ -33,7 +35,7 @@
     kitty
     tdrop
   ];
-  
+
   # FONTS
   fonts.packages = with pkgs; [
     noto-fonts

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   services.throttled = {
     enable = true;
@@ -52,7 +52,7 @@
       # Disable BDPROCHOT (EXPERIMENTAL)
       Disable_BDPROCHOT: False
 
-      # All voltage values are expressed in mV and *MUST* be negative (i.e. undervolt)! 
+      # All voltage values are expressed in mV and *MUST* be negative (i.e. undervolt)!
       [UNDERVOLT.BATTERY]
       # CPU core voltage offset (mV)
       CORE: -100
@@ -80,17 +80,17 @@
 
       # [ICCMAX.AC]
       # # CPU core max current (A)
-      # CORE: 
+      # CORE:
       # # Integrated GPU max current (A)
-      # GPU: 
+      # GPU:
       # # CPU cache max current (A)
-      # CACHE: 
+      # CACHE:
 
       # [ICCMAX.BATTERY]
       # # CPU core max current (A)
-      # CORE: 
+      # CORE:
       # # Integrated GPU max current (A)
-      # GPU: 
+      # GPU:
       # # CPU cache max current (A)
       # CACHE: ";
   };
