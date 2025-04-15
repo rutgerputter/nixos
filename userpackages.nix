@@ -4,7 +4,6 @@
     packages = with pkgs; [
       signal-desktop
       vscode
-      zed-editor
       vlc
       haruna
       thunderbird-latest
