@@ -7,6 +7,10 @@
     kdeconnect.enable = true;
     virt-manager.enable = true;
 
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
     steam = {
       enable = true;
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers

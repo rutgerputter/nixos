@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    gcc
+    usbutils
+    pciutils
     libva-utils
     intel-gpu-tools
     git
@@ -34,6 +37,8 @@
     fastfetch
     kitty
     tdrop
+    libfprint-2-tod1-vfs0090
+    python312Packages.pip
   ];
 
   # FONTS

@@ -1,5 +1,6 @@
 { ... }:
 {
+  services.tailscale.enable = true;
   services.throttled = {
     enable = true;
     extraConfig = "
