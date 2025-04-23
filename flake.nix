@@ -8,6 +8,8 @@
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
+    nix-snapd.url = "github:nix-community/nix-snapd";
+    nix-snapd.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -18,6 +20,7 @@
     self,
     nixpkgs,
     home-manager,
+    nix-snapd,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -51,6 +54,10 @@
       nb-rputter = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
+          nix-snapd.nixosModules.default
+          {
+            services.snap.enable = true;
+          }
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];

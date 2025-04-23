@@ -162,6 +162,8 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
+  hardware.cpu.intel.sgx.provision.enable = true;
+
   services.hardware.bolt.enable = true;
   hardware.logitech.wireless.enable = true;
 
