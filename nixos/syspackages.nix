@@ -4,6 +4,7 @@
     gcc
     usbutils
     pciutils
+    dmidecode
     libva-utils
     intel-gpu-tools
     git
@@ -24,7 +25,6 @@
     kdePackages.kate
     kdePackages.filelight
     kdePackages.kcalc
-    brave
     android-tools
     gearlever
     tailscale
