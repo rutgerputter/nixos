@@ -12,6 +12,9 @@
     nix-search-cli
     nil
     nixd
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.nl_NL
     python3Full
     htop
     yakuake
@@ -54,3 +57,4 @@
     (nerdfonts.override {fonts = ["FantasqueSansMono"];}) # stable banch
   ];
 }
+

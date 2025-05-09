@@ -14,6 +14,9 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
+    fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";  
   };
 
   outputs = {
@@ -21,6 +24,7 @@
     nixpkgs,
     home-manager,
     nix-snapd,
+    fingerprint-sensor,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -58,6 +62,7 @@
           {
             services.snap.enable = true;
           }
+          fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];

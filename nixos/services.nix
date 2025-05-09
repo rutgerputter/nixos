@@ -1,6 +1,14 @@
 { ... }:
 {
+  services."06cb-009a-fingerprint-sensor" = {                                 
+    enable = true;                                                            
+    backend = "python-validity";                                              
+  };  
   services.tailscale.enable = true;
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };  
   services.throttled = {
     enable = true;
     extraConfig = "
