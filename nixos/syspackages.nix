@@ -28,6 +28,7 @@
     kdePackages.kate
     kdePackages.filelight
     kdePackages.kcalc
+    kdePackages.kscreenlocker
     android-tools
     gearlever
     tailscale
@@ -42,6 +43,11 @@
     tdrop
     libfprint-2-tod1-vfs0090
     python312Packages.pip
+    mono
+    sdrpp
+    haskellPackages.rtlsdr
+    rtl-sdr-librtlsdr
+    soapyrtlsdr
   ];
 
   # FONTS

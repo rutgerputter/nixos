@@ -64,11 +64,11 @@
       # All voltage values are expressed in mV and *MUST* be negative (i.e. undervolt)!
       [UNDERVOLT.BATTERY]
       # CPU core voltage offset (mV)
-      CORE: -100
+      CORE: -90
       # Integrated GPU voltage offset (mV)
       GPU: -80
       # CPU cache voltage offset (mV)
-      CACHE: -100
+      CACHE: -90
       # System Agent voltage offset (mV)
       UNCORE: -80
       # Analog I/O voltage offset (mV)
@@ -77,11 +77,11 @@
       # All voltage values are expressed in mV and *MUST* be negative (i.e. undervolt)!
       [UNDERVOLT.AC]
       # CPU core voltage offset (mV)
-      CORE: -100
+      CORE: -90
       # Integrated GPU voltage offset (mV)
       GPU: -80
       # CPU cache voltage offset (mV)
-      CACHE: -100
+      CACHE: -90
       # System Agent voltage offset (mV)
       UNCORE: -80
       # Analog I/O voltage offset (mV)
