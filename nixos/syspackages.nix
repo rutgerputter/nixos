@@ -12,6 +12,7 @@
     git
     direnv
     nix-search-cli
+    nixos-generators
     nil
     nixd
     hunspell
