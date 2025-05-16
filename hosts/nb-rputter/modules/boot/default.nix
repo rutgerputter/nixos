@@ -21,9 +21,9 @@
   boot.initrd.luks.devices."luks-ca4832e4-ab65-4015-a638-6291f324e999".device = "/dev/disk/by-uuid/ca4832e4-ab65-4015-a638-6291f324e999";
   boot.initrd.luks.devices."luks-dfbc71e5-c3d0-48c6-8537-29f33435d4f1".device = "/dev/disk/by-uuid/dfbc71e5-c3d0-48c6-8537-29f33435d4f1";
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
-  boot.initrd.kernelModules = [ "kvm-intel" "zfs" ];
+  boot.initrd.kernelModules = [ "kvm-intel" ];
   boot.initrd.systemd.enable = true;
-  boot.initrd.supportedFilesystems = [ "zfs" ];
+  boot.initrd.supportedFilesystems = [ ];
   boot.initrd.verbose = false;
 
   fileSystems."/" =
@@ -65,19 +65,4 @@
     "rd.udev.log_level=3"
     "udev.log_priority=3"
   ];
-
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportAll = false;
-  boot.zfs.forceImportRoot = true;
-
-  # ZFS requires a networking hostId.
-  # The 32-bit host ID of the machine, formatted as 8 hexadecimal characters.
-  # You should try to make this ID unique among your machines. You can generate a random 32-bit
-  # ID using the following commands:
-  # `head -c 8 /etc/machine-id`
-  # (this derives it from the machine-id that systemd generates) or
-  # `head -c4 /dev/urandom | od -A none -t x4`
-  # The primary use case is to ensure when using ZFS that a pool isn’t imported accidentally on
-  # a wrong machine.
-  networking.hostId = "73e4d145";
 }

@@ -13,11 +13,13 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     nix-snapd,
     home-manager,
     fingerprint-sensor,
     ...
-  }: {
+  }:
+  {
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

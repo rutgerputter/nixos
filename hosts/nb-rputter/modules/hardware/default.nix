@@ -15,7 +15,6 @@
         sgx.provision.enable = true;
       };
     };
-    bolt.enable = true;
     graphics = {
         enable = true;
         enable32Bit = true; # Enabled to support some Steam games.
@@ -31,6 +30,9 @@
     logitech.wireless.enable = true;    
   
   };
+  
+  # Thunderbolt 3
+  services.hardware.bolt.enable = true;
 
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;

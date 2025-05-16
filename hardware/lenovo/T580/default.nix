@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../../../common/cpu/intel/kaby-lake
-    ../../../common/gpu/nvidia-optimus
-    ../../../common/pc/laptop
-    ../../../common/ssd
+    ../../common/cpu/intel/kaby-lake
+    ../../common/gpu/nvidia-optimus
+    ../../common/pc/laptop
+    ../../common/ssd
   ];
 
   # Essential Firmware
