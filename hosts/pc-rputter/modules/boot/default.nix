@@ -39,6 +39,11 @@
     [ { device = "/dev/disk/by-uuid/560c76b5-5e9d-42bb-adb5-127fe2e0af8c"; }
     ];
 
+  fileSystems."/home/rputter/GamesSSD" =
+    { device = "/dev/disk/by-uuid/aed93651-a774-48cf-8dc8-2173f1fc659d";
+      fsType = "ext4";
+    };
+
   # Plymouth config
   boot.plymouth.enable = true;
   boot.plymouth.theme = "bgrt";
