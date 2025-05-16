@@ -76,9 +76,9 @@
           Fingerprinting = true;
         };
         DisablePocket = true;
-        DisableFirefoxAccounts = false;
+        DisableFirefoxAccounts = true;
         DisableAccounts = false;
-        DisableFirefoxScreenshots = false;
+        DisableFirefoxScreenshots = true;
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";
         DontCheckDefaultBrowser = true;
@@ -91,58 +91,47 @@
         # Valid strings for installation_mode are "allowed", "blocked",
         # "force_installed" and "normal_installed".
         ExtensionSettings = {
-            "*".installation_mode = "allowed"; # blocks all addons except the ones specified below
-            # ecosia Search:
-            "{d04b0b40-3dab-4f0b-97a6-04ec3eddbfb0}" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/ecosia-the-green-search/latest.xpi";
-                installation_mode = "force_installed";
-            };
-            # firefox Multi-Account Containers:
-            "@testpilot-containers" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
-                installation_mode = "force_installed";
-            };
-            # plasma Integration:
-            "plasma-browser-integration@kde.org" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/plasma-integration/latest.xpi";
-                installation_mode = "force_installed";
-            };
-            # proton VPN:
-            "vpn@proton.ch" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-vpn-firefox-extension/latest.xpi";
-                installation_mode = "force_installed";
-            };
-            # keepassxc browser:
-            "keepassxc-browser@keepassxc.org" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
-                installation_mode = "force_installed";
-            };
-        };
-
-        /* ---- PREFERENCES ---- */
-        # Check about:config for options.
-        Preferences = {
-            "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
-            "extensions.pocket.enabled" = false;
-            "extensions.screenshots.disabled" = false;
-            "browser.topsites.contile.enabled" = false;
-            "browser.formfill.enable" = false;
-            "browser.search.suggest.enabled" = true;
-            "browser.search.suggest.enabled.private" = false;
-            "browser.urlbar.suggest.searches" = true;
-            "browser.urlbar.showSearchSuggestionsFirst" = false;
-            "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-            "browser.newtabpage.activity-stream.feeds.snippets" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = false;
-            "browser.newtabpage.activity-stream.section.highlights.includeVisited" = false;
-            "browser.newtabpage.activity-stream.showSponsored" = false;
-            "browser.newtabpage.activity-stream.system.showSponsored" = false;
-            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "extensions.formautofill.addresses.enabled" = false;
-            "extensions.formautofill.creditCards.enabled" = false;
-            "signon.autofillForms" = false;
+          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+          # Startpage Search:
+          "{20fc2e06-e3e4-4b2b-812b-ab431220cada}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/startpage-private-search/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # firefox Multi-Account Containers:
+          "@testpilot-containers" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # plasma Integration:
+          "plasma-browser-integration@kde.org" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/plasma-integration/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # Bitwarden:
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # I still don't care about cookies:
+          "idcac-pub@guus.ninja" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # enhanced-h264ify:
+          "{9a41dee2-b924-4161-a971-7fb35c053a4a}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhanced-h264ify/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # SponsorBlock for YouTube - Skip Sponsorships:
+          "sponsorBlocker@ajay.app" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+              installation_mode = "force_installed";
+          };
+          # Breeze Dark:
+          "{4e507435-d65f-4467-a2c0-16dbae24f288}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/breezedarktheme/latest.xpi";
+              installation_mode = "force_installed";
+          };                
         };
       };
     };
