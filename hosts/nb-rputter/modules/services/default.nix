@@ -14,7 +14,9 @@
 
   services.desktopManager.plasma6.enable = true;
 
-# Enable touchpad support (enabled default in most desktopManager).
+  systemd.services.NetworkManager-wait-online.enable = false;
+  
+  # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
   # Enable CUPS to print documents.
