@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../../../hardware/lenovo/T580
+    ../../../../hardware/pc-rputter
   ];
 
   hardware = {
