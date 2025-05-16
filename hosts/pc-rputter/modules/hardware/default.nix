@@ -15,11 +15,6 @@
         sgx.provision.enable = true;
       };
     };
-    graphics = {
-        enable = true;
-        enable32Bit = true; # Enabled to support some Steam games.
-        extraPackages = with pkgs; [libvdpau-va-gl];
-    };
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -30,7 +25,7 @@
     logitech.wireless.enable = true;    
   
   };
-  
+
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 

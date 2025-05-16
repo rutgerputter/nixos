@@ -24,6 +24,21 @@
   boot.initrd.supportedFilesystems = [ ];
   boot.initrd.verbose = false;
 
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/4fcb74c1-e069-436e-8905-f40b53b4f232";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/E4ED-F6AF";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/560c76b5-5e9d-42bb-adb5-127fe2e0af8c"; }
+    ];
+
   # Plymouth config
   boot.plymouth.enable = true;
   boot.plymouth.theme = "bgrt";

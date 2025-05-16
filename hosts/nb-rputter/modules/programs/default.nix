@@ -43,6 +43,15 @@
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
 
+      shellAliases = {
+        ll = "ls -l";
+        edit = "sudo -e";
+        update = "cd ~/Git/nixos; sudo nixos-rebuild switch --flake .#nb-rputter";
+      };
+
+      histSize = 10000;
+      histFile = "$HOME/.zsh_history";
+
       promptInit = ''
         # Set-up icons for files/directories in terminal using lsd
         alias ls='lsd'
