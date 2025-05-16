@@ -55,6 +55,7 @@
 
   # FONTS
   fonts.packages = with pkgs; [
+    inter
     noto-fonts
     fira-code
     noto-fonts-cjk-sans
