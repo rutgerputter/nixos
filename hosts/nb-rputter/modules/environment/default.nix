@@ -51,6 +51,7 @@
     haskellPackages.rtlsdr
     rtl-sdr-librtlsdr
     soapyrtlsdr
+    retroarch
   ];
 
   # FONTS

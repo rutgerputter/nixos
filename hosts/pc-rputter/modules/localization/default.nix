@@ -4,7 +4,7 @@
   # Set your time zone.
   time = {
     timeZone = "Europe/Amsterdam";
-    hardwareClockInLocalTime = false;
+    hardwareClockInLocalTime = true;
   };
 
   # Select internationalisation properties.
