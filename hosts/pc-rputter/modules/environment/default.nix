@@ -33,6 +33,7 @@
     kdePackages.kcalc
     kdePackages.kscreenlocker
     kdePackages.markdownpart
+    kdePackages.sonnet
     android-tools
     gearlever
     tailscale

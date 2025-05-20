@@ -2,32 +2,67 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-snapd.url = "github:nix-community/nix-snapd";
-    nix-snapd.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
-    fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";  
+    fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
-    nix-snapd,
     fingerprint-sensor,
+    nixos-generators,
     ...
   }:
   {
+    packages.x86_64-linux = {
+      vm-nextcloud-demo = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        modules = [
+          # you can include your own nixos configuration here, i.e.
+          # ./configuration.nix
+          ./hosts/vm-nextcloud-demo/configuration.nix
+          ./hosts/vm-nextcloud-demo/modules/boot
+          ./hosts/vm-nextcloud-demo/modules/environment
+          ./hosts/vm-nextcloud-demo/modules/hardware
+          ./hosts/vm-nextcloud-demo/modules/home-manager
+          ./hosts/vm-nextcloud-demo/modules/localization
+          ./hosts/vm-nextcloud-demo/modules/networking
+          ./hosts/vm-nextcloud-demo/modules/nix
+          ./hosts/vm-nextcloud-demo/modules/nixpkgs
+          ./hosts/vm-nextcloud-demo/modules/programs
+          ./hosts/vm-nextcloud-demo/modules/services
+          ./hosts/vm-nextcloud-demo/modules/system
+          ./hosts/vm-nextcloud-demo/modules/users
+        ];
+        format = "proxmox";
+
+        # optional arguments:
+        # explicit nixpkgs and lib:
+        # pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        # lib = nixpkgs.legacyPackages.x86_64-linux.lib;
+        # additional arguments to pass to modules:
+        # specialArgs = { myExtraArg = "foobar"; };
+
+        # you can also define your own custom formats
+        # customFormats = { "myFormat" = <myFormatModule>; ... };
+        # format = "myFormat";
+      };
+      vbox = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        format = "virtualbox";
+      };
+    };
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
-          nix-snapd.nixosModules.default
-          {
-            services.snap.enable = true;
-          }
-          fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
           # > Our main nixos configuration files and modules <
           ./hosts/nb-rputter/configuration.nix
           ./hosts/nb-rputter/hardware-configuration.nix
@@ -43,6 +78,7 @@
           ./hosts/nb-rputter/modules/services
           ./hosts/nb-rputter/modules/system
           ./hosts/nb-rputter/modules/users
+          fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
         ];
       };
       pc-rputter = nixpkgs.lib.nixosSystem {
@@ -65,7 +101,7 @@
           ./hosts/pc-rputter/modules/system
           ./hosts/pc-rputter/modules/users
         ];
-      };      
+      };
     };
   };
 }
