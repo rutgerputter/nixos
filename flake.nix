@@ -23,6 +23,7 @@
     packages.x86_64-linux = {
       vm-nextcloud-demo = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
         modules = [
           # you can include your own nixos configuration here, i.e.
           # ./configuration.nix
@@ -52,10 +53,6 @@
         # you can also define your own custom formats
         # customFormats = { "myFormat" = <myFormatModule>; ... };
         # format = "myFormat";
-      };
-      vbox = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        format = "virtualbox";
       };
     };
     nixosConfigurations = {

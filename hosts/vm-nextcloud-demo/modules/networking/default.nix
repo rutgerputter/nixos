@@ -3,16 +3,6 @@
 {
   networking = {
     hostName = "vm-nextcloud-demo";
-    # domain = null;
-    # extraHosts = "";
-
-    enableIPv6 = true;
-    resolvconf = {
-      enable = true;
-      dnsExtensionMechanism = true;
-      dnsSingleRequest = false;
-      useLocalResolver = false;
-    };
 
     useDHCP = lib.mkDefault false;
 
