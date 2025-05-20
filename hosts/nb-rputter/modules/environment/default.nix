@@ -32,6 +32,7 @@
     kdePackages.filelight
     kdePackages.kcalc
     kdePackages.kscreenlocker
+    kdePackages.markdownpart
     android-tools
     gearlever
     tailscale
