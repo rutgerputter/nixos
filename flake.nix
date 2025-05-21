@@ -4,8 +4,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
-    fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";
+#     fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
+#     fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +46,7 @@
           ./hosts/nb-rputter/modules/services
           ./hosts/nb-rputter/modules/system
           ./hosts/nb-rputter/modules/users
-          fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
+          # fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
         ];
       };
       pc-rputter = nixpkgs.lib.nixosSystem {
