@@ -23,7 +23,6 @@
     hunspellDicts.nl_NL
     python3Full
     htop
-    yakuake
     throttled
     epson-escpr
     epson-escpr2
@@ -37,6 +36,7 @@
     kdePackages.kscreenlocker
     kdePackages.markdownpart
     kdePackages.sonnet
+    kdePackages.yakuake
     android-tools
     gearlever
     tailscale

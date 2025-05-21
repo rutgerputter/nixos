@@ -25,9 +25,6 @@
       enable = true;
       powerOnBoot = true;
     };
-    pulseaudio = {
-      enable = false; # Enable pipewire services instead.
-    };
     logitech.wireless.enable = true;    
   
   };

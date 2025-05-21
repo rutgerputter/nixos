@@ -34,17 +34,6 @@
         };
       };
     };
-    extraConfig.client-rt = {
-      "10-upmix" = {
-        "stream.properties" = {
-          "channelmix.upmix" = true;
-          "channelmix.upmix-method" = "simple";  # or "psd" if you prefer
-          "channelmix.lfe-cutoff" = 150;
-          "channelmix.fc-cutoff" = 12000;
-          "channelmix.rear-delay" = 12.0;
-        };
-      };
-    };
     wireplumber.extraConfig = {
       "10-upmix" = {
         "stream.properties" = {

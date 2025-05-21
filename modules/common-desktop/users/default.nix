@@ -30,7 +30,7 @@
           mission-center
           bottles
           isoimagewriter
-          kdenlive
+          kdePackages.kdenlive
           nextcloud-client
           spotube
           boatswain
