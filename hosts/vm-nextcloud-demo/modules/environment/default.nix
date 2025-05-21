@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./nextcloud.nix
+  ];
   environment.systemPackages = with pkgs; [
     exfat
     exfatprogs
