@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ../../../modules/common-workload/environment
+    ../../../../modules/common-workload/environment
   ];
 }

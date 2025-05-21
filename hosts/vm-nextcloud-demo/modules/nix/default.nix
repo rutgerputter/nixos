@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ../../../modules/common-workload/nix
+    ../../../../modules/common-workload/nix
   ];
 }

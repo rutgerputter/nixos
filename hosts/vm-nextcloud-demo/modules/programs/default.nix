@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../../modules/common/programs
+    ../../../../modules/common/programs
   ];
 
   programs = {
