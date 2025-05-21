@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ../../../modules/common/nixpkgs
+    ../../../../modules/common/nixpkgs
   ];
 }

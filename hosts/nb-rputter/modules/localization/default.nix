@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ../../../modules/common/localization
+    ../../../../modules/common/localization
   ];
 }
