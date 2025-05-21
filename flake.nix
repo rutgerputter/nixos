@@ -15,7 +15,7 @@
   outputs = {
     self,
     nixpkgs,
-    fingerprint-sensor,
+    # fingerprint-sensor,
     nixos-generators,
     ...
   }:
