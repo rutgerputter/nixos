@@ -20,38 +20,11 @@
     ...
   }:
   {
-    packages.x86_64-linux = {
-      vm-nextcloud-demo = nixos-generators.nixosGenerate {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          # you can include your own nixos configuration here, i.e.
-          # ./configuration.nix
-          ./hosts/vm-nextcloud-demo/configuration.nix
-          ./hosts/vm-nextcloud-demo/modules/environment
-          ./hosts/vm-nextcloud-demo/modules/home-manager
-          ./hosts/vm-nextcloud-demo/modules/localization
-          ./hosts/vm-nextcloud-demo/modules/networking
-          ./hosts/vm-nextcloud-demo/modules/nix
-          ./hosts/vm-nextcloud-demo/modules/nixpkgs
-          ./hosts/vm-nextcloud-demo/modules/programs
-          ./hosts/vm-nextcloud-demo/modules/services
-          ./hosts/vm-nextcloud-demo/modules/system
-          ./hosts/vm-nextcloud-demo/modules/users
-        ];
-        format = "proxmox";
-
-        # optional arguments:
-        # explicit nixpkgs and lib:
-        # pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        # lib = nixpkgs.legacyPackages.x86_64-linux.lib;
-        # additional arguments to pass to modules:
-        # specialArgs = { myExtraArg = "foobar"; };
-
-        # you can also define your own custom formats
-        # customFormats = { "myFormat" = <myFormatModule>; ... };
-        # format = "myFormat";
-      };
+    # A single nixos config outputting multiple formats.
+    nixosModules.myFormats = { config, ... }: {
+      imports = [
+        nixos-generators.nixosModules.all-formats
+      ];
     };
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
@@ -95,6 +68,26 @@
           ./hosts/pc-rputter/modules/services
           ./hosts/pc-rputter/modules/system
           ./hosts/pc-rputter/modules/users
+        ];
+      };
+      vm-nextcloud-demo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          # Allow to be generated
+          self.nixosModules.myFormats
+          # > Our main nixos configuration files and modules <
+          ./hosts/vm-nextcloud-demo/configuration.nix
+          ./hosts/vm-nextcloud-demo/modules/environment
+          ./hosts/vm-nextcloud-demo/modules/home-manager
+          ./hosts/vm-nextcloud-demo/modules/localization
+          ./hosts/vm-nextcloud-demo/modules/networking
+          ./hosts/vm-nextcloud-demo/modules/nix
+          ./hosts/vm-nextcloud-demo/modules/nixpkgs
+          ./hosts/vm-nextcloud-demo/modules/programs
+          ./hosts/vm-nextcloud-demo/modules/services
+          ./hosts/vm-nextcloud-demo/modules/system
+          ./hosts/vm-nextcloud-demo/modules/users
         ];
       };
     };
