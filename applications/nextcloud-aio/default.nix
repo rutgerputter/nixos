@@ -24,6 +24,7 @@
       cli.memoryLimit = "1G";
       config = {
         adminuser = "rputter";
+        adminpassFile = "/opt/adminpassFile.txt";
         dbtype = "pgsql";
       };
       configureRedis = true;
@@ -39,7 +40,7 @@
       notify_push.enable = true;
       settings = {
         overwriteprotocol = "https";
-        trusted_domains = "ncdemo.prutser.net";
+        trusted_domains = [ "ncdemo.prutser.net" ];
         trusted_proxies = [ "caddy.services.prutser.net" ];
       };
     };
