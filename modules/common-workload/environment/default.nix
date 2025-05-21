@@ -10,5 +10,6 @@
     git
     htop
     lshw
+    fzf
   ];
 }
