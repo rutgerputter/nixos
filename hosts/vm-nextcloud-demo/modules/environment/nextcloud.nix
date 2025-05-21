@@ -7,7 +7,7 @@
     # talk?
     # talk-recording?
     collabora-online
-    elasticsearch
+    # elasticsearch
     imaginary
     clamav
     postgresql
