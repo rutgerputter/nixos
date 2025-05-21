@@ -1,17 +1,6 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
-    ./nextcloud.nix
-  ];
-  environment.systemPackages = with pkgs; [
-    exfat
-    exfatprogs
-    gcc
-    usbutils
-    pciutils
-    dmidecode
-    git
-    htop
-    lshw
+    ../../../modules/common-workload/environment
   ];
 }

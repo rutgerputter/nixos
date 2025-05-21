@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ../../../modules/common-workload/users
-  ];
+  imports = [ ];
 
   users = {
     mutableUsers = true;

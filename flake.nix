@@ -28,9 +28,7 @@
           # you can include your own nixos configuration here, i.e.
           # ./configuration.nix
           ./hosts/vm-nextcloud-demo/configuration.nix
-          ./hosts/vm-nextcloud-demo/modules/boot
           ./hosts/vm-nextcloud-demo/modules/environment
-          ./hosts/vm-nextcloud-demo/modules/hardware
           ./hosts/vm-nextcloud-demo/modules/home-manager
           ./hosts/vm-nextcloud-demo/modules/localization
           ./hosts/vm-nextcloud-demo/modules/networking
