@@ -23,6 +23,7 @@
     hunspellDicts.nl_NL
     python3Full
     htop
+    btop
     throttled
     epson-escpr
     epson-escpr2
