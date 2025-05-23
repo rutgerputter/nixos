@@ -57,5 +57,6 @@
     rtl-sdr-librtlsdr
     soapyrtlsdr
     retroarch
+    google-chrome
   ];
 }
