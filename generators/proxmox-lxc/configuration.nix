@@ -3,6 +3,9 @@
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
+    ../../modules/common-workload/environment
+    ../../modules/common-workload/nix
+    ../../modules/common-workload/users
   ];
 
   config = {
@@ -33,7 +36,7 @@
 
     # Some sane packages we need on every system
     environment.systemPackages = with pkgs; [
-      vim  # for emergencies
+      nano  # for emergencies
       git # for pulling nix flakes
       python3 # for ansible
     ];
