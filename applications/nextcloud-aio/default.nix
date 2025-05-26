@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nextcloud31
     nextcloud-notify_push
     nextcloud-whiteboard-server
     # talk?
@@ -37,6 +36,7 @@
       https = true;
       maxUploadSize = "20G";
       nginx.recommendedHttpHeaders = true;
+      package = pkgs.nextcloud31;
       notify_push.enable = true;
       settings = {
         overwriteprotocol = "https";
@@ -48,7 +48,7 @@
       enable = true;
       secrets = [ ];
       settings = {
-        NEXTCLOUD_URL = "https://nextcloud.example.org";
+        NEXTCLOUD_URL = "https://ncdemo.prutser.net";
       };
     };
   };

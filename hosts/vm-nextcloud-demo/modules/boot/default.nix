@@ -2,7 +2,6 @@
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ../../applications/nextcloud-aio
   ];
 
   # Use the boot drive for grub
