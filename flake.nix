@@ -20,11 +20,21 @@
     ...
   }:
   {
-    # A single nixos config outputting multiple formats.
-    nixosModules.myFormats = { config, ... }: {
-      imports = [
-        nixos-generators.nixosModules.all-formats
-      ];
+    packages.x86_64-linux = {
+      proxmox-vm = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        modules = [
+          ./generators/proxmox-vm/configuration.nix
+        ];
+        format = "proxmox";
+      };
+      proxmox-lxc = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        modules = [
+          ./generators/proxmox-lxc/configuration.nix
+        ];        
+        format = "proxmox-lxc";
+      };
     };
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
