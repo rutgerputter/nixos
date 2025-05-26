@@ -1,6 +1,8 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  # The background OpenSSH daemon for remote SSH access to this host.
-  services.openssh.enable = true;
+
+  # Enable QEMU Guest for Proxmox
+  services.qemuGuest.enable = lib.mkDefault true;  
+  
 }

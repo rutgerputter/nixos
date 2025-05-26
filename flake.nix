@@ -84,10 +84,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
-          # Allow to be generated
-          self.nixosModules.myFormats
           # > Our main nixos configuration files and modules <
           ./hosts/vm-nextcloud-demo/configuration.nix
+          ./hosts/vm-nextcloud-demo/modules/boot
           ./hosts/vm-nextcloud-demo/modules/environment
           ./hosts/vm-nextcloud-demo/modules/home-manager
           ./hosts/vm-nextcloud-demo/modules/localization
@@ -95,6 +94,7 @@
           ./hosts/vm-nextcloud-demo/modules/nix
           ./hosts/vm-nextcloud-demo/modules/nixpkgs
           ./hosts/vm-nextcloud-demo/modules/programs
+          ./hosts/vm-nextcloud-demo/modules/security
           ./hosts/vm-nextcloud-demo/modules/services
           ./hosts/vm-nextcloud-demo/modules/system
           ./hosts/vm-nextcloud-demo/modules/users

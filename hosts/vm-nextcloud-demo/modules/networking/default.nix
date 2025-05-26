@@ -2,9 +2,9 @@
 
 {
   networking = {
-    hostName = "vm-nextcloud-demo";
-
-    useDHCP = lib.mkDefault false;
+    #Provide a default hostname
+    hostName = lib.mkDefault "base";
+    useDHCP = lib.mkDefault true;
 
     # TODO: add static IP
 

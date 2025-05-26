@@ -9,6 +9,7 @@
     dmidecode
     git
     htop
+    nano
     lshw
     fzf
   ];
