@@ -12,5 +12,6 @@
     nano
     lshw
     fzf
+    lsd
   ];
 }

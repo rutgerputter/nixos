@@ -7,7 +7,7 @@
   ];
 
   programs = {
-	zsh = {
+	  zsh = {
       shellAliases = {
         update = "cd ~/Git/nixos; sudo nixos-rebuild switch --flake .#vm-nextcloud-demo";
       };

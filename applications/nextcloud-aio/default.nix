@@ -24,7 +24,7 @@
       config = {
         adminuser = "rputter";
         adminpassFile = "/opt/adminpassFile.txt";
-        dbtype = "pgsql";
+        dbtype = "sqlite";
       };
       configureRedis = true;
       database.createLocally = true;

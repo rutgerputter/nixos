@@ -9,7 +9,6 @@
         group = "users";
         createHome = true;
         homeMode = "700";
-        hashedPassword = "$y$j9T$CeaswGxiGtazj7NJYdWAT.$TV/wuX8iTVGeKT9OixL36ALWmnN09EpsDC0LtYh6NBB";
         isSystemUser = false;
         isNormalUser = true;
         shell = pkgs.zsh;
