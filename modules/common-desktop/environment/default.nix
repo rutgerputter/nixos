@@ -4,7 +4,7 @@
     ./fonts.nix
   ];
   environment.variables = {
-    SSH_AUTH_SOCK = "~/.bitwarden-ssh-agent.sock";
+    SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
   };
   environment.systemPackages = with pkgs; [
     exfat
