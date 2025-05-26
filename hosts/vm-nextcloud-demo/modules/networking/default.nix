@@ -1,12 +1,12 @@
-{ lib, ... }:
+{ ... }:
 
 {
   networking = {
     #Provide a default hostname
-    hostName = lib.mkDefault "base";
-    useDHCP = lib.mkDefault true;
+    hostName = "vm-nextcloud-demo";
+    useDHCP = false;
 
-    # TODO: add static IP
+    # Static IP comes from cloud-init
 
     wireless = {
       enable = false;
