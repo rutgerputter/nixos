@@ -41,6 +41,8 @@
       python3 # for ansible
     ];
 
+    programs.zsh.enable = true;
+
     # Don't ask for passwords
     security.sudo.wheelNeedsPassword = false;
 
