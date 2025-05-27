@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   environment.etc."nextcloud-admin-pass".text = "ChangeMe!";
   services.nextcloud = {
@@ -10,6 +10,10 @@
     package = pkgs.nextcloud31;
     hostName = "ncdemo.prutser.net";
     database.createLocally = true;
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) contacts calendar mail tasks deck notes talk groupfolders whiteboard;
+    };
+    extraAppsEnable = true;
     notify_push.enable = true;
     notify_push.nextcloudUrl = "http://vm-nextcloud-demo.services.prutser.net";
     config = {
