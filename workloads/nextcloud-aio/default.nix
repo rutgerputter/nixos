@@ -11,7 +11,16 @@
     hostName = "ncdemo.prutser.net";
     database.createLocally = true;
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) contacts calendar mail tasks deck notes talk groupfolders whiteboard;
+      inherit (config.services.nextcloud.package.packages.apps)
+      contacts
+      calendar
+      mail
+      tasks
+      deck
+      notes
+      talk
+      groupfolders
+      whiteboard;
     };
     extraAppsEnable = true;
     notify_push.enable = true;
