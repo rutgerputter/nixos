@@ -15,8 +15,8 @@
 
   config = {
     proxmoxLXC = {
-            # manageNetwork = false;
-            # privileged = false;
+      manageNetwork = true;
+      privileged = true;
     };
 
     # The background OpenSSH daemon for remote SSH access to this host.

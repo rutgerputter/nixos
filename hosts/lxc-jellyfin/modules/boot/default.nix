@@ -5,7 +5,7 @@
   ];
 
   proxmoxLXC = {
-          # manageNetwork = false;
-          # privileged = false;
+    manageNetwork = true;
+    privileged = true;
   };
 }

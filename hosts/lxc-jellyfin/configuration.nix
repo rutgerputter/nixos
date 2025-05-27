@@ -3,6 +3,6 @@
 { ... }:
 {
   imports = [
-    # ../../applications/nextcloud-aio
+    ../../workloads/jellyfin
   ];
 }
