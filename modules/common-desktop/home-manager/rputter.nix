@@ -49,6 +49,14 @@
         streetsidesoftware.code-spell-checker
         ybaumes.highlight-trailing-white-spaces
         henriiik.vscode-sort
+        noortheen.nix-ide
+        yzhang.markdown-all-in-one
+        DavidAnson.vscode-markdownlint
+        bierner.markdown-mermaid
+        bierner.markdown-preview-github-styles
+        bierner.markdown-checkbox
+        bierner.markdown-emoji
+        bierner.markdown-footnotes
       ];
     };
   };
