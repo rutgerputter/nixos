@@ -28,11 +28,6 @@
   # Tailscale VPN
   services.tailscale.enable = true;
 
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
-  
   # Undervolt CPU
   services.throttled = {
     enable = true;
