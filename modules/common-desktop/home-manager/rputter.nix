@@ -45,18 +45,19 @@
       enable = true;
       package = pkgs.vscodium;
       profiles.default.extensions = with inputs.nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [
+        # Most extensions should work except packs and should all be downcased
         kde.breeze
         streetsidesoftware.code-spell-checker
         ybaumes.highlight-trailing-white-spaces
         henriiik.vscode-sort
-        noortheen.nix-ide
         yzhang.markdown-all-in-one
-        DavidAnson.vscode-markdownlint
+        davidanson.vscode-markdownlint
         bierner.markdown-mermaid
         bierner.markdown-preview-github-styles
         bierner.markdown-checkbox
         bierner.markdown-emoji
         bierner.markdown-footnotes
+        jnoortheen.nix-ide
       ];
     };
   };
