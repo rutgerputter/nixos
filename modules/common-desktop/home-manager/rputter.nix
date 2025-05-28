@@ -40,7 +40,21 @@
         frame_timing = 1;
       };
     };
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      profiles.default.extensions = with pkgs.vscode-extensions; [
+        kde.breeze
+        bat67.markdown-extension-pack
+        pinage404.nix-extension-pack
+        streetsidesoftware.code-spell-checker
+        ybaumes.highlight-trailing-white-spaces
+        henriiik.vscode-sort
+      ];
+    };    
   };
+
+
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -1,14 +1,5 @@
-{ inputs, outputs, ... }: {
+{ ... }: {
   imports = [
-    # Import home-manager's NixOS module
-    inputs.home-manager.nixosModules.home-manager
+    ../../../../modules/common-desktop/home-manager
   ];
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
-    users = {
-      # Import your home-manager configuration
-      rputter = import ./rputter.nix;
-    };
-  };
 }
