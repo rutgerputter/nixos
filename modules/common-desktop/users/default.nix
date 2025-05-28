@@ -18,7 +18,7 @@
         packages = with pkgs; [
           signal-desktop
           unstable.bitwarden-desktop
-          vscode
+          vscodium
           vlc
           haruna
           thunderbird-latest
