@@ -57,7 +57,6 @@
     mono
     sdrpp
     haskellPackages.rtlsdr
-    haskellPackages.dbus-app-launcher
     rtl-sdr-librtlsdr
     soapyrtlsdr
     retroarch
