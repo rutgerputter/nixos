@@ -67,9 +67,9 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-          nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-hidpi
           # > Our main nixos configuration files and modules <
           ./hosts/pc-rputter/configuration.nix

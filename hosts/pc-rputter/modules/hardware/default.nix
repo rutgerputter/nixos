@@ -1,5 +1,7 @@
-{ ... }:
-
+{ lib, config, ... }:
+let
+  nvidiaPackage = config.hardware.nvidia.package;
+in
 {
   imports = [
     ../../../../hardware/common/audio/pipewire.nix
@@ -9,7 +11,9 @@
   hardware = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
-    
+
+    # enable the open source drivers if the package supports it
+    nvidia.open = lib.mkOverride 990 (nvidiaPackage ? open && nvidiaPackage ? firmware);
     bluetooth = {
       enable = true;
       powerOnBoot = true;
