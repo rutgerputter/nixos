@@ -2,10 +2,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-#     fingerprint-sensor.url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
-#     fingerprint-sensor.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +14,7 @@
   outputs = {
     self,
     nixpkgs,
-    # fingerprint-sensor,
+    nixos-hardware,
     nixos-generators,
     ...
   }:
@@ -41,6 +40,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-p52
+          nixos-hardware.nixosModules.common-hidpi
+          nixos-hardware.nixosModules.common-pc-ssd
           # > Our main nixos configuration files and modules <
           ./hosts/nb-rputter/configuration.nix
           ./hosts/nb-rputter/hardware-configuration.nix
@@ -63,6 +65,11 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+          nixos-hardware.nixosModules.common-pc-ssd
+          nixos-hardware.nixosModules.common-hidpi
           # > Our main nixos configuration files and modules <
           ./hosts/pc-rputter/configuration.nix
           ./hosts/pc-rputter/hardware-configuration.nix

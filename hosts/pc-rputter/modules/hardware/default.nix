@@ -1,8 +1,7 @@
-{ config, lib, ... }:
+{ ... }:
 
 {
   imports = [
-    ../../../../hardware/pc-rputter
     ../../../../hardware/common/audio/pipewire.nix
     ../../../../hardware/common/audio/upmix.nix
   ];
@@ -11,12 +10,6 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     
-    cpu = {
-      intel = {
-        updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-        sgx.provision.enable = true;
-      };
-    };
     bluetooth = {
       enable = true;
       powerOnBoot = true;

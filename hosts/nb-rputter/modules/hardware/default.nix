@@ -1,35 +1,23 @@
-{ config, lib, ... }:
+{ lib, ... }:
 
 {
   imports = [
-    ../../../../hardware/lenovo/T580
     ../../../../hardware/common/audio/pipewire.nix
     ../../../../hardware/common/audio/upmix.nix
   ];
 
   hardware = {
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
-    
-    cpu = {
-      intel = {
-        updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-        sgx.provision.enable = true;
-      };
-    };
-    graphics = {
-        enable = true;
-        enable32Bit = true; # Enabled to support some Steam games.
-    };
     bluetooth = {
       enable = true;
       powerOnBoot = true;
     };
-    logitech.wireless.enable = true;    
-  
+    logitech.wireless.enable = true;
   };
-  
-  # Thunderbolt 3
+
+  # Enable fwupd
+  services.fwupd.enable = lib.mkDefault true;
+
+  # Thunderbolt Service
   services.hardware.bolt.enable = true;
 
   virtualisation.libvirtd.enable = true;

@@ -8,12 +8,6 @@
     ../../common/ssd
   ];
 
-  # Essential Firmware
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
-
-  # Enable fwupd
-  services.fwupd.enable = lib.mkDefault true;
-
   # Fingerprint stuff, requires flake config
 #   services."06cb-009a-fingerprint-sensor" = {
 #     enable = true;

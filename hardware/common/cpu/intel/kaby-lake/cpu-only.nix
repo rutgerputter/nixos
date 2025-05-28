@@ -1,5 +1,0 @@
-{
-  imports = [
-    ../cpu-only.nix
-  ];
-}
