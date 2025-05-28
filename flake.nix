@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators = {
@@ -31,7 +32,7 @@
         system = "x86_64-linux";
         modules = [
           ./generators/proxmox-lxc/configuration.nix
-        ];        
+        ];
         format = "proxmox-lxc";
       };
     };

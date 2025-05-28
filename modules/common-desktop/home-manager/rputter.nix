@@ -1,8 +1,9 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ ... }: {
+{ pkgs, inputs, ... }: {
   # You can import other home-manager modules here
-  imports = [ ];
+  imports = [
+  ];
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
@@ -43,18 +44,14 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      profiles.default.extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with inputs.nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [
         kde.breeze
-        bat67.markdown-extension-pack
-        pinage404.nix-extension-pack
         streetsidesoftware.code-spell-checker
         ybaumes.highlight-trailing-white-spaces
         henriiik.vscode-sort
       ];
-    };    
+    };
   };
-
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
