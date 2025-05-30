@@ -36,6 +36,8 @@
     autoStart = true;
     capSysAdmin = true;
     openFirewall = true;
+    # Enable NVENC Support
+    package = pkgs.sunshine.override { cudaSupport = true; };
     settings = {
       output_name = 1;
     };
