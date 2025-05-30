@@ -12,6 +12,7 @@
     gcc
     usbutils
     pciutils
+    ethtool
     dmidecode
     libva-utils
     intel-gpu-tools

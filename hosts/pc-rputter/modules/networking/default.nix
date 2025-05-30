@@ -1,17 +1,23 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
-  systemd.network.links."10-lan" = {
-    matchConfig.PermanentMACAddress = "9C:6B:00:31:6C:78";
-    linkConfig.Name = "lan";
+  # The services doesn't actually work atm, define an additional service
+  # see https://github.com/NixOS/nixpkgs/issues/91352
+  systemd.services.wakeonlan = {
+    description = "Reenable wake on lan every boot";
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "simple";
+      RemainAfterExit = "true";
+      ExecStart = "${pkgs.ethtool}/sbin/ethtool -s enp4s0 wol g";
+    };
+    wantedBy = [ "default.target" ];
   };
 
   networking = {
     hostName = "pc-rputter";
     # domain = null;
     # extraHosts = "";
-
-    interfaces.lan.wakeOnLan.enable = true;
 
     enableIPv6 = true;
     resolvconf = {
