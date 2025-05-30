@@ -1,10 +1,17 @@
 { lib, ... }:
 
 {
+  systemd.network.links."10-lan" = {
+    matchConfig.PermanentMACAddress = "9C:6B:00:31:6C:78";
+    linkConfig.Name = "lan";
+  };
+
   networking = {
     hostName = "pc-rputter";
     # domain = null;
     # extraHosts = "";
+
+    interfaces.lan.wakeOnLan.enable = true;
 
     enableIPv6 = true;
     resolvconf = {
