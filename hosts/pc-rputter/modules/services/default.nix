@@ -39,7 +39,7 @@
     # Enable NVENC Support
     package = pkgs.sunshine.override { cudaSupport = true; };
     settings = {
-      output_name = 1;
+      output_name = 0;
     };
     applications = {
       env = {
@@ -49,6 +49,10 @@
         {
           name = "Dynamic Desktop";
           prep-cmd = [
+            {
+              do = "${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.HDMI-A-1.disable";
+              undo = "${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.HDMI-A-1.enable";
+            }
             {
               do = "sh -c \"${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.DP-1.mode.$\{SUNSHINE_CLIENT_WIDTH\}x$\{SUNSHINE_CLIENT_HEIGHT\}@$\{SUNSHINE_CLIENT_FPS\}\"";
               undo = "${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor output.DP-1.mode.3440x1440@75";
