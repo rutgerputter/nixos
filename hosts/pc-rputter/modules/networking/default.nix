@@ -40,7 +40,8 @@
       enable = true;
       # Open ports in the firewall, as needed.
       allowedTCPPorts = [ 47984 47989 47990 48010 ];
-      allowedUDPPorts = [
+      allowedUDPPorts = [ ];
+      allowedUDPPortRanges = [
         { from = 47998; to = 48000; }
         { from = 8000; to = 8010; }
       ];
