@@ -3,14 +3,14 @@
 {
   imports = [
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
-    ../../modules/common/localization
-    ../../modules/common/nixpkgs
-    ../../modules/common/programs
     ../../modules/common-workload/environment
     ../../modules/common-workload/nix
     ../../modules/common-workload/programs
     ../../modules/common-workload/security
     ../../modules/common-workload/users
+    ../../modules/common/localization
+    ../../modules/common/nixpkgs
+    ../../modules/common/programs
   ];
 
   config = {
