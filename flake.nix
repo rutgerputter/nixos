@@ -10,6 +10,10 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-06cb-009a-fingerprint-sensor = {
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -17,6 +21,7 @@
     nixpkgs,
     nixos-hardware,
     nixos-generators,
+    nixos-06cb-009a-fingerprint-sensor,
     ...
   }:
   {
@@ -44,6 +49,7 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-p52
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
+          nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
           # > Our main nixos configuration files and modules <
           ./hosts/nb-rputter/configuration.nix
           ./hosts/nb-rputter/hardware-configuration.nix
