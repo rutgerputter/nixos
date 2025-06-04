@@ -21,8 +21,12 @@
       ################
 
       # See https =//wiki.hyprland.org/Configuring/Monitors/
-      monitor=,preferred,auto,1.25
+      monitor=,preferred,auto,1.1
 
+      # unscale XWayland
+      xwayland {
+        force_zero_scaling = true
+      }
 
       ###################
       ### MY PROGRAMS ###
@@ -202,7 +206,7 @@
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
           touchpad {
-              natural_scroll = false
+              natural_scroll = true
           }
       }
 
@@ -494,7 +498,7 @@
         #custom-reboot,
         #bluetooth,
         #battery,
-        #pulseaudio,
+        #wireplumber,
         #backlight,
         #custom-temperature,
         #memory,
