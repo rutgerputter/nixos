@@ -7,7 +7,6 @@
   	  xwayland.enable = true;
       withUWSM = true;
     };
-    programs.hyprlock.enable = true;
     waybar.enable = true;
     hyprlock.enable = true;
   };

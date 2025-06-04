@@ -15,6 +15,7 @@
     ethtool
     dmidecode
     libva-utils
+    lm_sensors
     intel-gpu-tools
     git
     direnv
@@ -61,5 +62,6 @@
     soapyrtlsdr
     retroarch
     google-chrome
+    neovim
   ];
 }
