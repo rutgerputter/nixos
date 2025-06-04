@@ -52,7 +52,6 @@
     lsd
     fzf
     fastfetch
-    kitty
     tdrop
     python312Packages.pip
     mono

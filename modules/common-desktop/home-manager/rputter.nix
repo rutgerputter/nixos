@@ -3,6 +3,7 @@
 { pkgs, inputs, ... }: {
   # You can import other home-manager modules here
   imports = [
+    ./hyprland.nix
   ];
 
   # Add stuff for your user as you see fit:
