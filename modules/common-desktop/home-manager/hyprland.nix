@@ -21,7 +21,7 @@
       ################
 
       # See https =//wiki.hyprland.org/Configuring/Monitors/
-      monitor=,preferred,auto,1.1
+      monitor=,preferred,auto,1.25
 
       # unscale XWayland
       xwayland {
@@ -186,6 +186,7 @@
       misc {
           force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
           disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background.  =(
+          vrr = 2
       }
 
 
