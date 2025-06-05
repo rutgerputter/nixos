@@ -65,7 +65,30 @@
           ./hosts/nb-rputter/modules/services
           ./hosts/nb-rputter/modules/system
           ./hosts/nb-rputter/modules/users
-          # fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
+        ];
+      };
+      tb-rputter = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-p52
+          nixos-hardware.nixosModules.common-hidpi
+          nixos-hardware.nixosModules.common-pc-ssd
+          # > Our main nixos configuration files and modules <
+          ./hosts/tb-rputter/configuration.nix
+          ./hosts/tb-rputter/hardware-configuration.nix
+          ./hosts/tb-rputter/modules/boot
+          ./hosts/tb-rputter/modules/environment
+          ./hosts/tb-rputter/modules/hardware
+          ./hosts/tb-rputter/modules/home-manager
+          ./hosts/tb-rputter/modules/localization
+          ./hosts/tb-rputter/modules/networking
+          ./hosts/tb-rputter/modules/nix
+          ./hosts/tb-rputter/modules/nixpkgs
+          ./hosts/tb-rputter/modules/programs
+          ./hosts/tb-rputter/modules/services
+          ./hosts/tb-rputter/modules/system
+          ./hosts/tb-rputter/modules/users
         ];
       };
       pc-rputter = nixpkgs.lib.nixosSystem {

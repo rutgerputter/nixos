@@ -36,14 +36,10 @@
     (hiPrio papirus-icon-theme)
     lshw
     kdePackages.partitionmanager
-    kdePackages.kate
     kdePackages.filelight
     kdePackages.kcalc
     kdePackages.kscreenlocker
-    kdePackages.markdownpart
-    kdePackages.sonnet
     kdePackages.yakuake
-    android-tools
     gearlever
     tailscale
     ktailctl
@@ -63,5 +59,10 @@
     retroarch
     google-chrome
     neovim
+    scrcpy
+    qtscrcpy
+    android-studio
+    android-tools
+    android-udev-rules
   ];
 }
