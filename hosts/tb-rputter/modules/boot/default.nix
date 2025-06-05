@@ -25,18 +25,18 @@
   boot.initrd.verbose = false;
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6716ee49-6d4c-46fc-b141-f2a8c222c6ff";
+    { device = "/dev/disk/by-uuid/4adb652b-e727-45ae-8e97-d37ce74ea346";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1985-1E16";
+    { device = "/dev/disk/by-uuid/79FC-FBF8";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/e1a8e8fc-69c3-4dda-9fd5-9e1084c92a58"; }
+    [ { device = "/dev/disk/by-uuid/5826dfa8-7d8a-47ba-b64b-36c70a51836d"; }
     ];
 
   # Plymouth config
