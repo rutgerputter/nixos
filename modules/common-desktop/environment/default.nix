@@ -41,6 +41,7 @@
     kdePackages.kcalc
     kdePackages.kscreenlocker
     kdePackages.yakuake
+    maliit-keyboard
     gearlever
     tailscale
     ktailctl
