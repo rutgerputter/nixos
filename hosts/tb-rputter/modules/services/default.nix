@@ -2,17 +2,12 @@
 
 {
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.autoNumlock = true;
+  services.displayManager.sddm.enable = false;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
   services.displayManager.defaultSession = "plasma";
   services.displayManager.autoLogin = {
     enable = false;
-  };
-  services.displayManager.sddm.settings = {
-    General = {
-      InputMethod = "maliit-keyboard";
-    };
   };
   # Disable the X11 windowing system.
   services.xserver.enable = false;
