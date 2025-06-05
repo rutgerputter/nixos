@@ -24,6 +24,7 @@
     nil
     nixd
     pavucontrol
+    easyeffects
     hunspell
     hunspellDicts.en_US
     hunspellDicts.nl_NL
