@@ -35,6 +35,7 @@
     epsonscan2
     (hiPrio papirus-icon-theme)
     lshw
+    kdePackages.qtvirtualkeyboard
     kdePackages.partitionmanager
     kdePackages.filelight
     kdePackages.kcalc
