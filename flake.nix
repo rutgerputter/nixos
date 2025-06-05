@@ -71,7 +71,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-p52
+          nixos-hardware.nixosModules.common-pc-laptop
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
           # > Our main nixos configuration files and modules <
