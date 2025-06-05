@@ -3,5 +3,6 @@
 { ... }:
 {
   imports = [
+    ../../modules/common-desktop/virtualisation/waydroid.nix
   ];
 }
