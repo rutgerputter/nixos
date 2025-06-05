@@ -9,6 +9,11 @@
   services.displayManager.autoLogin = {
     enable = false;
   };
+  services.displayManager.sddm.settings = {
+    General = {
+      InputMethod = "maliit-keyboard";
+    };
+  };
   # Disable the X11 windowing system.
   services.xserver.enable = false;
 
