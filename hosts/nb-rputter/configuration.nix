@@ -3,6 +3,5 @@
 { ... }:
 {
   imports = [
-    ../../modules/common-desktop/desktop-environment/hyprland.nix
   ];
 }
