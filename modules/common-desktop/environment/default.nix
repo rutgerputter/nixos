@@ -23,6 +23,7 @@
     nixos-generators
     nil
     nixd
+    pavucontrol
     hunspell
     hunspellDicts.en_US
     hunspellDicts.nl_NL
