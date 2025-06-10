@@ -1,11 +1,19 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./acme.nix
   ];
+  networking = {
+    firewall = {
+      # Open ports in the firewall, as needed.
+      allowedTCPPorts = [ 80 443 ];
+      allowedUDPPorts = [ 443 ];
+    };
+  };
 
   services.nginx = {
       enable = true;
+      package = pkgs.nginxQuic;
 
       # Use recommended settings
       recommendedGzipSettings = true;
@@ -40,72 +48,82 @@
         # proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
       '';
 
+      upstreams."pve" = {
+        servers = {
+          "pve1.services.prutser.net:8006" = { };
+          "pve2.services.prutser.net:8006" = { };
+        };
+      };
       # Add any further config to match your needs, e.g.:
       virtualHosts = let
         base = locations: {
           inherit locations;
-
+          quic = true;
+          http3_hq = true;
           forceSSL = true;
-          enableACME = true;
-          acmeRoot = null;
+        };
+        cert = certname: {
+          useACMEHost = certname;
         };
         proxy = host: port: base {
           "/".proxyPass = "http://" + host + ":" + toString(port) + "/";
+          "/".proxyWebsockets = true; # needed if you need to use WebSocket
         };
-        proxy-s = host: port: base {
-          "/".proxyPass = "https://" + host + ":" + toString(port) + "/";
+        proxy-s = host: base {
+          "/".proxyPass = "https://" + host;
+          "/".proxyWebsockets = true; # needed if you need to use WebSocket
           "/".extraConfig = ''
             proxy_ssl_verify       off;
           '';
         };
       in {
-        "bazarr.intern.prutser.net"    = proxy "arr.services.prutser.net" 6767 // { default = true; };
-        "code.intern.prutser.net"      = proxy "forge.services.prutser.net" 8443 // { default = true; };
-        "gotify.intern.prutser.net"    = proxy "10.0.10.107" 81 // { default = true; };
-        "lidarr.intern.prutser.net"    = proxy "arr.services.prutser.net" 8686 // { default = true; };
-        "openbooks.intern.prutser.net" = proxy "arr.services.prutser.net" 5228 // { default = true; };
-        "overseerr.intern.prutser.net" = proxy "lxc-jellyseerr.services.prutser.net" 5055 // { default = true; };
-        "prowlarr.intern.prutser.net"  = proxy "arr.services.prutser.net" 9696 // { default = true; };
-        "radarr.intern.prutser.net"    = proxy "arr.services.prutser.net" 7878 // { default = true; };
-        "readarr.intern.prutser.net"   = proxy "arr.services.prutser.net" 8787 // { default = true; };
-        "sabnzbd.intern.prutser.net"   = proxy "downloaders.services.prutser.net" 8080 // { default = true; };
-        "deluge.intern.prutser.net"    = proxy "downloaders.services.prutser.net" 8112 // { default = true; };
-        "sonarr.intern.prutser.net"    = proxy "arr.services.prutser.net" 8989 // { default = true; };
-        "spotweb.intern.prutser.net"   = proxy "arr.services.prutser.net" 7171 // { default = true; };
-        "forge.intern.prutser.net"     = proxy "forge.services.prutser.net" 3000 // { default = true; };
-        "tubesync.intern.prutser.net"  = proxy "arr.services.prutser.net" 4848 // { default = true; };
-        # TODO PVE LB
-        "pve.intern.prutser.net"       = proxy-s "pve1.services.prutser.net" 8006 // { default = true; };
+        "bazarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 6767;
+        "code.intern.prutser.net"      = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 8443;
+        "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "10.0.10.107" 81;
+        "lidarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8686;
+        "openbooks.intern.prutser.net" = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 5228;
+        "overseerr.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
+        "prowlarr.intern.prutser.net"  = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 9696;
+        "radarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 7878;
+        "readarr.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8787;
+        "sabnzbd.intern.prutser.net"   = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8080;
+        "deluge.intern.prutser.net"    = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8112;
+        "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8989;
+        "spotweb.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 7171;
+        "forge.intern.prutser.net"     = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 3000;
+        "tubesync.intern.prutser.net"  = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 4848;
 
-        "bitwarden.realiz-it.nl"       = proxy "vaultwarden.services.prutser.net" 80 // { default = true; };
-        "cloud.realiz-it.nl"           = proxy "nextcloud.services.prutser.net" 11000 // { default = true; };
+        "pve.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pve";
 
-        "books.prutser.net"            = proxy "arr.services.prutser.net" 8083 // { default = true; };
-        "id.prutser.net"               = proxy "auth.services.prutser.net" 9000 // { default = true; };
-        "domo.prutser.net"             = proxy "homeassistant.services.prutser.net" 8123 // { default = true; };
-        "kuma.prutser.net"             = proxy "vaultwarden.services.prutser.net" 3001 // { default = true; };
-        "overseerr.prutser.net"        = proxy "lxc-jellyseerr.services.prutser.net" 5055 // { default = true; };
-        "jellyfin.prutser.net"         = proxy "jellyfin.services.prutser.net" 8096 // { default = true; };
-        "audiobookshelf.prutser.net"   = proxy "jellyfin.services.prutser.net" 13378 // { default = true; };
-        "www.prutser.net"              = proxy "wordpress.services.prutser.net" 8080 // { default = true; };
-        "prutser.net"                  = proxy "wordpress.services.prutser.net" 8080 // { default = true; };
-        "cloud.prutser.net"            = proxy "nextcloud.services.prutser.net" 11000 // { default = true; };
-        "ncdemo.prutser.net"           = proxy "vm-nextcloud-demo.services.prutser.net" 80 // { default = true; };
-        "mail.prutser.net"             = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "autodiscover.prutser.net"     = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "autoconfig.prutser.net"       = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "blog.prutser.net"             = proxy "wordpress.services.prutser.net" 8000 // { default = true; };
+        "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "vaultwarden.services.prutser.net" 80;
+        "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy "nextcloud.services.prutser.net" 11000;
 
-        "cloud.maas-opleidingen.nl"    = proxy "nextcloud.services.prutser.net" 11000 // { default = true; };
-        "mail.maas-opleidingen.nl"     = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "autodiscover.maas-opleidingen.nl" = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "autoconfig.maas-opleidingen.nl" = proxy "mailcow.services.prutser.net" 88 // { default = true; };
+        "books.prutser.net"            = cert "prutser.net" // proxy "arr.services.prutser.net" 8083;
+        "id.prutser.net"               = cert "prutser.net" // proxy "auth.services.prutser.net" 9000;
+        "domo.prutser.net"             = cert "prutser.net" // proxy "homeassistant.services.prutser.net" 8123;
+        "kuma.prutser.net"             = cert "prutser.net" // proxy "vaultwarden.services.prutser.net" 3001;
+        "overseerr.prutser.net"        = cert "prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
+        "jellyfin.prutser.net"         = cert "prutser.net" // proxy "lxc-jellyfin.services.prutser.net" 8096;
+        "audiobookshelf.prutser.net"   = cert "prutser.net" // proxy "jellyfin.services.prutser.net" 13378;
+        "www.prutser.net"              = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080 // { default = true; };
+        "prutser.net"                  = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080;
+        "cloud.prutser.net"            = cert "prutser.net" // proxy "nextcloud.services.prutser.net" 11000;
+        "ncdemo.prutser.net"           = cert "prutser.net" // proxy "vm-nextcloud-demo.services.prutser.net" 80;
+        "mail.prutser.net"             = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
+        "autodiscover.prutser.net"     = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
+        "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
+        "blog.prutser.net"             = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8000;
 
-        "cloud.groeinaardetoekomst.nl" = proxy "nextcloud.services.prutser.net" 11000 // { default = true; };
-        "mail.groeinaardetoekomst.nl"  = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "autodiscover.groeinaardetoekomst.nl" = proxy "mailcow.services.prutser.net" 88 // { default = true; };
-        "autoconfig.groeinaardetoekomst.nl" = proxy "mailcow.services.prutser.net" 88 // { default = true; };                
-        "cdn.groeinaardetoekomst.nl"   = proxy "wordpress.services.prutser.net" 8081 // { default = true; };
+        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy "nextcloud.services.prutser.net" 11000;
+        "mail.maas-opleidingen.nl"     = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
+        "autodiscover.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
+        "autoconfig.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
+
+        "cloud.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "nextcloud.services.prutser.net" 11000;
+        "mail.groeinaardetoekomst.nl"  = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
+        "autodiscover.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
+        "autoconfig.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
+        "cdn.groeinaardetoekomst.nl"   = cert "groeinaardetoekomst.nl" // proxy "wordpress.services.prutser.net" 8081;
       };
   };
 }
