@@ -16,7 +16,7 @@
 
   config = {
     proxmoxLXC = {
-      manageNetwork = true;
+      manageNetwork = false;
       privileged = true;
     };
 
