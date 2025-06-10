@@ -13,6 +13,12 @@
     ../../modules/common/programs
   ];
 
+  console.enable = true;
+
+  systemd.services."getty@" = {
+    unitConfig.ConditionPathExists = ["" "/dev/%I"];
+  };
+
   config = {
     proxmoxLXC = {
       manageNetwork = false;
