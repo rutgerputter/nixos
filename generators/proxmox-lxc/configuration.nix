@@ -13,13 +13,13 @@
     ../../modules/common/programs
   ];
 
-  proxmoxLXC = {
-    privileged = true;
-    manageNetwork = false;
-    manageHostName = false;
-  };
-
   config = {
+    proxmoxLXC = {
+      privileged = true;
+      manageNetwork = false;
+      manageHostName = false;
+    };
+
     boot.isContainer = true;
 
     console.enable = true;
@@ -52,8 +52,8 @@
 #   --arch amd64 \
 #   tn_ssd_containers:vztmpl/nixos-image-lxc-proxmox-25.05.20250606.70c74b0-x86_64-linux.tar.xz \
 #   --ostype nixos \
-#   --description nixos \
-#   --hostname nixos \
+#   --description lxc-jellyfin \
+#   --hostname lxc-jellyfin \
 #   --net0 name=eth0,bridge=vmbr10,firewall=0,ip=10.0.10.$(pvesh get /cluster/nextid)/24,gw=10.0.10.1 \
 #   --net1 name=eth99,bridge=vmbr99,firewall=0,ip=10.0.99.$(pvesh get /cluster/nextid)/24 \
 #   --storage tn_ssd_containers \
