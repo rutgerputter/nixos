@@ -12,7 +12,6 @@
     ../../modules/common/nixpkgs
     ../../modules/common/programs
   ];
-  boot.isContainer = true;
 
   config = {
     proxmoxLXC = {
