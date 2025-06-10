@@ -13,6 +13,8 @@
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    intel-gpu-tools
+    libva-utils
   ];
 
 }
