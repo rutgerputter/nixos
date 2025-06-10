@@ -139,6 +139,26 @@
           ./hosts/vm-nextcloud-demo/modules/users
         ];
       };
+      lxc-jellyfin = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-jellyfin/configuration.nix
+          ./hosts/lxc-jellyfin/modules/boot
+          ./hosts/lxc-jellyfin/modules/environment
+          ./hosts/lxc-jellyfin/modules/home-manager
+          ./hosts/lxc-jellyfin/modules/localization
+          ./hosts/lxc-jellyfin/modules/networking
+          ./hosts/lxc-jellyfin/modules/nix
+          ./hosts/lxc-jellyfin/modules/nixpkgs
+          ./hosts/lxc-jellyfin/modules/programs
+          ./hosts/lxc-jellyfin/modules/security
+          ./hosts/lxc-jellyfin/modules/services
+          ./hosts/lxc-jellyfin/modules/system
+          ./hosts/lxc-jellyfin/modules/users
+        ];
+      };
     };
   };
 }
