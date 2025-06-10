@@ -13,7 +13,11 @@
     ../../modules/common/programs
   ];
 
-
+  proxmoxLXC = {
+    privileged = true;
+    manageNetwork = false;
+    manageHostName = false;
+  };
 
   config = {
     boot.isContainer = true;
