@@ -47,6 +47,7 @@
 
           forceSSL = true;
           enableACME = true;
+          acmeRoot = null;
         };
         proxy = host: port: base {
           "/".proxyPass = "http://" + host + ":" + toString(port) + "/";

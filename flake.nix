@@ -88,6 +88,14 @@
           ./hosts/vm-nextcloud-demo/configuration.nix
         ];
       };
+      vm-nginx = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          # > Our main nixos configuration files and modules <
+          ./hosts/vm-nginx/configuration.nix
+        ];
+      };
       lxc-jellyfin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
