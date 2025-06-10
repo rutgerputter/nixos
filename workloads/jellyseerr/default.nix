@@ -2,17 +2,14 @@
 {
   imports = [
     ./mounts.nix
-    ./vaapi.nix
   ];
 
-  services.jellyfin = {
+  services.jellyseerr = {
     enable = true;
     openFirewall = true;
+    port = 5055;
   };
   environment.systemPackages = with pkgs; [
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
+    jellyseerr
   ];
-
 }
