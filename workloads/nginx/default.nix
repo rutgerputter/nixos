@@ -105,7 +105,7 @@
         "kuma.prutser.net"             = cert "prutser.net" // proxy "vaultwarden.services.prutser.net" 3001;
         "overseerr.prutser.net"        = cert "prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
         "jellyfin.prutser.net"         = cert "prutser.net" // proxy "lxc-jellyfin.services.prutser.net" 8096;
-        "audiobookshelf.prutser.net"   = cert "prutser.net" // proxy "jellyfin.services.prutser.net" 13378;
+        "audiobookshelf.prutser.net"   = cert "prutser.net" // proxy "lxc-audiobookshelf.services.prutser.net" 8000;
         "www.prutser.net"              = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080 // { default = true; };
         "prutser.net"                  = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080;
         "cloud.prutser.net"            = cert "prutser.net" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
