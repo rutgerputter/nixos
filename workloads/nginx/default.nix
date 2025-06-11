@@ -40,9 +40,6 @@
 
         # Prevent injection of code in other mime types (XSS Attacks)
         add_header X-Content-Type-Options nosniff;
-
-        # required for browsers to direct them to quic port
-        add_header Alt-Svc 'h3=":443"; ma=86400';
       '';
 
       upstreams."pve" = {
@@ -55,8 +52,8 @@
       virtualHosts = let
         base = locations: {
           inherit locations;
-          quic = true;
-          http3_hq = true;
+          http2 = false;
+          http3 = false;
           forceSSL = true;
         };
         cert = certname: {
@@ -70,8 +67,7 @@
           "/".proxyPass = "http://" + host + ":" + toString(port) + "$request_uri";
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
           "/".extraConfig = ''
-            client_max_body_size 10G;
-            client_body_buffer_size 400M;
+            client_max_body_size 75G;
           '';
         };
         proxy-s = host: base {
