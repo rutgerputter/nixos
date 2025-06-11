@@ -120,6 +120,14 @@
           ./hosts/lxc-music-assistant/configuration.nix
         ];
       };
+      lxc-audiobookshelf = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-audiobookshelf/configuration.nix
+        ];
+      };
     };
   };
 }

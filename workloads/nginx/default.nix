@@ -38,14 +38,11 @@
         # Minimize information leaked to other domains
         add_header 'Referrer-Policy' 'origin-when-cross-origin';
 
-        # Disable embedding as a frame
-        # add_header X-Frame-Options DENY;
-
         # Prevent injection of code in other mime types (XSS Attacks)
         add_header X-Content-Type-Options nosniff;
 
-        # This might create errors
-        # proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+        # required for browsers to direct them to quic port
+        add_header Alt-Svc 'h3=":443"; ma=86400';
       '';
 
       upstreams."pve" = {
@@ -118,7 +115,7 @@
         "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "blog.prutser.net"             = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8000;
 
-        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
+        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy-nextcloud "10.0.10.101" 11000;
         "mail.maas-opleidingen.nl"     = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
