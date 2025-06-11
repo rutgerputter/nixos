@@ -112,6 +112,14 @@
           ./hosts/lxc-jellyseerr/configuration.nix
         ];
       };
+      lxc-music-assistant = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-music-assistant/configuration.nix
+        ];
+      };
     };
   };
 }

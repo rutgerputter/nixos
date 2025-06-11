@@ -24,8 +24,11 @@
     music-assistant
   ];
 
-  firewall = {
-    # Open ports in the firewall, as needed.
-    allowedTCPPorts = [ 8095 ];
+  networking = {
+    firewall = {
+      # Open ports in the firewall, as needed.
+      allowedTCPPorts = [ 8095 ];
+      allowedUDPPorts = [ ];
+    };
   };
 }
