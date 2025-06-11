@@ -36,6 +36,7 @@
           teams-for-linux
           moonlight-qt
           prusa-slicer
+          obs-studio
         ];
       };
     };
