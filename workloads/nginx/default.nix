@@ -69,6 +69,10 @@
           "/".proxyPass = "http://" + host + ":" + toString(port) + "/";
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
         };
+        proxy-nextcloud = host: port: base {
+          "/".proxyPass = "http://" + host + ":" + toString(port) + "$request_uri";
+          "/".proxyWebsockets = true; # needed if you need to use WebSocket
+        };
         proxy-s = host: base {
           "/".proxyPass = "https://" + host;
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
@@ -96,7 +100,7 @@
         "pve.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pve";
 
         "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "vaultwarden.services.prutser.net" 80;
-        "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy "nextcloud.services.prutser.net" 11000;
+        "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
 
         "books.prutser.net"            = cert "prutser.net" // proxy "arr.services.prutser.net" 8083;
         "id.prutser.net"               = cert "prutser.net" // proxy "auth.services.prutser.net" 9000;
@@ -107,19 +111,19 @@
         "audiobookshelf.prutser.net"   = cert "prutser.net" // proxy "jellyfin.services.prutser.net" 13378;
         "www.prutser.net"              = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080 // { default = true; };
         "prutser.net"                  = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080;
-        "cloud.prutser.net"            = cert "prutser.net" // proxy "nextcloud.services.prutser.net" 11000;
-        "ncdemo.prutser.net"           = cert "prutser.net" // proxy "vm-nextcloud-demo.services.prutser.net" 80;
+        "cloud.prutser.net"            = cert "prutser.net" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
+        "ncdemo.prutser.net"           = cert "prutser.net" // proxy-nextcloud "vm-nextcloud-demo.services.prutser.net" 80;
         "mail.prutser.net"             = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.prutser.net"     = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "blog.prutser.net"             = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8000;
 
-        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy "nextcloud.services.prutser.net" 11000;
+        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
         "mail.maas-opleidingen.nl"     = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
 
-        "cloud.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "nextcloud.services.prutser.net" 11000;
+        "cloud.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
         "mail.groeinaardetoekomst.nl"  = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
