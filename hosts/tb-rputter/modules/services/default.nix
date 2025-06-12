@@ -1,18 +1,16 @@
 { ... }:
 
 {
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = false;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
+  # Enable the GNOME Desktop Environment.
   services.displayManager.defaultSession = "gnome";
   services.displayManager.autoLogin = {
     enable = false;
   };
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
   # Disable the X11 windowing system.
   services.xserver.enable = false;
-
-  services.desktopManager.gnome.enable = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
