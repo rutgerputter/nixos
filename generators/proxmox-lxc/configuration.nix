@@ -58,6 +58,6 @@
 #   --net1 name=eth99,bridge=vmbr99,firewall=0,ip=10.0.99.$(pvesh get /cluster/nextid)/24 \
 #   --storage tn_ssd_containers \
 #   --unprivileged 0 \
-#   --features nesting=1 \
+#   --features nesting=1, mount=nfs \
 #   --cmode tty \
 #   --onboot 1
