@@ -5,6 +5,7 @@
   ];
   environment.variables = {
     SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
+    NIXOS_OZONE_WL=1;
   };
   environment.systemPackages = with pkgs; [
     exfat
