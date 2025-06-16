@@ -9,7 +9,7 @@
     gnomeExtensions.ddterm
     gnomeExtensions.hot-edge
     gnomeExtensions.caffeine
-    gnomeExtensions.gsconnect
+    # gnomeExtensions.gsconnect
     gnomeExtensions.pip-on-top
     gnomeExtensions.tailscale-qs
     gnomeExtensions.battery-time
