@@ -7,11 +7,8 @@
   ];
 
   programs = {
-    virt-manager.enable = true;
-    kdeconnect.enable = true;
-
     # Zsh configuration
-	zsh = {
+	  zsh = {
       shellAliases = {
         update = "cd ~/Git/nixos; sudo nixos-rebuild switch --flake .#tb-rputter";
       };
