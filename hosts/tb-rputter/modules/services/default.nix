@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  monitorsXmlContent = builtins.readFile /home/REPALCE_WITH_USERNAME/.config/monitors.xml;
+  monitorsXmlContent = builtins.readFile ./monitors.xml;
   monitorsConfig = pkgs.writeText "gdm_monitors.xml" monitorsXmlContent;
 in
 {
