@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Enable the GNOME Desktop Environment.
@@ -6,7 +6,23 @@
   services.displayManager.autoLogin = {
     enable = false;
   };
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    extraPackages = with pkgs; [
+      adwaita-icon-theme
+      gnomeExtensions.system-monitor-next
+      gnomeExtensions.ddterm
+      gnomeExtensions.hot-edge
+      gnomeExtensions.caffeine
+      gnomeExtensions.gsconnect
+      gnomeExtensions.pip-on-top
+      gnomeExtensions.tailscale-qs
+      gnomeExtensions.battery-time
+      gnomeExtensions.appindicator
+    ];
+  };
+
+
   services.xserver.desktopManager.gnome.enable = true;
 
   # Disable the X11 windowing system.

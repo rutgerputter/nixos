@@ -37,16 +37,8 @@
     epsonscan2
     (hiPrio papirus-icon-theme)
     lshw
-    kdePackages.qtvirtualkeyboard
-    kdePackages.partitionmanager
-    kdePackages.filelight
-    kdePackages.kcalc
-    kdePackages.kscreenlocker
-    kdePackages.yakuake
-    maliit-keyboard
     gearlever
     tailscale
-    ktailctl
     alsa-plugins
     libreoffice
     solaar
