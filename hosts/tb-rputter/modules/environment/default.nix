@@ -14,6 +14,7 @@
     gnomeExtensions.tailscale-qs
     gnomeExtensions.battery-time
     gnomeExtensions.appindicator
+    gnomeExtensions.easyeffects-preset-selector
     iio-sensor-proxy
     gnome-tweaks
   ];
