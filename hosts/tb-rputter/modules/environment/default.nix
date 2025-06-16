@@ -5,5 +5,6 @@
   ];
   environment.systemPackages = with pkgs; [
     iio-sensor-proxy
+    gnome-tweaks
   ];
 }
