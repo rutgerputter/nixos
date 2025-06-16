@@ -37,6 +37,7 @@
           moonlight-qt
           prusa-slicer
           obs-studio
+          bookworm
         ];
       };
     };
