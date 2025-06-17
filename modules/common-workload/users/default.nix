@@ -12,7 +12,7 @@
         isSystemUser = false;
         isNormalUser = true;
         shell = pkgs.zsh;
-        extraGroups = [ "wheel"];
+        extraGroups = [ "wheel" "podman" ];
         openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICXgN/t1XjRbHwcsfihSmx+GiRoPBVU0AzL1o8xTZXNJ" ];
 #         packages = with pkgs; [
 #         ];
