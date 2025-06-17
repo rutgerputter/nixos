@@ -64,7 +64,7 @@
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
         };
         proxy-nextcloud = host: port: base {
-          "/".proxyPass = "http://" + host + ":" + toString(port) + "$request_uri";
+          "/".proxyPass = "http://" + host + ":" + toString(port);
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
           "/".extraConfig = ''
             client_max_body_size 75G;
