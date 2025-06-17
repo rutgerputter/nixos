@@ -12,19 +12,7 @@
   # Disable the X11 windowing system.
   services.xserver.enable = false;
 
-  services.desktopManager.plasma6 = {
-    enable = true;
-    extraPackages = with pkgs; [
-      kdePackages.qtvirtualkeyboard
-      kdePackages.partitionmanager
-      kdePackages.filelight
-      kdePackages.kcalc
-      kdePackages.kscreenlocker
-      kdePackages.yakuake
-      maliit-keyboard
-      ktailctl
-    ];
-  };
+  services.desktopManager.plasma6.enable = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
 

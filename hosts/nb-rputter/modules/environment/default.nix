@@ -4,7 +4,14 @@
     ../../../../modules/common-desktop/environment
   ];
   environment.systemPackages = with pkgs; [
-    # libfprint-2-tod1-vfs0090
+    kdePackages.qtvirtualkeyboard
+    kdePackages.partitionmanager
+    kdePackages.filelight
+    kdePackages.kcalc
+    kdePackages.kscreenlocker
+    kdePackages.yakuake
+    maliit-keyboard
+    ktailctl
   ];
 
 }
