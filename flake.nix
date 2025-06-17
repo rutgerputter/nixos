@@ -96,6 +96,14 @@
           ./hosts/vm-nginx/configuration.nix
         ];
       };
+      lxc-janitorr = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-janitorr/configuration.nix
+        ];
+      };
       lxc-jellyfin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
