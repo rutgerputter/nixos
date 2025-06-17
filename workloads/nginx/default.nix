@@ -80,7 +80,7 @@
       in {
         "bazarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 6767;
         "code.intern.prutser.net"      = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 8443;
-        "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "10.0.10.107" 81;
+        "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "vaultwarden.services.prutser.net" 81;
         "lidarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8686;
         "openbooks.intern.prutser.net" = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 5228;
         "overseerr.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
@@ -115,7 +115,7 @@
         "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "blog.prutser.net"             = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8000;
 
-        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy-nextcloud "10.0.10.101" 11000;
+        "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
         "mail.maas-opleidingen.nl"     = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.maas-opleidingen.nl" = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
