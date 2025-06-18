@@ -14,6 +14,11 @@
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    inputs.agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+    };
   };
 
   outputs = {
@@ -22,6 +27,7 @@
     nixos-hardware,
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
+    agenix,
     ...
   }:
   {
@@ -50,6 +56,7 @@
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/nb-rputter/configuration.nix
         ];
@@ -63,6 +70,7 @@
           nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/tb-rputter/configuration.nix
         ];
@@ -76,6 +84,7 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-hidpi
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/pc-rputter/configuration.nix
         ];
@@ -84,6 +93,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/vm-nextcloud-demo/configuration.nix
         ];
@@ -92,6 +102,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/vm-nginx/configuration.nix
         ];
@@ -100,6 +111,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-janitorr/configuration.nix
         ];
@@ -108,6 +120,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-jellyfin/configuration.nix
         ];
@@ -116,6 +129,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-jellyseerr/configuration.nix
         ];
@@ -124,6 +138,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-music-assistant/configuration.nix
         ];
@@ -132,6 +147,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
+          agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-audiobookshelf/configuration.nix
         ];
