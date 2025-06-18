@@ -2,7 +2,6 @@
 {
   imports = [
     ./fonts.nix
-    ./agenix.nix
   ];
   environment.variables = {
     SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";

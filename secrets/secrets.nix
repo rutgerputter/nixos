@@ -10,5 +10,5 @@ let
   allUsers = builtins.attrValues users;
   allSystems = builtins.attrValues systems;
 in {
-  "password.age".publicKeys = allUsers ++ allSystems;
+  "sonarr_api.age".publicKeys = allUsers ++ allSystems;
 }

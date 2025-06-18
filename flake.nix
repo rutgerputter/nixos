@@ -57,6 +57,9 @@
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
           agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+          }          
           # > Our main nixos configuration files and modules <
           ./hosts/nb-rputter/configuration.nix
         ];
@@ -71,6 +74,9 @@
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
           agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+          }
           # > Our main nixos configuration files and modules <
           ./hosts/tb-rputter/configuration.nix
         ];
@@ -85,6 +91,9 @@
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-hidpi
           agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+          }          
           # > Our main nixos configuration files and modules <
           ./hosts/pc-rputter/configuration.nix
         ];
