@@ -5,6 +5,8 @@
     ./mounts.nix
   ];
 
+  age.secrets.jellystat_db_pass.file = ../../secrets/jellystat_db_pass.age;
+
   virtualisation.oci-containers.containers = {
     jellystat = {
       image = "cyfershepard/jellystat:latest";
@@ -13,7 +15,7 @@
       volumes = [ "/data/jellystat-backup-data:/app/backend/backup-data" ];
       environment = {
         POSTGRES_USER = "postgres";
-        POSTGRES_PASSWORD = "mypassword";
+        FILE_POSTGRES_PASSWORD = "${config.age.secrets.jellystat_db_pass.path}";
         POSTGRES_IP = "jellystat-db";
         POSTGRES_PORT = "5432";
         JWT_SECRET = "my-secret-jwt-key";
@@ -27,7 +29,7 @@
       volumes = [ "/data/jellystat-db:/var/lib/postgresql/data" ];
       environment = {
         POSTGRES_USER = "postgres";
-        POSTGRES_PASSWORD = "mypassword";
+        FILE_POSTGRES_PASSWORD = "${config.age.secrets.jellystat_db_pass.path}";
       };
     };
   };
