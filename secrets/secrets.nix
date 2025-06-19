@@ -16,5 +16,6 @@ in {
   "bazarr_api.age".publicKeys = [ systems.lxc-janitorr ];
   "jellyseerr_api.age".publicKeys = [ systems.lxc-janitorr ];
   "jellyfin_janitorr_api.age".publicKeys = [ systems.lxc-janitorr ];
+  "jellystat_api.age".publicKeys = [ systems.lxc-janitorr ];
   "jellystat_db_pass.age".publicKeys = [ systems.lxc-jellystat ];
 }

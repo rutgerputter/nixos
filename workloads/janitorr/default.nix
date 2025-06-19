@@ -88,6 +88,12 @@ let
         url: "https://overseerr.prutser.net"
         api-key: @JELLYSEERR_API@
         match-server: false # Enable if you have several Radarr/Sonarr instances set up in Jellyseerr. Janitorr will match them by the host+port supplied in their respective config settings.
+
+      jellystat: # Only one, Jellystat or Streamystats can be used
+        enabled: true
+        whole-tv-show: false # Enabling this will make Jellystat consider TV shows as a whole if any episode of any season has been watched
+        url: "https://jellystat.intern.prutser.net"
+        api-key: @JELLYSTAT_API@
   '';
 in
 {
@@ -100,6 +106,7 @@ in
   age.secrets.radarr_api.file = ../../secrets/radarr_api.age;
   age.secrets.bazarr_api.file = ../../secrets/bazarr_api.age;
   age.secrets.jellyseerr_api.file = ../../secrets/jellyseerr_api.age;
+  age.secrets.jellystat_api.file = ../../secrets/jellystat_api.age;
   age.secrets.jellyfin_janitorr_api.file = ../../secrets/jellyfin_janitorr_api.age;
 
   virtualisation.oci-containers.containers = {
@@ -129,6 +136,7 @@ in
       ${pkgs.replace-secret}/bin/replace-secret @BAZARR_API@ ${config.age.secrets.bazarr_api.path} /opt/jellyseerr-application-config.yml
       ${pkgs.replace-secret}/bin/replace-secret @JELLYSEERR_API@ ${config.age.secrets.jellyseerr_api.path} /opt/jellyseerr-application-config.yml
       ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_API@ ${config.age.secrets.jellyfin_janitorr_api.path} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYSTAT_API@ ${config.age.secrets.jellystat_api.path} /opt/jellyseerr-application-config.yml
     '';
     path = with pkgs; [ replace-secret ];
   };
