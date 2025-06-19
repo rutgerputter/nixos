@@ -17,7 +17,7 @@
         POSTGRES_IP = "jellystat-db";
         POSTGRES_PORT = "5432";
         JWT_SECRET = "my-secret-jwt-key";
-        TZ = "Europe/Amsterdam"
+        TZ = "Europe/Amsterdam";
       };
     };
     jellystat-db = {
