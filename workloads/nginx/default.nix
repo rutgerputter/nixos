@@ -52,7 +52,7 @@
       virtualHosts = let
         base = locations: {
           inherit locations;
-          http2 = false;
+          http2 = true;
           http3 = false;
           forceSSL = true;
         };
@@ -62,19 +62,27 @@
         proxy = host: port: base {
           "/".proxyPass = "http://" + host + ":" + toString(port) + "/";
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
+          "/".extraConfig = ''
+            client_body_buffer_size 512k;
+            client_body_timeout 300s;
+          '';
         };
         proxy-nextcloud = host: port: base {
           "/".proxyPass = "http://" + host + ":" + toString(port);
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
           "/".extraConfig = ''
             client_max_body_size 75G;
+            client_body_buffer_size 512k;
+            client_body_timeout 300s;
           '';
         };
         proxy-s = host: base {
           "/".proxyPass = "https://" + host;
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
           "/".extraConfig = ''
-            proxy_ssl_verify       off;
+            proxy_ssl_verify off;
+            client_body_buffer_size 512k;
+            client_body_timeout 300s;
           '';
         };
       in {
