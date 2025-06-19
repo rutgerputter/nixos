@@ -17,4 +17,6 @@
     libva-utils
   ];
 
+  users.users.jellyfin.extraGroups = [ "users" ];
+
 }
