@@ -36,10 +36,10 @@
         #add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
 
         # Minimize information leaked to other domains
-        add_header 'Referrer-Policy' 'origin-when-cross-origin';
+        # add_header 'Referrer-Policy' 'origin-when-cross-origin';
 
         # Prevent injection of code in other mime types (XSS Attacks)
-        add_header X-Content-Type-Options nosniff;
+        # add_header X-Content-Type-Options nosniff;
       '';
 
       upstreams."pve" = {
