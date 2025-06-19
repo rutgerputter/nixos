@@ -34,18 +34,14 @@ let
         movie-expiration:
           # Percentage of free disk space to expiration time - if the highest given number is not reached, nothing will be deleted
           # If filesystem access is not given, disk percentage can't be determined. As a result, Janitorr will always choose the largest expiration time.
-          5: 15d # 15 days
-          10: 30d # 1 month - if a movie's files on your system are older than this, they will be deleted
-          15: 60d # 2 months
-          20: 90d # 3 months
+          20: 365d
+          30: 400d
         season-expiration:
-          5: 15d # 15 days
-          10: 20d # 20 days - if a season's files on your system are older than this, they will be deleted
-          15: 60d # 2 months
-          20: 120d # 4 months
+          20: 365d
+          30: 400d
 
       tag-based-deletion:
-        enabled: true
+        enabled: false
         minimum-free-disk-percent: 100
         schedules:
           - tag: 5 - demo
@@ -57,7 +53,6 @@ let
         enabled: true
         tag: janitorr_daily # Shows tagged with this will have all episodes of their LATEST season deleted by the below thresholds
         max-episodes: 10 # maximum (latest) episodes of this season to keep
-        max-age: 30d # Maximum age to keep a
 
     clients:
       sonarr:
@@ -84,8 +79,8 @@ let
         url: "https://jellyfin.prutser.net"
         api-key: @JELLYFIN_JANITORR_API@
         delete: false # Jellyfin setup is required for JellyStat. However, if you don't want Janitorr to send delete requests to the Jellyfin API, disable it here
-        leaving-soon-tv: "Shows (Leaving Soon)"
-        leaving-soon-movies: "Movies (Leaving Soon)"
+        leaving-soon-tv: "TV Shows (Binnenkort Weg)"
+        leaving-soon-movies: "Films (Binnenkort Weg)"
         leaving-soon-type: MOVIES_AND_TV
 
       jellyseerr:
