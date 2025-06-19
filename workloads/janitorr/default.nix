@@ -68,7 +68,7 @@ let
         only-delete-files: false # NOT RECOMMENDED - When set to true, Janitorr will only delete your media files but keep the entries in Radarr
         determine-age-by: most_recent # Optional property, use 'most_recent' or 'oldest' - remove this line if Janitorr should determine by upgrades enabled for your profile
       bazarr:
-        enabled: false # Only used if you want to copy over subtitle files managed by Bazarr
+        enabled: true # Only used if you want to copy over subtitle files managed by Bazarr
         url: "https://bazarr.prutser.net"
         api-key: @BAZARR_API@
 
