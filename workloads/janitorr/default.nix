@@ -1,35 +1,6 @@
 { config, pkgs, ... }:
-{
-  imports = [
-    ../common/podman
-    ./mounts.nix
-  ];
-
-  age.secrets.sonarr_api.file = ../../secrets/sonarr_api.age;
-  age.secrets.radarr_api.file = ../../secrets/radarr_api.age;
-  age.secrets.bazarr_api.file = ../../secrets/bazarr_api.age;
-  age.secrets.jellyseerr_api.file = ../../secrets/jellyseerr_api.age;
-  age.secrets.jellyfin_janitorr_api.file = ../../secrets/jellyfin_janitorr_api.age;
-
-  virtualisation.oci-containers.containers = {
-    janitorr = {
-      image = "ghcr.io/schaka/janitorr:latest";
-      autoStart = true;
-      ports = [ "8978:8978" ];
-      volumes = [ "/etc/janitorr.yml:/workspace/application.yml"
-                  "/data/tv:/data/tv"
-                  "/data/tv:/tv"
-                  "/data/tv-archief:/data/tv-archief"
-                  "/data/tv-archief:/tv-archief"
-                  "/data/movies:/data/movies"
-                  "/data/movies:/movies"
-                  "/data/video:/data/video"
-      ];
-      # podman.user = "rputter";
-    };
-  };
-
-  environment.etc."janitorr.yml".text = ''
+let
+  jellyseerr-application-config = pkgs.writeText "jellyseerr-application-config" ''
     server:
       port: 8978
 
@@ -92,26 +63,26 @@
       sonarr:
         enabled: true
         url: "https://sonarr.intern.prutser.net"
-        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.sonarr_api.path})
+        api-key: @SONARR_API@
         delete-empty-shows: true # Delete empty shows if deleting by season. Otherwise leaves Sonarr entries behind.
         determine-age-by: MOST_RECENT # Optional property, use 'most_recent' or 'oldest' - remove this line if Janitorr should determine by upgrades enabled for your profile
       radarr:
         enabled: true
         url: "https://radarr.intern.prutser.net"
-        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.radarr_api.path})
+        api-key: @RADARR_API@
         only-delete-files: false # NOT RECOMMENDED - When set to true, Janitorr will only delete your media files but keep the entries in Radarr
         determine-age-by: most_recent # Optional property, use 'most_recent' or 'oldest' - remove this line if Janitorr should determine by upgrades enabled for your profile
       bazarr:
         enabled: false # Only used if you want to copy over subtitle files managed by Bazarr
         url: "https://bazarr.prutser.net"
-        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.bazarr_api.path})
+        api-key: @BAZARR_API@
 
       ## You can only choose one out of Jellyfin or Emby.
       ## User login is only needed if deletion is enabled.
       jellyfin:
         enabled: true
         url: "https://jellyfin.prutser.net"
-        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.jellyfin_janitorr_api.path})
+        api-key: @JELLYFIN_JANITORR_API@
         delete: false # Jellyfin setup is required for JellyStat. However, if you don't want Janitorr to send delete requests to the Jellyfin API, disable it here
         leaving-soon-tv: "Shows (Leaving Soon)"
         leaving-soon-movies: "Movies (Leaving Soon)"
@@ -120,7 +91,50 @@
       jellyseerr:
         enabled: true
         url: "https://overseerr.prutser.net"
-        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.jellyseerr_api.path})
+        api-key: @JELLYSEERR_API@
         match-server: false # Enable if you have several Radarr/Sonarr instances set up in Jellyseerr. Janitorr will match them by the host+port supplied in their respective config settings.
   '';
+in
+{
+  imports = [
+    ../common/podman
+    ./mounts.nix
+  ];
+
+  age.secrets.sonarr_api.file = ../../secrets/sonarr_api.age;
+  age.secrets.radarr_api.file = ../../secrets/radarr_api.age;
+  age.secrets.bazarr_api.file = ../../secrets/bazarr_api.age;
+  age.secrets.jellyseerr_api.file = ../../secrets/jellyseerr_api.age;
+  age.secrets.jellyfin_janitorr_api.file = ../../secrets/jellyfin_janitorr_api.age;
+
+  virtualisation.oci-containers.containers = {
+    janitorr = {
+      image = "ghcr.io/schaka/janitorr:latest";
+      autoStart = true;
+      ports = [ "8978:8978" ];
+      volumes = [ "/opt/jellyseerr-application-config.yml:/workspace/application.yml"
+                  "/data/tv:/data/tv"
+                  "/data/tv:/tv"
+                  "/data/tv-archief:/data/tv-archief"
+                  "/data/tv-archief:/tv-archief"
+                  "/data/movies:/data/movies"
+                  "/data/movies:/movies"
+                  "/data/video:/data/video"
+      ];
+      # podman.user = "rputter";
+    };
+  };
+
+  systemd.services.podman-janitorr = {
+    preStart = ''
+      mkdir -p /opt
+      install --owner root --mode 644 ${jellyseerr-application-config} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @SONARR_API@ ${config.age.secrets.sonarr_api.path} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @RADARR_API@ ${config.age.secrets.radarr_api.path} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @BAZARR_API@ ${config.age.secrets.bazarr_api.path} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYSEERR_API@ ${config.age.secrets.jellyseerr_api.path} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_API@ ${config.age.secrets.jellyfin_janitorr_api.path} /opt/jellyseerr-application-config.yml
+    '';
+    path = with pkgs; [ replace-secret ];
+  };
 }
