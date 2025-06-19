@@ -22,11 +22,11 @@ let
       free-space-check-dir: "/data/video" # This is the default directory Janitorr uses to check how much space is left on your drives. By default, it checks the entire root - you may point it at a specific folder
 
     application:
-      dry-run: true
+      dry-run: false
       run-once: false # If you enable this, Janitorr will clean up once and then shut down.
       whole-tv-show: false # activating this will treat as a whole show as recently download/watched from a single episode, rather than that episode's season - shows will be deleted as a whole
       whole-show-seeding-check: false # Turning this off, disables the seeding check entirely if whole-tv-show is enabled. Activating this check will keep a whole TV show if any season is still seeding (requires file access).
-      leaving-soon: 14d # 14 days before a movie is deleted, it gets added to a "Leaving Soon" type collection (i.e. movies that are 76 to 89 days old)
+      leaving-soon: 30d # 30 days before a movie is deleted, it gets added to a "Leaving Soon" type collection (i.e. movies that are 76 to 89 days old)
       exclusion-tag: "janitorr_keep" # Set this tag to your movies or TV shows in the *arrs to exclude media from being cleaned up
 
       media-deletion:
