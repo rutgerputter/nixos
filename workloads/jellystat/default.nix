@@ -10,7 +10,7 @@
       image = "cyfershepard/jellystat:latest";
       autoStart = true;
       ports = [ "3000:3000" ];
-      volumes = [ /data/jellystat-backup-data:/app/backend/backup-data ];
+      volumes = [ "/data/jellystat-backup-data:/app/backend/backup-data" ];
       environment = {
         POSTGRES_USER = "postgres";
         POSTGRES_PASSWORD = "mypassword";
@@ -24,7 +24,7 @@
       image = "postgres:15.2";
       autoStart = true;
       ports = [ "5432:5432" ];
-      volumes = [ /data/jellystat-db:/var/lib/postgresql/data ];
+      volumes = [ "/data/jellystat-db:/var/lib/postgresql/data" ];
       environment = {
         POSTGRES_USER = "postgres";
         POSTGRES_PASSWORD = "mypassword";
