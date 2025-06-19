@@ -10,5 +10,9 @@ let
   allUsers = builtins.attrValues users;
   allSystems = builtins.attrValues systems;
 in {
-  "sonarr_api.age".publicKeys = allUsers ++ allSystems;
+  "sonarr_api.age".publicKeys = [ systems.lxc-janitorr ];
+  "radarr_api.age".publicKeys = [ systems.lxc-janitorr ];
+  "bazarr_api.age".publicKeys = [ systems.lxc-janitorr ];
+  "jellyseerr_api.age".publicKeys = [ systems.lxc-janitorr ];
+  "jellyfin_janitorr_api.age".publicKeys = [ systems.lxc-janitorr ];
 }

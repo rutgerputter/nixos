@@ -1,9 +1,15 @@
-{ ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ../common/podman
     ./mounts.nix
   ];
+
+  age.secrets.sonarr_api.file = ../../secrets/sonarr_api.age;
+  age.secrets.radarr_api.file = ../../secrets/radarr_api.age;
+  age.secrets.bazarr_api.file = ../../secrets/bazarr_api.age;
+  age.secrets.jellyseerr_api.file = ../../secrets/jellyseerr_api.age;
+  age.secrets.jellyfin_janitorr_api.file = ../../secrets/jellyfin_janitorr_api.age;
 
   virtualisation.oci-containers.containers = {
     janitorr = {
@@ -86,26 +92,26 @@
       sonarr:
         enabled: true
         url: "https://sonarr.intern.prutser.net"
-        api-key: "4ed7f4d0e8584d65aa2d47d944077ff6"
+        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.sonarr_api.path})
         delete-empty-shows: true # Delete empty shows if deleting by season. Otherwise leaves Sonarr entries behind.
         determine-age-by: MOST_RECENT # Optional property, use 'most_recent' or 'oldest' - remove this line if Janitorr should determine by upgrades enabled for your profile
       radarr:
         enabled: true
         url: "https://radarr.intern.prutser.net"
-        api-key: "cd0912f129d348c9b69bb20d49fcbe44"
+        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.radarr_api.path})
         only-delete-files: false # NOT RECOMMENDED - When set to true, Janitorr will only delete your media files but keep the entries in Radarr
         determine-age-by: most_recent # Optional property, use 'most_recent' or 'oldest' - remove this line if Janitorr should determine by upgrades enabled for your profile
       bazarr:
         enabled: false # Only used if you want to copy over subtitle files managed by Bazarr
         url: "https://bazarr.prutser.net"
-        api-key: "cd0912f129d348c9b69bb20d49fcbe55"
+        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.bazarr_api.path})
 
       ## You can only choose one out of Jellyfin or Emby.
       ## User login is only needed if deletion is enabled.
       jellyfin:
         enabled: true
         url: "https://jellyfin.prutser.net"
-        api-key: "4da8d93992804489ba2d1f0e31b8316c"
+        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.jellyfin_janitorr_api.path})
         delete: false # Jellyfin setup is required for JellyStat. However, if you don't want Janitorr to send delete requests to the Jellyfin API, disable it here
         leaving-soon-tv: "Shows (Leaving Soon)"
         leaving-soon-movies: "Movies (Leaving Soon)"
@@ -114,7 +120,7 @@
       jellyseerr:
         enabled: true
         url: "https://overseerr.prutser.net"
-        api-key: "MTY3NzU3NzI0NzgzOWFhNWYxMGE4LWNlMWYtNDc1ZS04ODYzLThkMjQyMTQ4M2NiZCe="
+        api-key: $(${pkgs.coreutils}/bin/cat ${config.age.secrets.jellyseerr_api.path})
         match-server: false # Enable if you have several Radarr/Sonarr instances set up in Jellyseerr. Janitorr will match them by the host+port supplied in their respective config settings.
   '';
 }
