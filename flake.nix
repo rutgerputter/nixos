@@ -59,7 +59,7 @@
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
-          }          
+          }
           # > Our main nixos configuration files and modules <
           ./hosts/nb-rputter/configuration.nix
         ];
@@ -93,7 +93,7 @@
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
-          }          
+          }
           # > Our main nixos configuration files and modules <
           ./hosts/pc-rputter/configuration.nix
         ];
@@ -141,6 +141,15 @@
           agenix.nixosModules.default
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-jellyseerr/configuration.nix
+        ];
+      };
+      lxc-jellystat = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          agenix.nixosModules.default
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-jellystat/configuration.nix
         ];
       };
       lxc-music-assistant = nixpkgs.lib.nixosSystem {
