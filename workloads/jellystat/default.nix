@@ -13,12 +13,13 @@
       autoStart = true;
       ports = [ "3000:3000" ];
       volumes = [ "/data/jellystat-backup-data:/app/backend/backup-data" ];
+      environmentFiles = [
+        "${config.age.secrets.jellystat_db_pass.path}"
+      ];
       environment = {
         POSTGRES_USER = "postgres";
-        FILE_POSTGRES_PASSWORD = "${config.age.secrets.jellystat_db_pass.path}";
         POSTGRES_IP = "jellystat-db";
         POSTGRES_PORT = "5432";
-        JWT_SECRET = "my-secret-jwt-key";
         TZ = "Europe/Amsterdam";
       };
     };
@@ -27,9 +28,11 @@
       autoStart = true;
       ports = [ "5432:5432" ];
       volumes = [ "/data/jellystat-db:/var/lib/postgresql/data" ];
+      environmentFiles = [
+        "${config.age.secrets.jellystat_db_pass.path}"
+      ];
       environment = {
         POSTGRES_USER = "postgres";
-        FILE_POSTGRES_PASSWORD = "${config.age.secrets.jellystat_db_pass.path}";
       };
     };
   };
