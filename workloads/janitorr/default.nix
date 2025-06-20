@@ -78,6 +78,8 @@ let
         enabled: true
         url: "https://jellyfin.prutser.net"
         api-key: @JELLYFIN_JANITORR_API@
+        username: Janitorr
+        password: @JELLYFIN_JANITORR_PASS@
         delete: false # Jellyfin setup is required for JellyStat. However, if you don't want Janitorr to send delete requests to the Jellyfin API, disable it here
         leaving-soon-tv: "TV Shows (Binnenkort Weg)"
         leaving-soon-movies: "Films (Binnenkort Weg)"
@@ -108,6 +110,7 @@ in
   age.secrets.jellyseerr_api.file = ../../secrets/jellyseerr_api.age;
   age.secrets.jellystat_api.file = ../../secrets/jellystat_api.age;
   age.secrets.jellyfin_janitorr_api.file = ../../secrets/jellyfin_janitorr_api.age;
+  age.secrets.jellyfin_janitorr_pass.file = ../../secrets/jellyfin_janitorr_pass.age;
 
   virtualisation.oci-containers.containers = {
     janitorr = {
@@ -136,6 +139,7 @@ in
       ${pkgs.replace-secret}/bin/replace-secret @BAZARR_API@ ${config.age.secrets.bazarr_api.path} /opt/jellyseerr-application-config.yml
       ${pkgs.replace-secret}/bin/replace-secret @JELLYSEERR_API@ ${config.age.secrets.jellyseerr_api.path} /opt/jellyseerr-application-config.yml
       ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_API@ ${config.age.secrets.jellyfin_janitorr_api.path} /opt/jellyseerr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_PASS@ ${config.age.secrets.jellyfin_janitorr_pass.path} /opt/jellyseerr-application-config.yml
       ${pkgs.replace-secret}/bin/replace-secret @JELLYSTAT_API@ ${config.age.secrets.jellystat_api.path} /opt/jellyseerr-application-config.yml
     '';
     path = with pkgs; [ replace-secret ];
