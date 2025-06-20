@@ -17,15 +17,24 @@
       contacts
       cookbook
       deck
+      files_mindmap
+      files_retention
+      forms
       groupfolders
       impersonate
+      integration_openai
       mail
       maps
       news
       notes
+      notify_push
       previewgenerator
-      talk
+      recognize
+      richdocuments
+      sociallogin
+      spreed
       tasks
+      twofactor_webauthn
       whiteboard;
     };
     extraAppsEnable = true;
