@@ -4,7 +4,7 @@
   services.nextcloud = {
     enable = true;
     enableImagemagick = true;
-    appstoreEnable = true;
+    appstoreEnable = false;
     configureRedis = true;
     datadir = "/mnt/nextcloud";
     package = pkgs.nextcloud31;
@@ -12,14 +12,20 @@
     database.createLocally = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
-      contacts
       calendar
-      mail
-      tasks
+      collectives
+      contacts
+      cookbook
       deck
-      notes
-      talk
       groupfolders
+      impersonate
+      mail
+      maps
+      news
+      notes
+      previewgenerator
+      talk
+      tasks
       whiteboard;
     };
     extraAppsEnable = true;
