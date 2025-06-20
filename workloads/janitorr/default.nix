@@ -80,7 +80,7 @@ let
         api-key: @JELLYFIN_JANITORR_API@
         username: Janitorr
         password: @JELLYFIN_JANITORR_PASS@
-        delete: false # Jellyfin setup is required for JellyStat. However, if you don't want Janitorr to send delete requests to the Jellyfin API, disable it here
+        delete: true # Jellyfin setup is required for JellyStat. However, if you don't want Janitorr to send delete requests to the Jellyfin API, disable it here
         leaving-soon-tv: "TV Shows (Binnenkort Weg)"
         leaving-soon-movies: "Films (Binnenkort Weg)"
         leaving-soon-type: MOVIES_AND_TV
