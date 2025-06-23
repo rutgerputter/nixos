@@ -10,6 +10,7 @@
   programs = {
     virt-manager.enable = true;
     kdeconnect.enable = true;
+    nix-ld.enable = true;
 
     # Zsh configuration
 	zsh = {
