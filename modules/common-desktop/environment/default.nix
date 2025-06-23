@@ -62,5 +62,7 @@
     android-studio
     android-tools
     android-udev-rules
+    yt-dlp
+    parabolic
   ];
 }
