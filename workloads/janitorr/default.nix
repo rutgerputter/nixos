@@ -53,6 +53,7 @@ let
         enabled: true
         tag: janitorr_daily # Shows tagged with this will have all episodes of their LATEST season deleted by the below thresholds
         max-episodes: 10 # maximum (latest) episodes of this season to keep
+        max-age: 180d # Maximum age to keep any episode at all - even the last 10 episodes would expire after 180 days in this example
 
     clients:
       sonarr:
