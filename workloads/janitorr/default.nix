@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  jellyseerr-application-config = pkgs.writeText "jellyseerr-application-config" ''
+  janitorr-application-config = pkgs.writeText "janitorr-application-config" ''
     server:
       port: 8978
 
@@ -36,9 +36,17 @@ let
           # If filesystem access is not given, disk percentage can't be determined. As a result, Janitorr will always choose the largest expiration time.
           20: 365d
           30: 400d
+          40: 500d
+          50: 600d
+          60: 700d
+          73: 730d
         season-expiration:
           20: 365d
           30: 400d
+          40: 500d
+          50: 600d
+          60: 700d
+          73: 730d
 
       tag-based-deletion:
         enabled: false
@@ -118,7 +126,7 @@ in
       image = "ghcr.io/schaka/janitorr:latest";
       autoStart = true;
       ports = [ "8978:8978" ];
-      volumes = [ "/opt/jellyseerr-application-config.yml:/workspace/application.yml"
+      volumes = [ "/opt/janitorr-application-config.yml:/workspace/application.yml"
                   "/data/tv:/data/tv"
                   "/data/tv:/tv"
                   "/data/tv-archief:/data/tv-archief"
@@ -134,14 +142,14 @@ in
   systemd.services.podman-janitorr = {
     preStart = ''
       mkdir -p /opt
-      install --owner root --mode 644 ${jellyseerr-application-config} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @SONARR_API@ ${config.age.secrets.sonarr_api.path} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @RADARR_API@ ${config.age.secrets.radarr_api.path} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @BAZARR_API@ ${config.age.secrets.bazarr_api.path} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @JELLYSEERR_API@ ${config.age.secrets.jellyseerr_api.path} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_API@ ${config.age.secrets.jellyfin_janitorr_api.path} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_PASS@ ${config.age.secrets.jellyfin_janitorr_pass.path} /opt/jellyseerr-application-config.yml
-      ${pkgs.replace-secret}/bin/replace-secret @JELLYSTAT_API@ ${config.age.secrets.jellystat_api.path} /opt/jellyseerr-application-config.yml
+      install --owner root --mode 644 ${janitorr-application-config} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @SONARR_API@ ${config.age.secrets.sonarr_api.path} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @RADARR_API@ ${config.age.secrets.radarr_api.path} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @BAZARR_API@ ${config.age.secrets.bazarr_api.path} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYSEERR_API@ ${config.age.secrets.jellyseerr_api.path} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_API@ ${config.age.secrets.jellyfin_janitorr_api.path} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYFIN_JANITORR_PASS@ ${config.age.secrets.jellyfin_janitorr_pass.path} /opt/janitorr-application-config.yml
+      ${pkgs.replace-secret}/bin/replace-secret @JELLYSTAT_API@ ${config.age.secrets.jellystat_api.path} /opt/janitorr-application-config.yml
     '';
     path = with pkgs; [ replace-secret ];
   };
