@@ -60,7 +60,7 @@
     fsType = "nfs";
     options = [ "nfsvers=4.2" "nolock" "soft" "rw" "nconnect=6" ];
   };
-  fileSystems."/var/lib/jellyfin" = {
+  fileSystems."/var/lib/jellyfin-backup" = {
     device = "10.0.99.10:/mnt/ssd_pool/dockervols/jellyfin/jellyfin";
     fsType = "nfs";
     options = [ "nfsvers=4.2" "nolock" "soft" "rw" "nconnect=6" ];
