@@ -170,6 +170,24 @@
           ./hosts/lxc-audiobookshelf/configuration.nix
         ];
       };
+      lxc-sonarr = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          agenix.nixosModules.default
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-sonarr/configuration.nix
+        ];
+      };
+      lxc-radarr = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          agenix.nixosModules.default
+          # > Our main nixos configuration files and modules <
+          ./hosts/lxc-radarr/configuration.nix
+        ];
+      };
     };
   };
 }
