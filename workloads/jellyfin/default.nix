@@ -17,6 +17,14 @@
     libva-utils
   ];
 
+  # Enable cron service
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "45 4 * * *      root    systemctl restart jellyfin.service"
+    ];
+  };
+
   users.users.jellyfin.extraGroups = [ "users" ];
 
 }
