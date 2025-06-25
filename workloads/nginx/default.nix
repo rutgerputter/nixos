@@ -94,11 +94,11 @@
         "overseerr.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
         "jellystat.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellystat.services.prutser.net" 3000;
         "prowlarr.intern.prutser.net"  = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 9696;
-        "radarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 7878;
+        "radarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-radarr.services.prutser.net" 7878;
         "readarr.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8787;
         "sabnzbd.intern.prutser.net"   = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8080;
         "deluge.intern.prutser.net"    = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8112;
-        "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8989;
+        "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-sonarr.services.prutser.net" 8989;
         "spotweb.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 7171;
         "forge.intern.prutser.net"     = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 3000;
         "tubesync.intern.prutser.net"  = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 4848;
