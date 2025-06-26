@@ -33,7 +33,7 @@
         # Valid strings for installation_mode are "allowed", "blocked",
         # "force_installed" and "normal_installed".
         ExtensionSettings = {
-          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+          "*".installation_mode = "allowed"; # blocks all addons except the ones specified below
           # Startpage Search:
           "{20fc2e06-e3e4-4b2b-812b-ab431220cada}" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/startpage-private-search/latest.xpi";
