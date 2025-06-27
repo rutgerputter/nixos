@@ -73,4 +73,36 @@
   services.nextcloud-whiteboard-server.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 80 ];
+
+  virtualisation.oci-containers.containers = {
+    nextcloud-aio-talk = {
+      image = "ghcr.io/nextcloud-releases/aio-talk:latest";
+      autoStart = true;
+      ports = [
+        "8081:8081"
+        "3478:3478/tcp"
+        "3478:3478/udp"
+      ];
+      environment = [
+        "NC_DOMAIN"
+        "TALK_HOST=nextcloud-aio-talk"
+        "TURN_SECRET"
+        "SIGNALING_SECRET"
+        "TZ=${TIMEZONE}"
+        "TALK_PORT"
+        "INTERNAL_SECRET=${TALK_INTERNAL_SECRET}"
+      ];
+      cap_drop = [
+        "NET_RAW"
+      ];
+      read_only = true;
+      tmpfs = [
+        "var/log/supervisord"
+        "/var/run/supervisord"
+        "/opt/eturnal/run"
+        "/conf"
+        "/tmp"
+      ];
+    };
+  };
 }
