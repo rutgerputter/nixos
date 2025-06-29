@@ -27,7 +27,7 @@
   networking = {
     firewall = {
       # Open ports in the firewall, as needed.
-      allowedTCPPorts = [ 8095 8097 ];
+      allowedTCPPorts = [ 8095 8097 8098 ];
       allowedUDPPorts = [ ];
     };
   };
