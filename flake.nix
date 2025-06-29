@@ -70,6 +70,7 @@
         modules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t460
           nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-gpu-nvidia-maxwell
           nixos-hardware.nixosModules.common-gpu-nvidia-prime
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
