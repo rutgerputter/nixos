@@ -64,6 +64,23 @@
           ./hosts/nb-rputter/configuration.nix
         ];
       };
+      nb2-rputter = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-t460
+          nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-gpu-nvidia-prime
+          nixos-hardware.nixosModules.common-hidpi
+          nixos-hardware.nixosModules.common-pc-ssd
+          agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+          }
+          # > Our main nixos configuration files and modules <
+          ./hosts/nb2-rputter/configuration.nix
+        ];
+      };
       tb-rputter = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
