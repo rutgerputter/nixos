@@ -31,7 +31,7 @@
     fileSystems."/" = lib.mkDefault {
       device = "/dev/disk/by-label/nixos";
       autoResize = true;
-      fsType = "ext4";
+      fsType = "btrfs";
     };
 
     # The background OpenSSH daemon for remote SSH access to this host.
