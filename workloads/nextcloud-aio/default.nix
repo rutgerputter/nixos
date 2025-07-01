@@ -1,5 +1,9 @@
 { pkgs, config, ... }:
 {
+  imports = [
+    ../common/podman
+  ];
+
   environment.etc."nextcloud-admin-pass".text = "ChangeMe!";
   services.nextcloud = {
     enable = true;
@@ -83,26 +87,18 @@
         "3478:3478/tcp"
         "3478:3478/udp"
       ];
-      environment = [
-        "NC_DOMAIN=ncdemo.prutser.net"
-        "TALK_HOST=nextcloud-aio-talk"
-        "TURN_SECRET=test-secret"
-        "SIGNALING_SECRET-test-secret"
-        "TZ=Europe/Amsterdam"
-        "TALK_PORT=3478"
-        "INTERNAL_SECRET=test-secret"
-      ];
-      cap_drop = [
-        "NET_RAW"
-      ];
-      read_only = true;
-      tmpfs = [
-        "var/log/supervisord"
-        "/var/run/supervisord"
-        "/opt/eturnal/run"
-        "/conf"
-        "/tmp"
-      ];
+      environment = {
+        NC_DOMAIN = "ncdemo.prutser.net";
+        TALK_HOST = "nextcloud-aio-talk";
+        TURN_SECRET = "test-secret";
+        SIGNALING_SECRET = "test-secret";
+        TZ = "Europe/Amsterdam";
+        TALK_PORT = "3478";
+        INTERNAL_SECRET = "test-secret";
+      };
+      capabilities = {
+        NET_RAW = true;
+      };
     };
   };
 }
