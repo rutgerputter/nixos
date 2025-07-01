@@ -84,13 +84,13 @@
         "3478:3478/udp"
       ];
       environment = [
-        "NC_DOMAIN"
+        "NC_DOMAIN=ncdemo.prutser.net"
         "TALK_HOST=nextcloud-aio-talk"
-        "TURN_SECRET"
-        "SIGNALING_SECRET"
-        "TZ=${TIMEZONE}"
-        "TALK_PORT"
-        "INTERNAL_SECRET=${TALK_INTERNAL_SECRET}"
+        "TURN_SECRET=test-secret"
+        "SIGNALING_SECRET-test-secret"
+        "TZ=Europe/Amsterdam"
+        "TALK_PORT=3478"
+        "INTERNAL_SECRET=test-secret"
       ];
       cap_drop = [
         "NET_RAW"
