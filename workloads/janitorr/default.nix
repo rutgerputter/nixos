@@ -34,19 +34,25 @@ let
         movie-expiration:
           # Percentage of free disk space to expiration time - if the highest given number is not reached, nothing will be deleted
           # If filesystem access is not given, disk percentage can't be determined. As a result, Janitorr will always choose the largest expiration time.
-          20: 365d
-          30: 400d
-          40: 500d
-          50: 600d
-          60: 700d
-          73: 730d
+          20: 274d
+          30: 319d
+          40: 364d
+          50: 409d
+          60: 454d
+          70: 499d
+          80: 544d
+          90: 546d
+          99: 548d
         season-expiration:
-          20: 365d
-          30: 400d
-          40: 500d
-          50: 600d
-          60: 700d
-          73: 730d
+          20: 274d
+          30: 319d
+          40: 364d
+          50: 409d
+          60: 454d
+          70: 499d
+          80: 544d
+          90: 546d
+          99: 548d
 
       tag-based-deletion:
         enabled: false
