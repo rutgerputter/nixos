@@ -12,5 +12,6 @@
     kdePackages.yakuake
     maliit-keyboard
     ktailctl
+    oversteer
   ];
 }
