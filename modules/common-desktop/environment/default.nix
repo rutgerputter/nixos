@@ -8,61 +8,62 @@
     NIXOS_OZONE_WL=1;
   };
   environment.systemPackages = with pkgs; [
-    age
-    exfat
-    exfatprogs
-    gcc
-    usbutils
-    pciutils
-    ethtool
-    dmidecode
-    libva-utils
-    lm_sensors
-    intel-gpu-tools
-    git
-    direnv
-    nix-search-cli
-    nixos-generators
-    nil
-    nixd
-    pavucontrol
-    easyeffects
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.nl_NL
-    python3Full
-    htop
-    btop
-    throttled
-    epson-escpr
-    epson-escpr2
-    epsonscan2
     (hiPrio papirus-icon-theme)
-    lshw
-    gearlever
-    tailscale
+    age
     alsa-plugins
-    libreoffice
-    solaar
-    lsd
-    fzf
-    fastfetch
-    tdrop
-    python312Packages.pip
-    mono
-    sdrpp
-    haskellPackages.rtlsdr
-    rtl-sdr-librtlsdr
-    soapyrtlsdr
-    retroarch
-    google-chrome
-    neovim
-    scrcpy
-    qtscrcpy
     android-studio
     android-tools
     android-udev-rules
-    yt-dlp
+    btop
+    direnv
+    dmidecode
+    easyeffects
+    edid-decode
+    epson-escpr
+    epson-escpr2
+    epsonscan2
+    ethtool
+    exfat
+    exfatprogs
+    fastfetch
+    fzf
+    gcc
+    gearlever
+    git
+    google-chrome
+    haskellPackages.rtlsdr
+    htop
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.nl_NL
+    intel-gpu-tools
+    libreoffice
+    libva-utils
+    lm_sensors
+    lsd
+    lshw
+    mono
+    neovim
+    nil
+    nix-search-cli
+    nixd
+    nixos-generators
     parabolic
+    pavucontrol
+    pciutils
+    python312Packages.pip
+    python3Full
+    qtscrcpy
+    retroarch
+    rtl-sdr-librtlsdr
+    scrcpy
+    sdrpp
+    soapyrtlsdr
+    solaar
+    tailscale
+    tdrop
+    throttled
+    usbutils
+    yt-dlp
   ];
 }
