@@ -2,7 +2,7 @@
 
 {
   # Bootloader.
-  
+
   # Add TPM2 packages
   environment.systemPackages = with pkgs; [
     tpm2-tss
@@ -18,8 +18,6 @@
   boot.loader.timeout = 0;
 
   # Ensure boot works with all appropriate storage devices and protocols.
-  boot.initrd.luks.devices."luks-ca4832e4-ab65-4015-a638-6291f324e999".device = "/dev/disk/by-uuid/ca4832e4-ab65-4015-a638-6291f324e999";
-  boot.initrd.luks.devices."luks-dfbc71e5-c3d0-48c6-8537-29f33435d4f1".device = "/dev/disk/by-uuid/dfbc71e5-c3d0-48c6-8537-29f33435d4f1";
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ "kvm-intel" ];
   boot.initrd.systemd.enable = true;
@@ -27,29 +25,35 @@
   boot.initrd.verbose = false;
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6716ee49-6d4c-46fc-b141-f2a8c222c6ff";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/d422e02c-ed0b-4bad-94d3-0e289227f847";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/d422e02c-ed0b-4bad-94d3-0e289227f847";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/d422e02c-ed0b-4bad-94d3-0e289227f847";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime"];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1985-1E16";
+    { device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/e1a8e8fc-69c3-4dda-9fd5-9e1084c92a58"; }
-    ];
-
-  fileSystems."/home/rputter/GamesSSD" =
-    { device = "/dev/disk/by-uuid/b3f7f216-e285-4e8d-8139-cf40004cb344";
-      fsType = "ext4";
-    };
+  swapDevices = [ { device = "/dev/nvme1n1p2"; } ];
 
   # Plymouth config
   boot.plymouth.enable = true;
   boot.plymouth.theme = "bgrt";
-  boot.plymouth.logo = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png";
+  boot.plymouth.logo = "${pkgs.nixos-icons}/share/icons/hicolor/64x64/apps/nix-snowflake-white.png";
 
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
