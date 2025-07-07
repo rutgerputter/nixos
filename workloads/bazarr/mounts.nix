@@ -1,6 +1,6 @@
 { ... }:
 {
-  fileSystems."/var/lib/private/bazarr" = {
+  fileSystems."/var/lib/bazarr" = {
     device = "10.0.99.10:/mnt/ssd_pool/dockervols/arr/bazarr";
     fsType = "nfs";
     options = [ "nfsvers=4.2" "nolock" "soft" "rw" "nconnect=6" ];
