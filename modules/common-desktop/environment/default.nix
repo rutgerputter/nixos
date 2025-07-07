@@ -65,5 +65,6 @@
     throttled
     usbutils
     yt-dlp
+    protontricks
   ];
 }
