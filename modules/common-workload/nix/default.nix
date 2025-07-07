@@ -7,7 +7,7 @@
     gc = {
       automatic = true;
       dates = "daily";
-      options = "--d";
+      options = "-d";
     };
   };
 }
