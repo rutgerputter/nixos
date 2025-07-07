@@ -17,4 +17,13 @@
     ./modules/system
     ./modules/users
   ];
+
+  services.comin = {
+    enable = true;
+    remotes = [{
+      name = "forgejo";
+      url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+      branches.main.name = "prod";
+    }];
+  };
 }
