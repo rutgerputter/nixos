@@ -7,7 +7,7 @@
   proxmoxLXC = {
     privileged = true;
     manageNetwork = false;
-    manageHostName = false;
+    manageHostName = true;
   };
 
   boot.isContainer = true;
