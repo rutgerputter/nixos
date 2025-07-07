@@ -161,6 +161,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-janitorr";
+          })
           ./workloads/janitorr
         ];
       };
@@ -168,6 +171,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-jellyfin";
+          })
           ./workloads/jellyfin
         ];
       };
@@ -175,6 +181,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-jellyseerr";
+          })
           ./workloads/jellyseerr
         ];
       };
@@ -182,6 +191,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-jellystat";
+          })
           ./workloads/jellystat
         ];
       };
@@ -189,6 +201,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-music-assistant";
+          })
           ./workloads/music-assistant
         ];
       };
@@ -196,6 +211,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-audiobookshelf";
+          })
           ./workloads/audiobookshelf
         ];
       };
@@ -203,6 +221,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-bazarr";
+          })
           ./workloads/bazarr
         ];
       };
@@ -210,6 +231,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-lidarr";
+          })
           ./workloads/lidarr
         ];
       };
@@ -217,6 +241,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-prowlarr";
+          })
           ./workloads/prowlarr
         ];
       };
@@ -224,6 +251,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-sonarr";
+          })
           ./workloads/sonarr
         ];
       };
@@ -231,6 +261,9 @@
         inherit system;
         inherit specialArgs;
         modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-radarr";
+          })
           ./workloads/radarr
         ];
       };
