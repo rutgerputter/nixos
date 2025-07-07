@@ -192,6 +192,7 @@
           agenix.nixosModules.default
           comin.nixosModules.comin
           ({...}: {
+            networking.hostName = "lxc-audiobookshelf";
             services.comin = {
               enable = true;
               remotes = [{
@@ -201,8 +202,8 @@
               }];
             };
           })
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-audiobookshelf/configuration.nix
+          ./modules/common-lxc
+          ./workloads/audiobookshelf
         ];
       };
       lxc-bazarr = nixpkgs.lib.nixosSystem {
