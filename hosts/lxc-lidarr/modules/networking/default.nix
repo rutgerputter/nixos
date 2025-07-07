@@ -7,7 +7,7 @@
 
   networking = {
     #Provide a default hostname
-    hostName = "lxc-radarr";
+    hostName = "lxc-lidarr";
     useDHCP = false;
 
     wireless = {

@@ -3,7 +3,7 @@
 { ... }:
 {
   imports = [
-    ../../workloads/radarr
+    ../../workloads/lidarr
     ./modules/boot
     ./modules/environment
     ./modules/home-manager

@@ -9,7 +9,7 @@
   programs = {
 	  zsh = {
       shellAliases = {
-        update = "cd ~/Git/nixos; sudo nixos-rebuild switch --flake .#lxc-radarr";
+        update = "cd ~/Git/nixos; sudo nixos-rebuild switch --flake .#lxc-lidarr";
       };
     };
   };
