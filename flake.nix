@@ -142,8 +142,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-janitorr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-janitorr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/janitorr
         ];
       };
       lxc-jellyfin = nixpkgs.lib.nixosSystem {
@@ -151,8 +163,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-jellyfin/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-jellyfin";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/jellyfin
         ];
       };
       lxc-jellyseerr = nixpkgs.lib.nixosSystem {
@@ -160,8 +184,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-jellyseerr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-jellyseerr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/jellyseerr
         ];
       };
       lxc-jellystat = nixpkgs.lib.nixosSystem {
@@ -169,8 +205,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-jellystat/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-jellystat";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/jellystat
         ];
       };
       lxc-music-assistant = nixpkgs.lib.nixosSystem {
@@ -178,16 +226,25 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-music-assistant/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-music-assistant";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/music-assistant
         ];
       };
       lxc-audiobookshelf = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit (self) inputs outputs;
-          hostname = "lxc-audiobookshelf";
-        };
+        specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
           comin.nixosModules.comin
@@ -211,8 +268,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-bazarr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-bazarr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/bazarr
         ];
       };
       lxc-lidarr = nixpkgs.lib.nixosSystem {
@@ -220,8 +289,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-lidarr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-lidarr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/lidarr
         ];
       };
       lxc-prowlarr = nixpkgs.lib.nixosSystem {
@@ -229,8 +310,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-prowlarr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-prowlarr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/prowlarr
         ];
       };
       lxc-sonarr = nixpkgs.lib.nixosSystem {
@@ -238,8 +331,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-sonarr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-sonarr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/sonarr
         ];
       };
       lxc-radarr = nixpkgs.lib.nixosSystem {
@@ -247,8 +352,20 @@
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
           agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/lxc-radarr/configuration.nix
+          comin.nixosModules.comin
+          ({...}: {
+            networking.hostName = "lxc-radarr";
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
+          ./modules/common-lxc
+          ./workloads/radarr
         ];
       };
     };
