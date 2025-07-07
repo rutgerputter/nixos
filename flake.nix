@@ -22,7 +22,7 @@
     comin = {
       url = "github:nlewo/comin";
       inputs.nixpkgs.follows = "nixpkgs";
-    };    
+    };
   };
 
   outputs = {
@@ -184,14 +184,16 @@
       };
       lxc-audiobookshelf = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
+        specialArgs = {
+          inherit (self) inputs outputs;
+          hostname = "lxc-audiobookshelf";
+        };
         modules = [
           agenix.nixosModules.default
           comin.nixosModules.comin
           ({...}: {
             services.comin = {
               enable = true;
-              hostname = "lxc-audiobookshelf";
               remotes = [{
                 name = "forgejo";
                 url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
