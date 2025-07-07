@@ -8,9 +8,6 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  environment.variables = {
-    SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
-  };
   # Enable home-manager and git
   programs = {
     home-manager = {
@@ -62,21 +59,6 @@
         yzhang.markdown-all-in-one
       ];
     };
-  };
-
-  xdg.configFile."autostart/gnome-keyring-ssh.desktop" = {
-    text = ''
-      [Desktop Entry]
-      Type=Application
-      Name=SSH Key Agent
-      Comment=GNOME Keyring: SSH Agent
-      Exec=/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh
-      OnlyShowIn=GNOME;Unity;MATE;
-      X-GNOME-Autostart-Phase=PreDisplayServer
-      X-GNOME-AutoRestart=false
-      X-GNOME-Autostart-Notify=true
-      Hidden=true
-    '';
   };
 
   # Nicely reload system units when changing configs
