@@ -35,6 +35,25 @@
     comin,
     ...
   }:
+  let
+    system = "x86_64-linux";
+    specialArgs = { inherit (self) inputs outputs; };
+    lxcModules = [
+      agenix.nixosModules.default
+      comin.nixosModules.comin
+      ({...}: {
+        services.comin = {
+          enable = true;
+          remotes = [{
+            name = "origin";
+            url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+            branches.main.name = "prod";
+          }];
+        };
+      })
+      ./modules/common-lxc
+    ];
+  in
   {
     packages.x86_64-linux = {
       proxmox-vm = nixos-generators.nixosGenerate {
@@ -52,6 +71,7 @@
         format = "proxmox-lxc";
       };
     };
+
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -138,23 +158,9 @@
         ];
       };
       lxc-janitorr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-janitorr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/janitorr
         ];
       };
@@ -369,5 +375,6 @@
         ];
       };
     };
+
   };
 }
