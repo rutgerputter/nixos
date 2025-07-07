@@ -191,6 +191,7 @@
           ({...}: {
             services.comin = {
               enable = true;
+              hostname = "lxc-audiobookshelf";
               remotes = [{
                 name = "forgejo";
                 url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
