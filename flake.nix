@@ -165,212 +165,72 @@
         ];
       };
       lxc-jellyfin = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-jellyfin";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/jellyfin
         ];
       };
       lxc-jellyseerr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-jellyseerr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/jellyseerr
         ];
       };
       lxc-jellystat = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-jellystat";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/jellystat
         ];
       };
       lxc-music-assistant = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-music-assistant";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/music-assistant
         ];
       };
       lxc-audiobookshelf = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-audiobookshelf";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/audiobookshelf
         ];
       };
       lxc-bazarr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-bazarr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/bazarr
         ];
       };
       lxc-lidarr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-lidarr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/lidarr
         ];
       };
       lxc-prowlarr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-prowlarr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/prowlarr
         ];
       };
       lxc-sonarr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-sonarr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/sonarr
         ];
       };
       lxc-radarr = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          comin.nixosModules.comin
-          ({...}: {
-            networking.hostName = "lxc-radarr";
-            services.comin = {
-              enable = true;
-              remotes = [{
-                name = "origin";
-                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-                branches.main.name = "prod";
-              }];
-            };
-          })
-          ./modules/common-lxc
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
           ./workloads/radarr
         ];
       };
