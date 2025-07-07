@@ -89,7 +89,7 @@
         "bazarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 6767;
         "code.intern.prutser.net"      = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 8443;
         "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "vaultwarden.services.prutser.net" 81;
-        "lidarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8686;
+        "lidarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-lidarr.services.prutser.net" 8686;
         "openbooks.intern.prutser.net" = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 5228;
         "overseerr.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
         "jellystat.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellystat.services.prutser.net" 3000;
