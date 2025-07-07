@@ -1,0 +1,6 @@
+{ ... }:
+{
+  imports = [
+    ../../../common-workload/environment
+  ];
+}

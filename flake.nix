@@ -191,6 +191,16 @@
         modules = [
           agenix.nixosModules.default
           comin.nixosModules.comin
+          ({...}: {
+            services.comin = {
+              enable = true;
+              remotes = [{
+                name = "origin";
+                url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
+                branches.main.name = "prod";
+              }];
+            };
+          })
           # > Our main nixos configuration files and modules <
           ./hosts/lxc-audiobookshelf/configuration.nix
         ];
