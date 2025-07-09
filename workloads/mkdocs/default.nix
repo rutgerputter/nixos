@@ -1,14 +1,18 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs.python313Packages; [
-    mkdocs
-    mkdocs-autorefs
-    mkdocs-awesome-nav
-    mkdocs-get-deps
-    mkdocs-linkcheck
-    mkdocs-markmap
-    mkdocs-material
-    mkdocs-material-extensions
+  environment.systemPackages = with pkgs; [
+    (python313.withPackages (
+      ps: with ps; [
+        mkdocs
+        mkdocs-autorefs
+        mkdocs-awesome-nav
+        mkdocs-get-deps
+        mkdocs-linkcheck
+        mkdocs-markmap
+        mkdocs-material
+        mkdocs-material-extensions
+      ]
+    ))
   ];
 
   systemd.services."mkdocs" = {
@@ -18,7 +22,7 @@
     wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.python313Packages.mkdocs}/bin/mkdocs serve";
+      ExecStart = "/run/current-system/sw/bin/mkdocs serve --dev-addr 0.0.0.0:8000";
       DynamicUser = true;
       StateDirectory = "mkdocs";
       AmbientCapabilities = "";
