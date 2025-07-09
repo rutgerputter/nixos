@@ -25,6 +25,22 @@
     };
   };
 
+  inputs_lxc = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+    };
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
   outputs = {
     self,
     nixpkgs,
@@ -37,7 +53,7 @@
   }:
   let
     system = "x86_64-linux";
-    specialArgs = { inherit (self) inputs outputs; };
+    specialArgs = { inherit (self) inputs_lxc outputs; };
     lxcModules = [
       agenix.nixosModules.default
       comin.nixosModules.comin
