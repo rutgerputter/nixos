@@ -17,14 +17,6 @@
     libva-utils
   ];
 
-  # Enable cron service
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "45 4 * * *      root    systemctl restart jellyfin.service"
-    ];
-  };
-
   systemd.timers."jellyfin-backup" = {
     wantedBy = [ "timers.target" ];
       timerConfig = {
