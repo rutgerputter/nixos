@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    mkdocs-flake.url = "github:applicative-systems/mkdocs-flake";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
+    mkdocs-flake,
     ...
   }:
   let
@@ -249,6 +251,17 @@
             networking.hostName = "lxc-radarr";
           })
           ./workloads/radarr
+        ];
+      };
+      lxc-mkdocs-tscnlps = nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
+          mkdocs-flake.flakeModule
+          ({...}: {
+            networking.hostName = "lxc-mkdocs-tscnlps";
+          })
+          ./workloads/mkdocs
         ];
       };
     };
