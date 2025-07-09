@@ -3,6 +3,7 @@ let
   systems = {
     lxc-janitorr = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4lOxNJsZCGhTkE0FJDURgxU8STg9SzANXTwQKEZxmg root@lxc-janitorr";
     lxc-jellystat = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaQwJYWXawzzXX/YPq+h+3ZZmDM9bA6k+1tcfsB6pk5 root@lxc-jellystat";
+    lxc-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8SX99uRHnxYi10ykveGg8bKiAdtqWs+hMUnPffyOUj root@lxc-forge-runner";
   };
   # put which users should also be able to decrypt the secret
   users = {
@@ -19,4 +20,5 @@ in {
   "jellyfin_janitorr_pass.age".publicKeys = [ systems.lxc-janitorr ];
   "jellystat_api.age".publicKeys = [ systems.lxc-janitorr ];
   "jellystat_db_pass.age".publicKeys = [ systems.lxc-jellystat ];
+  "forgejo-runner-token.age".publicKeys = [ systems.lxc-forge-runner ];
 }
