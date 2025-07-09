@@ -19,26 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.darwin.follows = "";
     };
-    comin = {
-      url = "github:nlewo/comin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  inputs_lxc = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
-    };
-    comin = {
-      url = "github:nlewo/comin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -48,25 +28,13 @@
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
-    comin,
     ...
   }:
   let
     system = "x86_64-linux";
-    specialArgs = { inherit (self) inputs_lxc outputs; };
+    specialArgs = { inherit (self) inputs outputs; };
     lxcModules = [
       agenix.nixosModules.default
-      comin.nixosModules.comin
-      ({...}: {
-        services.comin = {
-          enable = true;
-          remotes = [{
-            name = "origin";
-            url = "https://forge.intern.prutser.net/rutgerputter/nixos.git";
-            branches.main.name = "prod";
-          }];
-        };
-      })
       ./modules/common-lxc
     ];
   in
