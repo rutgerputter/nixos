@@ -261,6 +261,16 @@
           ./workloads/mkdocs
         ];
       };
+      lxc-forge-runner = nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-forge-runner";
+          })
+          ./workloads/forge/runner.nix
+        ];
+      };
     };
 
   };
