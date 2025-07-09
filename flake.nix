@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixinate.url = "github:matthewcroughan/nixinate";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
+    nixinate,
     ...
   }:
   let
@@ -55,6 +57,8 @@
         format = "proxmox-lxc";
       };
     };
+
+    apps = nixinate.nixinate.x86_64-linux self;
 
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
@@ -266,6 +270,13 @@
         inherit specialArgs;
         modules = lxcModules ++ [
           ({...}: {
+            _module.args.nixinate = {
+              host = "lxc-mkdocs-tcsnlps";
+              sshUser = "rputter";
+              buildOn = "local"; # valid args are "local" or "remote"
+              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              hermetic = false;
+            };
             networking.hostName = "lxc-mkdocs-tcsnlps";
           })
           ./workloads/mkdocs
@@ -282,6 +293,5 @@
         ];
       };
     };
-
   };
 }
