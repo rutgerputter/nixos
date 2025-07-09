@@ -278,7 +278,7 @@
           ({...}: {
             networking.hostName = "lxc-forge-runner";
           })
-          ./workloads/forge/runner.nix
+          ./workloads/forgejo/runner.nix
         ];
       };
     };
