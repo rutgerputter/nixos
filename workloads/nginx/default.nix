@@ -123,6 +123,7 @@
         "autodiscover.prutser.net"     = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "blog.prutser.net"             = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8000;
+        "tcsnlps-docs.prutser.net"     = cert "prutser.net" // proxy "lxc-mkdocs-tcsnlps.services.prutser.net" 8000;
 
         "cloud.maas-opleidingen.nl"    = cert "maas-opleidingen.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
         "mail.maas-opleidingen.nl"     = cert "maas-opleidingen.nl" // proxy "mailcow.services.prutser.net" 88;
