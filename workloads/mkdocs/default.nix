@@ -57,6 +57,34 @@
     };
   };
 
+  # You need to git pull the correct mkdocs repo once in /var/lib/private/mkdocs, from then the repo will be queried every 60 secs
+
+  systemd.timers."pull-mkdocs" = {
+    wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*:0/1";
+        Persistent = true;
+        Unit = "pull-mkdocs.service";
+      };
+  };
+
+  systemd.services."pull-mkdocs" = {
+    description = "MKDocs remote pull";
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      WorkingDirectory = "/var/lib/mkdocs";
+      ExecStart = "${pkgs.git}/bin/git pull";
+      Type = "oneshot";
+      User = "root";
+    };
+  };
+
+  programs.git.config = {
+    safe.directory = "/var/lib/private/mkdocs";
+  };
+
   networking.firewall = {
     allowedTCPPorts = [ 8000 ];
   };

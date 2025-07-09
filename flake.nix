@@ -269,7 +269,6 @@
             networking.hostName = "lxc-mkdocs-tcsnlps";
           })
           ./workloads/mkdocs
-          ./workloads/mkdocs/mkdocs-tcsnlps.nix
         ];
       };
     };
