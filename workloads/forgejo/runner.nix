@@ -17,6 +17,7 @@
         "ubuntu-22.04:docker://node:16-bullseye"
         # provide native execution on the host:
         "native:host"
+        "docker"
       ];
     };
   };
