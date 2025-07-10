@@ -51,6 +51,7 @@
     parabolic
     pavucontrol
     pciutils
+    powershell
     python312Packages.pip
     python3Full
     qtscrcpy

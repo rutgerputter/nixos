@@ -57,6 +57,7 @@
         streetsidesoftware.code-spell-checker
         ybaumes.highlight-trailing-white-spaces
         yzhang.markdown-all-in-one
+        ms-vscode.powershell
       ];
     };
   };
