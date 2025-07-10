@@ -9,6 +9,8 @@
     #Provide a default hostname
     useDHCP = false;
 
+    nameservers = [ "10.0.10.1" ];
+
     wireless = {
       enable = false;
     };
