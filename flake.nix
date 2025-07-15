@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixinate.url = "github:matthewcroughan/nixinate";
+    lollypops.url = "github:pinpox/lollypops";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,10 +26,10 @@
     self,
     nixpkgs,
     nixos-hardware,
+    lollypops,
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
-    nixinate,
     ...
   }:
   let
@@ -37,6 +37,7 @@
     specialArgs = { inherit (self) inputs outputs; };
     lxcModules = [
       agenix.nixosModules.default
+      lollypops.nixosModules.default
       ./modules/common-lxc
     ];
   in
@@ -57,8 +58,6 @@
         format = "proxmox-lxc";
       };
     };
-
-    apps = nixinate.nixinate.x86_64-linux self;
 
     nixosConfigurations = {
       nb-rputter = nixpkgs.lib.nixosSystem {
@@ -270,13 +269,6 @@
         inherit specialArgs;
         modules = lxcModules ++ [
           ({...}: {
-            _module.args.nixinate = {
-              host = "lxc-mkdocs-tcsnlps";
-              sshUser = "rputter";
-              buildOn = "local"; # valid args are "local" or "remote"
-              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
-              hermetic = false;
-            };
             networking.hostName = "lxc-mkdocs-tcsnlps";
           })
           ./workloads/mkdocs
@@ -293,5 +285,8 @@
         ];
       };
     };
+
+    packages.x86_64-linux.lollypops = lollypops.packages.x86_64-linux.default.override { configFlake = self; };
+
   };
 }
