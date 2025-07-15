@@ -5,20 +5,23 @@
     ./vaapi.nix
   ];
 
-  age.secrets.ha-mqtt-username.file = ../../secrets/ha-mqtt-username.age;
-  age.secrets.ha-mqtt-password.file = ../../secrets/ha-mqtt-password.age;
+  age.secrets.ha-mqtt = {
+    file = ../../secrets/ha-mqtt.age;
+    owner = "frigate";
+  };
 
   systemd.services.frigate = {
     environment.LIBVA_DRIVER_NAME = "iHD";
     serviceConfig = {
       AmbientCapabilities = "CAP_PERFMON";
+      EnvironmentFile = config.age.secrets.ha-mqtt.path;
     };
   };
 
   hardware.coral.usb.enable = true;
 
   networking.firewall = {
-    allowedTCPPorts = [ 5000 80 8554 8555 8971 ];
+    allowedTCPPorts = [ 5000 80 8554 8555 ];
     allowedUDPPorts = [ 8554 8555 ];
   };
 
@@ -29,8 +32,8 @@
     settings = {
       mqtt.enabled = true;
       mqtt.host = "homeassistant.services.prutser.net";
-      mqtt.user = config.age.secrets.ha-mqtt-username;
-      mqtt.password = config.age.secrets.ha-mqtt-password;
+      mqtt.user = "{FRIGATE_MQTT_USER}";
+      mqtt.password = "{FRIGATE_MQTT_PASSWORD}";
 
       auth.enabled = false;
 

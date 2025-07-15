@@ -22,6 +22,5 @@ in {
   "jellystat_api.age".publicKeys = [ systems.lxc-janitorr ];
   "jellystat_db_pass.age".publicKeys = [ systems.lxc-jellystat ];
   "forgejo-runner-token.age".publicKeys = [ systems.lxc-forge-runner ];
-  "ha-mqtt-username.age".publicKeys = [ systems.lxc-frigate ];
-  "ha-mqtt-password.age".publicKeys = [ systems.lxc-frigate ];
+  "ha-mqtt.age".publicKeys = [ systems.lxc-frigate ];
 }
