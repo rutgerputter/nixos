@@ -4,16 +4,37 @@
     ./mounts.nix
     ./vaapi.nix
   ];
+
+  systemd.services.frigate = {
+    environment.LIBVA_DRIVER_NAME = "iHD";
+    serviceConfig = {
+      AmbientCapabilities = "CAP_PERFMON";
+    };
+  };
+
+  hardware.coral.usb.enable = true;
+
+  networking.firewall = {
+    allowedTCPPorts = [ 5000 80 8554 8555 8971 ];
+    allowedUDPPorts = [ 8554 8555 ];
+  };
+
   services.frigate = {
     enable = true;
     hostname = "lxc-frigate";
 
     settings = {
       mqtt.enabled = true;
+      mqtt.host = "192.168.1.30";
+      mqtt.user = "user";
+      mqtt.password = "user";
+
+      auth.enabled = false;
 
       detectors.coral = {
         type = "edgetpu";
         device = "usb";
+        enabled = true;
       };
 
       record = {

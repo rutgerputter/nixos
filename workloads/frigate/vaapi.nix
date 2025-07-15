@@ -1,15 +1,15 @@
 { lib, pkgs, ... }:
 {
-  users.groups."render" = {
-    name = "render";
+  users.groups."prox-render" = {
+    name = "prox-render";
     gid = lib.mkForce 104;
   };
-  users.groups."video" = {
-    name = "video";
+  users.groups."prox-video" = {
+    name = "prox-video";
     gid = lib.mkForce 44;
   };
 
-  users.users.frigate.extraGroups = [ "video" "render" ];
+  users.users.frigate.extraGroups = [ "prox-video" "prox-render" "coral" ];
   # 1. enable vaapi on OS-level
   nixpkgs.config.packageOverrides = pkgs: {
     # Only set this if using intel-vaapi-driver
