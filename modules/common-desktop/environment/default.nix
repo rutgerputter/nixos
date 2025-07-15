@@ -68,5 +68,6 @@
     usbutils
     yt-dlp
     protontricks
+    okteta
   ];
 }
