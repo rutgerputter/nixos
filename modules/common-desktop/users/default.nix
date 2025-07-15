@@ -14,7 +14,7 @@
         isSystemUser = false;
         isNormalUser = true;
         shell = pkgs.zsh;
-        extraGroups = [ "networkmanager" "wheel" "gamemode" "libvirtd"];
+        extraGroups = [ "networkmanager" "wheel" "gamemode" "libvirtd" "nixbld" ];
         packages = with pkgs; [
           signal-desktop
           unstable.bitwarden-desktop
