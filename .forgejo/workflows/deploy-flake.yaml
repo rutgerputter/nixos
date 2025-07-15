@@ -14,4 +14,4 @@ jobs:
         with:
           submodules: true
       - name: Nixinate!
-        run: nix run .#apps.nixinate.#TARGET_HOST
+        run: /run/current-system/sw/bin/nix run .#apps.nixinate.#TARGET_HOST
