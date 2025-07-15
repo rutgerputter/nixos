@@ -3,6 +3,16 @@
 name: Nixinate
 on:  # yamllint disable-line rule:truthy
   workflow_dispatch:
+    inputs:
+      target_host:
+        description: 'Target Host'
+        required: true
+        default: 'lxc-audiobookshelf'
+        type: choice
+        options:
+          - lxc-audiobookshelf
+          - lxc-mkdocs-tcsnlps
+
 jobs:
   nixinate:
     runs-on: native
@@ -14,4 +24,4 @@ jobs:
         with:
           submodules: true
       - name: Nixinate!
-        run: /run/current-system/sw/bin/nix run .#apps.nixinate.$TARGET_HOST
+        run: /run/current-system/sw/bin/nix run .#apps.nixinate.${{ inputs.target_host }}
