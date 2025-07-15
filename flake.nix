@@ -3,7 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    lollypops.url = "github:pinpox/lollypops";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +25,6 @@
     self,
     nixpkgs,
     nixos-hardware,
-    lollypops,
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
@@ -37,7 +35,6 @@
     specialArgs = { inherit (self) inputs outputs; };
     lxcModules = [
       agenix.nixosModules.default
-      lollypops.nixosModules.default
       ./modules/common-lxc
     ];
   in
@@ -285,8 +282,5 @@
         ];
       };
     };
-
-    packages.x86_64-linux.lollypops = lollypops.packages.x86_64-linux.default.override { configFlake = self; };
-
   };
 }
