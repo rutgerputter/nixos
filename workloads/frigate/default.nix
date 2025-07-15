@@ -1,9 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./mounts.nix
     ./vaapi.nix
   ];
+
+  age.secrets.ha-mqtt-username.file = ../../secrets/ha-mqtt-username.age;
+  age.secrets.ha-mqtt-password.file = ../../secrets/ha-mqtt-password.age;
 
   systemd.services.frigate = {
     environment.LIBVA_DRIVER_NAME = "iHD";
@@ -25,9 +28,9 @@
 
     settings = {
       mqtt.enabled = true;
-      mqtt.host = "192.168.1.30";
-      mqtt.user = "user";
-      mqtt.password = "user";
+      mqtt.host = "homeassistant.services.prutser.net";
+      mqtt.user = config.age.secrets.ha-mqtt-username;
+      mqtt.password = config.age.secrets.ha-mqtt-password;
 
       auth.enabled = false;
 
