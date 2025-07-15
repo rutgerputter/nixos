@@ -165,6 +165,16 @@
           ./workloads/jellyfin
         ];
       };
+      lxc-frigate = nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit specialArgs;
+        modules = lxcModules ++ [
+          ({...}: {
+            networking.hostName = "lxc-frigate";
+          })
+          ./workloads/frigate
+        ];
+      };
       lxc-jellyseerr = nixpkgs.lib.nixosSystem {
         inherit system;
         inherit specialArgs;

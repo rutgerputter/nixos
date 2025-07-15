@@ -6,6 +6,7 @@
   environment.variables = {
     SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
     NIXOS_OZONE_WL=1;
+    NIX_REMOTE = "daemon";
   };
   environment.systemPackages = with pkgs; [
     (hiPrio papirus-icon-theme)

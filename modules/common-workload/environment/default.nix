@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  environment.variables = {
+    NIX_REMOTE = "daemon";
+  };
   environment.systemPackages = with pkgs; [
     exfat
     exfatprogs
