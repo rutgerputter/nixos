@@ -24,4 +24,6 @@ jobs:
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
             ssh-add /home/gitea-runner/.ssh/forgejo_actions
       - name: Go Go Go!
-        run: /run/current-system/sw/bin/zsh -c "nix run github:zhaofengli/colmena -- apply switch"
+        run: |
+            nix shell github:zhaofengli/colmena
+            colmena -- apply switch
