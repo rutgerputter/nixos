@@ -13,6 +13,8 @@
   # add podman and podman-compose
   environment.systemPackages = with pkgs; [ podman-compose podman-tui ];
 
+  networking.firewall.trustedInterfaces = [ "podman0" ];
+
   # Allow non-root containers to access lower port numbers
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 80;
 }
