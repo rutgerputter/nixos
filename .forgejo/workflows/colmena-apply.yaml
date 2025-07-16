@@ -22,9 +22,5 @@ jobs:
             chmod 600 /home/gitea-runner/.ssh/forgejo_actions
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
             ssh-add /home/gitea-runner/.ssh/forgejo_actions
-      - name: Install Nix On Runner
-        uses: cachix/install-nix-action@v30
-        with:
-          nix_path: nixpkgs=channel:nixos-unstable
       - name: Go Go Go!
         run: nix run github:zhaofengli/colmena -- apply switch
