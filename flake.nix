@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    deploy-rs.url = "github:serokell/deploy-rs";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,12 +27,22 @@
     nixpkgs,
     nixos-hardware,
     nixos-generators,
+    deploy-rs,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
     ...
   }:
   let
     system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+    # nixpkgs with deploy-rs overlay but force the nixpkgs package
+    deployPkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        deploy-rs.overlays.default # or deploy-rs.overlays.default
+        (self: super: { deploy-rs = { inherit (pkgs) deploy-rs; lib = super.deploy-rs.lib; }; })
+      ];
+    };
     specialArgs = { inherit (self) inputs outputs; };
     lxcModules = [
       agenix.nixosModules.default
@@ -282,5 +293,145 @@
         ];
       };
     };
+
+    deploy = {
+      sshUser = "rputter";
+      user = "root";
+      interactiveSudo = false;
+      sshOpts = ["-oStrictHostKeyChecking=accept-new"];
+
+      nodes = {
+        vm-nextcloud-demo = {
+          hostname = "vm-nextcloud-demo.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.vm-nextcloud-demo;
+          };
+        };
+        vm-nginx = {
+          hostname = "vm-nginx.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.vm-nginx;
+          };
+        };
+        lxc-janitorr = {
+          hostname = "lxc-janitorr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-janitorr;
+          };
+        };
+        lxc-jellyfin = {
+          hostname = "lxc-jellyfin.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-jellyfin;
+          };
+        };
+        lxc-frigate = {
+          hostname = "lxc-frigate.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-frigate;
+          };
+        };
+        lxc-jellyseerr = {
+          hostname = "lxc-jellyseerr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-jellyseerr;
+          };
+        };
+        lxc-jellystat = {
+          hostname = "lxc-jellystat.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-jellystat;
+          };
+        };
+        lxc-music-assistant = {
+          hostname = "lxc-music-assistant.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-music-assistant;
+          };
+        };
+        lxc-audiobookshelf = {
+          hostname = "lxc-audiobookshelf.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-audiobookshelf;
+          };
+        };
+        lxc-bazarr = {
+          hostname = "lxc-bazarr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-bazarr;
+          };
+        };
+        lxc-lidarr = {
+          hostname = "lxc-lidarr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-lidarr;
+          };
+        };
+        lxc-prowlarr = {
+          hostname = "lxc-prowlarr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-prowlarr;
+          };
+        };
+        lxc-sonarr = {
+          hostname = "lxc-sonarr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-sonarr;
+          };
+        };
+        lxc-radarr = {
+          hostname = "lxc-radarr.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-radarr;
+          };
+        };
+        lxc-mkdocs-tcsnlps = {
+          hostname = "lxc-mkdocs-tcsnlps.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-mkdocs-tcsnlps;
+          };
+        };
+        lxc-forge-runner = {
+          hostname = "lxc-forge-runner.services.prutser.net";
+          profiles.system = {
+            path =
+              deployPkgs.deploy-rs.lib.activate.nixos
+              self.nixosConfigurations.lxc-forge-runner;
+          };
+        };
+      };
+    };
+    # This is highly advised, and will prevent many possible mistakes
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
 }
