@@ -298,7 +298,7 @@
       sshUser = "rputter";
       user = "root";
       interactiveSudo = false;
-      sshOpts = ["-oStrictHostKeyChecking=accept-new"];
+      sshOpts = ["-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"];
 
       nodes = {
         vm-nextcloud-demo = {
