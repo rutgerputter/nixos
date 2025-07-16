@@ -15,4 +15,4 @@ jobs:
       - name: Write Key
         run: mkdir -p ~/.ssh && echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > ~/.ssh/id_ed25519
       - name: Go Go Go!
-        run: /run/current-system/sw/bin/zsh -c "nix run github:zhaofengli/colmena -- apply"
+        run: /run/current-system/sw/bin/nix run github:zhaofengli/colmena -- apply switch
