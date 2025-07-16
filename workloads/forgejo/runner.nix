@@ -19,6 +19,23 @@
         "native:host"
         "docker"
       ];
+      settings = {
+        container = {
+          network = "bridge";
+        };
+      };
+      hostPackages = with pkgs; [
+        bash
+        coreutils
+        curl
+        gawk
+        gitMinimal
+        gnused
+        nodejs
+        rsync
+        wget
+        openssh
+      ];
     };
   };
 
