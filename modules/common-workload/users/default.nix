@@ -13,7 +13,10 @@
         isNormalUser = true;
         shell = pkgs.zsh;
         extraGroups = [ "wheel" "podman" "nixbld" ];
-        openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICXgN/t1XjRbHwcsfihSmx+GiRoPBVU0AzL1o8xTZXNJ" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINZhe2PGkZVdS0pJNNm4HPDsyLzGWRfulTe+18RT0Ip4" ];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICXgN/t1XjRbHwcsfihSmx+GiRoPBVU0AzL1o8xTZXNJ rputter@bitwarden"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINZhe2PGkZVdS0pJNNm4HPDsyLzGWRfulTe+18RT0Ip4 rputter@forge"
+        ];
 #         packages = with pkgs; [
 #         ];
       };

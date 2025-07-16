@@ -13,6 +13,6 @@ jobs:
         with:
           submodules: true
       - name: Write Key
-        run: mkdir -p ~/.ssh && echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > ~/.ssh/id_rsa
+        run: mkdir -p ~/.ssh && echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > ~/.ssh/id_ed25519
       - name: Go Go Go!
         run: /run/current-system/sw/bin/zsh -c "nix run github:serokell/deploy-rs"
