@@ -15,4 +15,4 @@ jobs:
       - name: Write Key
         run: mkdir -p ~/.ssh && echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > ~/.ssh/id_rsa
       - name: Go Go Go!
-        run: /run/current-system/sw/bin/zsh "nix run github:serokell/deploy-rs"
+        run: /run/current-system/sw/bin/zsh -c "nix run github:serokell/deploy-rs"
