@@ -25,4 +25,4 @@ jobs:
             ssh-add /home/gitea-runner/.ssh/forgejo_actions
       - name: Go Go Go!
         run: |
-            /run/current-system/sw/bin/bash -c "nix shell github:zhaofengli/colmena --command colmena apply -- switch"
+            /run/current-system/sw/bin/zsh -c "nix shell github:zhaofengli/colmena --command colmena apply -- switch"
