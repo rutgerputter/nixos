@@ -3,6 +3,8 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = true;
+      substituters = [ "https://cache.nixos.org" "https://colmena.cachix.org"];
+      trusted-substituters = [ "https://cache.nixos.org" "https://colmena.cachix.org"];
     };
     optimise = {
       automatic = true;
