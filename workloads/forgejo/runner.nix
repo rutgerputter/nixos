@@ -25,4 +25,21 @@
   age.secrets.forgejo-runner-token = {
     file = ../../secrets/forgejo-runner-token.age;
   };
+
+  users = {
+    users = {
+      gitea-runner = {
+        description = "Gitea Runner";
+        home = "/home/gitea-runner";
+        group = "users";
+        createHome = true;
+        homeMode = "700";
+        isSystemUser = false;
+        isNormalUser = true;
+        shell = pkgs.zsh;
+        extraGroups = [ "nixbld" ];
+      };
+    };
+  };
+
 }
