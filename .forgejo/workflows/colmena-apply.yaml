@@ -6,7 +6,7 @@ on:  # yamllint disable-line rule:truthy
 
 jobs:
   colmena-apply:
-    runs-on: native
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout git repo
         uses: actions/checkout@v4
@@ -22,5 +22,9 @@ jobs:
             chmod 600 /home/gitea-runner/.ssh/forgejo_actions
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
             ssh-add /home/gitea-runner/.ssh/forgejo_actions
+      - name: Install Nix On Runner
+        uses: cachix/install-nix-action@v30
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
       - name: Go Go Go!
-        run: /run/current-system/sw/bin/nix run github:zhaofengli/colmena -- apply switch
+        run: nix run github:zhaofengli/colmena -- apply switch
