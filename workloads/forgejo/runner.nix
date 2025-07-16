@@ -42,4 +42,7 @@
     };
   };
 
+  systemd.services."gitea-runner-default".serviceConfig.ReadWritePaths = [
+    "/home/gitea-runner"
+  ];
 }
