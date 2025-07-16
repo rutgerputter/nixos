@@ -5,7 +5,7 @@ on:  # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 jobs:
-  deploy-rs:
+  colmena-apply:
     runs-on: native
     steps:
       - name: Checkout git repo
@@ -15,4 +15,4 @@ jobs:
       - name: Write Key
         run: mkdir -p ~/.ssh && echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > ~/.ssh/id_ed25519
       - name: Go Go Go!
-        run: /run/current-system/sw/bin/zsh -c "nix run github:serokell/deploy-rs"
+        run: /run/current-system/sw/bin/zsh -c "nix run github:zhaofengli/colmena -- apply"

@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    deploy-rs.url = "github:serokell/deploy-rs";
+    colmena.url = "github:zhaofengli/colmena";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -27,28 +27,11 @@
     nixpkgs,
     nixos-hardware,
     nixos-generators,
-    deploy-rs,
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
+    colmena,
     ...
   }:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-    # nixpkgs with deploy-rs overlay but force the nixpkgs package
-    deployPkgs = import nixpkgs {
-      inherit system;
-      overlays = [
-        deploy-rs.overlays.default # or deploy-rs.overlays.default
-        (self: super: { deploy-rs = { inherit (pkgs) deploy-rs; lib = super.deploy-rs.lib; }; })
-      ];
-    };
-    specialArgs = { inherit (self) inputs outputs; };
-    lxcModules = [
-      agenix.nixosModules.default
-      ./modules/common-lxc
-    ];
-  in
   {
     packages.x86_64-linux = {
       proxmox-vm = nixos-generators.nixosGenerate {
@@ -134,304 +117,248 @@
           ./hosts/pc-rputter/configuration.nix
         ];
       };
-      vm-nextcloud-demo = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+    };
+    colmenaHive = colmena.lib.makeHive self.outputs.colmena;
+
+    colmena = {
+      meta = {
+        nixpkgs = import nixpkgs {
+          system = "x86_64-linux";
+        };
         specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/vm-nextcloud-demo/configuration.nix
-        ];
       };
-      vm-nginx = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit (self) inputs outputs; };
-        modules = [
-          agenix.nixosModules.default
-          # > Our main nixos configuration files and modules <
-          ./hosts/vm-nginx/configuration.nix
-        ];
-      };
-      lxc-janitorr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-janitorr";
-          })
-          ./workloads/janitorr
-        ];
-      };
-      lxc-jellyfin = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-jellyfin";
-          })
-          ./workloads/jellyfin
-        ];
-      };
-      lxc-frigate = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-frigate";
-          })
-          ./workloads/frigate
-        ];
-      };
-      lxc-jellyseerr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-jellyseerr";
-          })
-          ./workloads/jellyseerr
-        ];
-      };
-      lxc-jellystat = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-jellystat";
-          })
-          ./workloads/jellystat
-        ];
-      };
-      lxc-music-assistant = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-music-assistant";
-          })
-          ./workloads/music-assistant
-        ];
-      };
-      lxc-audiobookshelf = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
+      lxc-audiobookshelf = {
+        deployment = {
+          targetHost = "lxc-audiobookshelf.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+        };
+        imports = [
           ({...}: {
             networking.hostName = "lxc-audiobookshelf";
           })
+          agenix.nixosModules.default
+          ./modules/common-lxc
           ./workloads/audiobookshelf
         ];
       };
-      lxc-bazarr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
+      lxc-bazarr = {
+        deployment = {
+          targetHost = "lxc-bazarr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+        };
+        imports = [
           ({...}: {
             networking.hostName = "lxc-bazarr";
           })
+          agenix.nixosModules.default
+          ./modules/common-lxc
           ./workloads/bazarr
         ];
       };
-      lxc-lidarr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-lidarr";
-          })
-          ./workloads/lidarr
-        ];
-      };
-      lxc-prowlarr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-prowlarr";
-          })
-          ./workloads/prowlarr
-        ];
-      };
-      lxc-sonarr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-sonarr";
-          })
-          ./workloads/sonarr
-        ];
-      };
-      lxc-radarr = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-radarr";
-          })
-          ./workloads/radarr
-        ];
-      };
-      lxc-mkdocs-tcsnlps = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
-          ({...}: {
-            networking.hostName = "lxc-mkdocs-tcsnlps";
-          })
-          ./workloads/mkdocs
-        ];
-      };
-      lxc-forge-runner = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = lxcModules ++ [
+      lxc-forge-runner = {
+        deployment = {
+          targetHost = "lxc-forge-runner.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+        };
+        imports = [
           ({...}: {
             networking.hostName = "lxc-forge-runner";
           })
+          agenix.nixosModules.default
+          ./modules/common-lxc
           ./workloads/forgejo/runner.nix
         ];
       };
-    };
-
-    deploy = {
-      sshUser = "rputter";
-      user = "root";
-      interactiveSudo = false;
-      sshOpts = ["-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"];
-
-      nodes = {
-        vm-nextcloud-demo = {
-          hostname = "vm-nextcloud-demo.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.vm-nextcloud-demo;
-          };
+      lxc-frigate = {
+        deployment = {
+          targetHost = "lxc-frigate.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        vm-nginx = {
-          hostname = "vm-nginx.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.vm-nginx;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-frigate";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/frigate
+        ];
+      };
+      lxc-janitorr = {
+        deployment = {
+          targetHost = "lxc-janitorr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-janitorr = {
-          hostname = "lxc-janitorr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-janitorr;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-janitorr";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/janitorr
+        ];
+      };
+      lxc-jellyfin = {
+        deployment = {
+          targetHost = "lxc-jellyfin.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-jellyfin = {
-          hostname = "lxc-jellyfin.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-jellyfin;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-jellyfin";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/jellyfin
+        ];
+      };
+      lxc-jellyseerr = {
+        deployment = {
+          targetHost = "lxc-jellyseerr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-frigate = {
-          hostname = "lxc-frigate.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-frigate;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-jellyseerr";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/jellyseerr
+        ];
+      };
+      lxc-jellystat = {
+        deployment = {
+          targetHost = "lxc-jellystat.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-jellyseerr = {
-          hostname = "lxc-jellyseerr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-jellyseerr;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-jellystat";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/jellystat
+        ];
+      };
+      lxc-lidarr = {
+        deployment = {
+          targetHost = "lxc-lidarr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-jellystat = {
-          hostname = "lxc-jellystat.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-jellystat;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-lidarr";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/lidarr
+        ];
+      };
+      lxc-mkdocs-tcsnlps = {
+        deployment = {
+          targetHost = "lxc-mkdocs-tcsnlps.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-music-assistant = {
-          hostname = "lxc-music-assistant.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-music-assistant;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-mkdocs-tcsnlps";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/mkdocs
+        ];
+      };
+      lxc-music-assistant = {
+        deployment = {
+          targetHost = "lxc-music-assistant.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-audiobookshelf = {
-          hostname = "lxc-audiobookshelf.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-audiobookshelf;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-music-assistant";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/music-assistant
+        ];
+      };
+      lxc-prowlarr = {
+        deployment = {
+          targetHost = "lxc-prowlarr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-bazarr = {
-          hostname = "lxc-bazarr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-bazarr;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-prowlarr";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/prowlarr
+        ];
+      };
+      lxc-radarr = {
+        deployment = {
+          targetHost = "lxc-radarr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-lidarr = {
-          hostname = "lxc-lidarr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-lidarr;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-radarr";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/radarr
+        ];
+      };
+      lxc-sonarr = {
+        deployment = {
+          targetHost = "lxc-sonarr.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
         };
-        lxc-prowlarr = {
-          hostname = "lxc-prowlarr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-prowlarr;
-          };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-sonarr";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/sonarr
+        ];
+      };
+      vm-nextcloud-demo = {
+        deployment = {
+          targetHost = "vm-nextcloud-demo.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["vm"];
         };
-        lxc-sonarr = {
-          hostname = "lxc-sonarr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-sonarr;
-          };
+        imports = [
+          agenix.nixosModules.default
+          ./hosts/vm-nextcloud-demo/configuration.nix
+        ];
+      };
+      vm-nginx = {
+        deployment = {
+          targetHost = "vm-nginx.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["vm" "prod"];
         };
-        lxc-radarr = {
-          hostname = "lxc-radarr.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-radarr;
-          };
-        };
-        lxc-mkdocs-tcsnlps = {
-          hostname = "lxc-mkdocs-tcsnlps.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-mkdocs-tcsnlps;
-          };
-        };
-        lxc-forge-runner = {
-          hostname = "lxc-forge-runner.services.prutser.net";
-          profiles.system = {
-            path =
-              deployPkgs.deploy-rs.lib.activate.nixos
-              self.nixosConfigurations.lxc-forge-runner;
-          };
-        };
+        imports = [
+          agenix.nixosModules.default
+          ./hosts/vm-nginx/configuration.nix
+        ];
       };
     };
-    # This is highly advised, and will prevent many possible mistakes
-    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
 }
