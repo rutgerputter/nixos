@@ -17,10 +17,10 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
             mkdir -p /home/gitea-runner/.ssh
-            ssh-keyscan -f my_hosts >> /home/gitea-runner/.ssh/known_hosts
-            echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > /home/gitea-runner/.ssh/github_actions
-            chmod 600 /home/gitea-runner/.ssh/github_actions
+            touch /home/gitea-runner/.ssh/known_hosts
+            echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > /home/gitea-runner/.ssh/forgejo_actions
+            chmod 600 /home/gitea-runner/.ssh/forgejo_actions
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-            ssh-add /home/gitea-runner/.ssh/github_actions
+            ssh-add /home/gitea-runner/.ssh/forgejo_actions
       - name: Go Go Go!
         run: /run/current-system/sw/bin/nix run github:zhaofengli/colmena -- apply switch
