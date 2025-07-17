@@ -37,7 +37,7 @@ in
   };
 
   age.secrets.forgejo-mailer-password = {
-    file = ../secrets/forgejo-mailer-password.age;
+    file = ../../secrets/forgejo-mailer-password.age;
     mode = "400";
     owner = "forgejo";
   };
