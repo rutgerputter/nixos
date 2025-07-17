@@ -17,7 +17,7 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-            if [ ! -f $SSH_AUTH_SOCK ]; then
+            if [ ! -f /tmp/ssh_agent.sock ]; then
               mkdir -p /home/gitea-runner/.ssh
               touch /home/gitea-runner/.ssh/known_hosts
               echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > /home/gitea-runner/.ssh/forgejo_actions
