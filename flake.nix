@@ -38,6 +38,9 @@
         system = "x86_64-linux";
         modules = [
           ./generators/proxmox-vm/configuration.nix
+          {
+            virtualisation.diskSize = 16 * 1024;
+          }
         ];
         format = "proxmox";
       };
@@ -347,7 +350,7 @@
             networking.hostName = "vm-forge";
           })
           agenix.nixosModules.default
-          ./modules/common-lxc
+          ./modules/common-vm
           ./workloads/forgejo
         ];
       };

@@ -14,6 +14,6 @@
   fileSystems."/" = lib.mkDefault {
     device = "/dev/disk/by-label/nixos";
     autoResize = true;
-    fsType = "btrfs";
+    fsType = "ext4";
   };
 }
