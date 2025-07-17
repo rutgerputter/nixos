@@ -113,22 +113,19 @@
   services.go2rtc = {
     enable = true;
     settings = {
+      api.origin = "*";
       streams = {
         "frontdoor" = [
           "rtsp://rputter:Vrijdag01.@192.168.1.215/stream1"
-          "ffmpeg:frontdoor#audio=opus"
         ];
         "frontdoor_sub" = [
           "rtsp://rputter:Vrijdag01.@192.168.1.215/stream2"
-          "ffmpeg:frontdoor_sub#audio=opus"
         ];
         "backyard" = [
           "rtsp://rputter:Vrijdag01.@192.168.1.216/stream1"
-          "ffmpeg:backyard#audio=opus"
         ];
         "backyard_sub" = [
           "rtsp://rputter:Vrijdag01.@192.168.1.216/stream2"
-          "ffmpeg:backyard_sub#audio=opus"
         ];
         "3dprinter" = [
           "rtsp://rputter:Vrijdag01.@192.168.1.214:554/videoMain"
