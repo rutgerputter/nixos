@@ -12,22 +12,24 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: /tmp/ssh_agent.sock
       - name: Add SSH key
-        continue-on-error: true
+        if: steps.check_files.outputs.files_exists == 'true'
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-            if [ ! -f /tmp/ssh_agent.sock ]; then
-              mkdir -p /home/gitea-runner/.ssh
-              touch /home/gitea-runner/.ssh/known_hosts
-              echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > /home/gitea-runner/.ssh/forgejo_actions
-              chmod 600 /home/gitea-runner/.ssh/forgejo_actions
-              ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-              ssh-add /home/gitea-runner/.ssh/forgejo_actions
-            fi
-        shell: bash
+            mkdir -p /home/gitea-runner/.ssh
+            touch /home/gitea-runner/.ssh/known_hosts
+            echo "${{ secrets.SSH_DEPLOY_PRIVKEY }}" > /home/gitea-runner/.ssh/forgejo_actions
+            chmod 600 /home/gitea-runner/.ssh/forgejo_actions
+            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+            ssh-add /home/gitea-runner/.ssh/forgejo_actions
       - name: Go Go Go!
         env:
           PATH: /run/wrappers/bin:/home/gitea-runner/.nix-profile/bin:/nix/profile/bin:/home/gitea-runner/.local/state/nix/profile/bin:/etc/profiles/per-user/gitea-runner/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin
         run: |
-            /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --command colmena -- --accept-flake-config apply --verbose -- switch
+            /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --command colmena apply --verbose -- switch
