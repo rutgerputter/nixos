@@ -29,7 +29,6 @@
       notes
       notify_push
       previewgenerator
-      recognize
       richdocuments
       sociallogin
       spreed
