@@ -344,7 +344,7 @@
         };
         imports = [
           ({...}: {
-            networking.hostName = "cm-forge-runner";
+            networking.hostName = "vm-forge-runner";
           })
           agenix.nixosModules.default
           ./hosts/vm-forge-runner/configuration.nix

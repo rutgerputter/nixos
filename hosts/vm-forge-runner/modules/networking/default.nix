@@ -7,7 +7,6 @@
 
   networking = {
     #Provide a default hostname
-    hostName = "vm-nginx";
     useDHCP = false;
 
     wireless = {
