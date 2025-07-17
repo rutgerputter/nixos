@@ -16,6 +16,7 @@ jobs:
         continue-on-error: true
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+          PATH: nixpkgs=/nix/var/nix/profiles/per-user/$USER/channels/nixpkgs:/nix/var/nix/profiles/per-user/$USER/channels
         run: |
             mkdir -p /home/gitea-runner/.ssh
             touch /home/gitea-runner/.ssh/known_hosts
