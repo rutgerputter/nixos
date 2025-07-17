@@ -24,7 +24,5 @@ jobs:
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
             ssh-add /home/gitea-runner/.ssh/forgejo_actions
       - name: Go Go Go!
-        env:
-          PATH: "$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
         run: |
-            /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --command colmena apply -- switch
+            /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --impure --command colmena apply -- switch
