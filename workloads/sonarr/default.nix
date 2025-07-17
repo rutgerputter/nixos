@@ -9,9 +9,6 @@
       image = "lscr.io/linuxserver/sonarr:latest";
       autoStart = true;
       ports = [ "8989:8989" ];
-      extraOptions = [
-        "--network=host"
-      ];
       volumes = [
           "/data/sonarr-config:/config"
           "/data/video:/data/video"
