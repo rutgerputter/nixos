@@ -34,4 +34,4 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
           NIX_CONFIG: access-tokens = github.com=${{ secrets.GH_PAT }}
         run: |
-            /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --command colmena apply -v --parallel 5 --eval-node-limit 5 -- switch
+            /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --command colmena apply -v --parallel 8 --eval-node-limit 8 -- switch
