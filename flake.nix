@@ -347,7 +347,8 @@
             networking.hostName = "vm-forge";
           })
           agenix.nixosModules.default
-          ./hosts/vm-forge/configuration.nix
+          ./modules/common-lxc
+          ./workloads/forgejo
         ];
       };
       vm-forge-runner = {
