@@ -16,7 +16,6 @@ jobs:
         continue-on-error: true
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-          PATH: nixpkgs=/nix/var/nix/profiles/per-user/$USER/channels/nixpkgs:/nix/var/nix/profiles/per-user/$USER/channels
         run: |
             mkdir -p /home/gitea-runner/.ssh
             touch /home/gitea-runner/.ssh/known_hosts
@@ -25,5 +24,7 @@ jobs:
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
             ssh-add /home/gitea-runner/.ssh/forgejo_actions
       - name: Go Go Go!
+        env:
+          PATH: nixpkgs=/nix/var/nix/profiles/per-user/$USER/channels/nixpkgs:/nix/var/nix/profiles/per-user/$USER/channels
         run: |
             /run/current-system/sw/bin/nix shell github:zhaofengli/colmena --command colmena apply -- switch
