@@ -14,7 +14,7 @@ jobs:
           submodules: true
       - name: Check file existence
         id: check_files
-        uses: andstor/file-existence-action@v1
+        uses: https://github.com/andstor/file-existence-action@v3
         with:
           files: /tmp/ssh_agent.sock
       - name: Add SSH key
