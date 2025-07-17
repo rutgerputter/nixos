@@ -159,22 +159,6 @@
           ./workloads/bazarr
         ];
       };
-      lxc-forge-runner = {
-        deployment = {
-          targetHost = "lxc-forge-runner.services.prutser.net";
-          targetUser = "rputter";
-          tags = ["lxc"];
-          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
-        };
-        imports = [
-          ({...}: {
-            networking.hostName = "lxc-forge-runner";
-          })
-          agenix.nixosModules.default
-          ./modules/common-lxc
-          ./workloads/forgejo/runner.nix
-        ];
-      };
       lxc-frigate = {
         deployment = {
           targetHost = "lxc-frigate.services.prutser.net";
@@ -349,6 +333,21 @@
           agenix.nixosModules.default
           ./modules/common-lxc
           ./workloads/sonarr
+        ];
+      };
+      vm-forge-runner = {
+        deployment = {
+          targetHost = "vm-forge-runner.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "cm-forge-runner";
+          })
+          agenix.nixosModules.default
+          ./hosts/vm-forge-runner/configuration.nix
         ];
       };
       vm-nextcloud-demo = {
