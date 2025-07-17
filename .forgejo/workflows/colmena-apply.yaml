@@ -18,7 +18,7 @@ jobs:
         with:
           files: /tmp/ssh_agent.sock
       - name: Add SSH key
-        if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.check_files.outputs.files_exists == 'false'
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
