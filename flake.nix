@@ -335,6 +335,21 @@
           ./workloads/sonarr
         ];
       };
+      vm-forge = {
+        deployment = {
+          targetHost = "vm-forge.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "vm-forge";
+          })
+          agenix.nixosModules.default
+          ./hosts/vm-forge/configuration.nix
+        ];
+      };
       vm-forge-runner = {
         deployment = {
           targetHost = "vm-forge-runner.services.prutser.net";

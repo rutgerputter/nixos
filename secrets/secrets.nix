@@ -3,8 +3,9 @@ let
   systems = {
     lxc-janitorr = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4lOxNJsZCGhTkE0FJDURgxU8STg9SzANXTwQKEZxmg root@lxc-janitorr";
     lxc-jellystat = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaQwJYWXawzzXX/YPq+h+3ZZmDM9bA6k+1tcfsB6pk5 root@lxc-jellystat";
-    vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
     lxc-frigate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfP9PjHHFABiANHHBpNQfknhlSKkK1ZClEDwxp4kJSn root@lxc-frigate";
+    vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
+    vm-forge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0ZAHEEdbIjfmREBxm5jQjHWlkksr+EeuczTh12SDOD root@vm-forge";
   };
   # put which users should also be able to decrypt the secret
   users = {
@@ -21,6 +22,7 @@ in {
   "jellyfin_janitorr_pass.age".publicKeys = [ systems.lxc-janitorr ];
   "jellystat_api.age".publicKeys = [ systems.lxc-janitorr ];
   "jellystat_db_pass.age".publicKeys = [ systems.lxc-jellystat ];
+  "forgejo-mailer-password.age".publicKeys = [ systems.vm-forge ];
   "forgejo-runner-token.age".publicKeys = [ systems.vm-forge-runner ];
   "ha-mqtt.age".publicKeys = [ systems.lxc-frigate ];
 }
