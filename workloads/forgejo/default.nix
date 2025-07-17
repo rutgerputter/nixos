@@ -4,6 +4,10 @@ let
   srv = cfg.settings.server;
 in
 {
+  imports = [
+    ./mounts.nix
+  ];
+
   services.forgejo = {
     enable = true;
     database.type = "postgres";
