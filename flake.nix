@@ -132,6 +132,7 @@
           targetHost = "lxc-audiobookshelf.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -147,6 +148,7 @@
           targetHost = "lxc-bazarr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -162,6 +164,7 @@
           targetHost = "lxc-forge-runner.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -177,6 +180,7 @@
           targetHost = "lxc-frigate.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -192,6 +196,7 @@
           targetHost = "lxc-janitorr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -207,6 +212,7 @@
           targetHost = "lxc-jellyfin.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -222,6 +228,7 @@
           targetHost = "lxc-jellyseerr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -237,6 +244,7 @@
           targetHost = "lxc-jellystat.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -252,6 +260,7 @@
           targetHost = "lxc-lidarr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -267,6 +276,7 @@
           targetHost = "lxc-mkdocs-tcsnlps.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -282,6 +292,7 @@
           targetHost = "lxc-music-assistant.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -297,6 +308,7 @@
           targetHost = "lxc-prowlarr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -312,6 +324,7 @@
           targetHost = "lxc-radarr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -327,6 +340,7 @@
           targetHost = "lxc-sonarr.services.prutser.net";
           targetUser = "rputter";
           tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
@@ -342,6 +356,7 @@
           targetHost = "vm-nextcloud-demo.services.prutser.net";
           targetUser = "rputter";
           tags = ["vm"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           agenix.nixosModules.default
@@ -353,6 +368,7 @@
           targetHost = "vm-nginx.services.prutser.net";
           targetUser = "rputter";
           tags = ["vm" "prod"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           agenix.nixosModules.default
