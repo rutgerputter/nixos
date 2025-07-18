@@ -27,6 +27,7 @@ in
         # You need to specify this to remove the port from URLs in the web UI.
         ROOT_URL = "https://${srv.DOMAIN}/";
         HTTP_PORT = 3000;
+        START_SSH_SERVER = true;
         SSH_PORT = 222;
         SSH_DOMAIN = "vm-forge.services.prutser.net";
       };
