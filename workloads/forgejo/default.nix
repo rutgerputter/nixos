@@ -11,7 +11,7 @@ in
   networking = {
     firewall = {
       # Open ports in the firewall, as needed.
-      allowedTCPPorts = [ 3000 222 ];
+      allowedTCPPorts = [ 3000 3222 ];
       allowedUDPPorts = [ ];
     };
   };
