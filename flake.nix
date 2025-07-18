@@ -162,6 +162,22 @@
           ./workloads/bazarr
         ];
       };
+      lxc-deluge-vpn = {
+        deployment = {
+          targetHost = "lxc-deluge-vpn.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-deluge-vpn";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/deluge-vpn
+        ];
+      };
       lxc-frigate = {
         deployment = {
           targetHost = "lxc-frigate.services.prutser.net";
