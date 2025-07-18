@@ -97,7 +97,7 @@
         "prowlarr.intern.prutser.net"  = cert "intern.prutser.net" // proxy "lxc-prowlarr.services.prutser.net" 9696;
         "radarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-radarr.services.prutser.net" 7878;
         "readarr.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8787;
-        "sabnzbd.intern.prutser.net"   = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8080;
+        "sabnzbd.intern.prutser.net"   = cert "intern.prutser.net" // proxy "lxc-sabnzbd.services.prutser.net" 8080;
         "deluge.intern.prutser.net"    = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8112;
         "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-sonarr.services.prutser.net" 8989;
         "spotweb.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 7171;
