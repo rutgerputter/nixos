@@ -14,6 +14,7 @@ in
       allowedTCPPorts = [ 3000 222 ];
       allowedUDPPorts = [ ];
     };
+  };
 
   services.forgejo = {
     enable = true;
