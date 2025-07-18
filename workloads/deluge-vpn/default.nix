@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ./mounts.nix
@@ -25,12 +25,12 @@
         "/data/deluge-config:/config"
       ];
       environmentFiles = [
-        ${config.age.secrets.deluge_vpn_env.path}
+        "${config.age.secrets.deluge_vpn_env.path}"
       ];
       environment = {
         VPN_ENABLED = "yes";
         VPN_CLIENT = "wireguard";
-        VPN_PRO = "pia";
+        VPN_PROV = "pia";
         VPN_OPTIONS = "";
         STRICT_PORT_FORWARD = "yes";
         ENABLE_PRIVOXY = "yes";
