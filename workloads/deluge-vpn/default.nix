@@ -28,8 +28,6 @@
       environment = {
         VPN_ENABLED = "yes";
         VPN_CLIENT = "wireguard";
-        VPN_USER = "1";
-        VPN_PASS = "1";
         VPN_PRO = "pia";
         VPN_OPTIONS = "";
         STRICT_PORT_FORWARD = "yes";
