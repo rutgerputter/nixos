@@ -18,7 +18,8 @@ in
         DOMAIN = "forge.intern.prutser.net";
         # You need to specify this to remove the port from URLs in the web UI.
         ROOT_URL = "https://${srv.DOMAIN}/";
-        HTTP_PORT = 80;
+        HTTP_PORT = 3000;
+        SSH_PORT = 222;
       };
       # You can temporarily allow registration to create an admin user.
       service.DISABLE_REGISTRATION = true;

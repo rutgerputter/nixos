@@ -100,7 +100,7 @@
         "deluge.intern.prutser.net"    = cert "intern.prutser.net" // proxy "downloaders.services.prutser.net" 8112;
         "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-sonarr.services.prutser.net" 8989;
         "spotweb.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 7171;
-        "forge.intern.prutser.net"     = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 3000;
+        "forge.intern.prutser.net"     = cert "intern.prutser.net" // proxy "lxc-forge.services.prutser.net" 3000;
         "tubesync.intern.prutser.net"  = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 4848;
 
         "pve.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pve";
