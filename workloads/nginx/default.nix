@@ -63,6 +63,7 @@
           "/".proxyPass = "http://" + host + ":" + toString(port) + "/";
           "/".proxyWebsockets = true; # needed if you need to use WebSocket
           "/".extraConfig = ''
+            client_max_body_size 512M;
             client_body_buffer_size 512k;
             client_body_timeout 300s;
           '';
