@@ -1,4 +1,4 @@
-{ config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.services.forgejo;
   srv = cfg.settings.server;
@@ -7,6 +7,13 @@ in
   imports = [
     ./mounts.nix
   ];
+
+  networking = {
+    firewall = {
+      # Open ports in the firewall, as needed.
+      allowedTCPPorts = [ 3000 222 ];
+      allowedUDPPorts = [ ];
+    };
 
   services.forgejo = {
     enable = true;
@@ -49,7 +56,7 @@ in
 
 systemd.services.forgejo.preStart = let
   adminCmd = "${lib.getExe cfg.package} admin user";
-  pwd = config.age.secrets.forgejo-mailer-password.path;
+  pwd = config.age.secrets.forgejo-mailer-password;
   user = "rutgerputter"; # Note, Forgejo doesn't allow creation of an account named "admin"
 in ''
   ${adminCmd} create --admin --email "rutger@prutser.net" --username ${user} --password "$(tr -d '\n' < ${pwd.path})" || true
