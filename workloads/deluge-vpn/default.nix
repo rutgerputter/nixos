@@ -11,7 +11,9 @@
       image = "binhex/arch-delugevpn:latest";
       autoStart = true;
       privileged = true;
-      extraOptions = {"--sysctl=net.ipv4.conf.all.src_valid_mark=1"};
+      extraOptions = [
+        "--sysctl=net.ipv4.conf.all.src_valid_mark=1"
+      ];
       ports = [
         "8112:8112"
         "8118:8118"
