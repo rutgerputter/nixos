@@ -322,6 +322,22 @@
           ./workloads/radarr
         ];
       };
+      lxc-sabnzbd = {
+        deployment = {
+          targetHost = "lxc-sabnzbd.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-sabnzbd";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/sabnzbd
+        ];
+      };
       lxc-sonarr = {
         deployment = {
           targetHost = "lxc-sonarr.services.prutser.net";
