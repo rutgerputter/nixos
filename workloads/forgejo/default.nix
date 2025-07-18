@@ -28,6 +28,7 @@ in
         ROOT_URL = "https://${srv.DOMAIN}/";
         HTTP_PORT = 3000;
         SSH_PORT = 222;
+        SSH_DOMAIN = "vm-forge.services.prutser.net";
       };
       # You can temporarily allow registration to create an admin user.
       service.DISABLE_REGISTRATION = true;
