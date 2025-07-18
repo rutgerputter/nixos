@@ -46,4 +46,15 @@ in
     mode = "400";
     owner = "forgejo";
   };
+
+systemd.services.forgejo.preStart = let
+  adminCmd = "${lib.getExe cfg.package} admin user";
+  pwd = config.age.secrets.forgejo-mailer-password.path;
+  user = "rutgerputter"; # Note, Forgejo doesn't allow creation of an account named "admin"
+in ''
+  ${adminCmd} create --admin --email "rutger@prutser.net" --username ${user} --password "$(tr -d '\n' < ${pwd.path})" || true
+  ## uncomment this line to change an admin user which was already created
+  # ${adminCmd} change-password --username ${user} --password "$(tr -d '\n' < ${pwd.path})" || true
+'';
+
 }
