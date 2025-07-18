@@ -1,6 +1,7 @@
 let
   # put the machine you want to deploy to here from /etc/ssh/ssh_host_ed25519_key.pub
   systems = {
+    lxc-deluge-vpn = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIY9p2C3lK6mm5s/YdebdXSN+1ydwT1yvaEMLtrdYtLW root@lxc-deluge-vpn";
     lxc-janitorr = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4lOxNJsZCGhTkE0FJDURgxU8STg9SzANXTwQKEZxmg root@lxc-janitorr";
     lxc-jellystat = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaQwJYWXawzzXX/YPq+h+3ZZmDM9bA6k+1tcfsB6pk5 root@lxc-jellystat";
     lxc-frigate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfP9PjHHFABiANHHBpNQfknhlSKkK1ZClEDwxp4kJSn root@lxc-frigate";
@@ -14,6 +15,7 @@ let
   allUsers = builtins.attrValues users;
   allSystems = builtins.attrValues systems;
 in {
+  "deluge_vpn_env.age".publicKeys = [ systems.lxc-deluge-vpn ];
   "sonarr_api.age".publicKeys = [ systems.lxc-janitorr ];
   "radarr_api.age".publicKeys = [ systems.lxc-janitorr ];
   "bazarr_api.age".publicKeys = [ systems.lxc-janitorr ];

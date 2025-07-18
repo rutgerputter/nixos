@@ -4,6 +4,8 @@
     ./mounts.nix
   ];
 
+  age.secrets.deluge_vpn_env.file = ../../secrets/deluge_vpn_env.age ;
+
   virtualisation.oci-containers.containers = {
     deluge-vpn = {
       image = "binhex/arch-delugevpn:latest";
@@ -19,6 +21,9 @@
       volumes = [
         "/data/downloads:/data/downloads"
         "/data/deluge-config:/config"
+      ];
+      environmentFiles = [
+        ${config.age.secrets.deluge_vpn_env.path}
       ];
       environment = {
         VPN_ENABLED = "yes";
