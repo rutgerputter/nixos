@@ -3,7 +3,6 @@
 { ... }:
 {
   imports = [
-    ../../workloads/forgejo
     ./modules/boot
     ./modules/environment
     ./modules/home-manager
