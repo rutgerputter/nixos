@@ -24,7 +24,7 @@
       ];
       environment = {
         TUBESYNC_RENAME_ALL_SOURCES = "true";
-        TUBESYNC_POT_IPADDR = "tubesync-bgutil-provider";
+        TUBESYNC_POT_IPADDR = "10.0.10.108";
         TUBESYNC_POT_PORT = "4416";
         PUID = "99";
         PGID = "100";
