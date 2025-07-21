@@ -398,7 +398,8 @@
             networking.hostName = "vm-forge-runner";
           })
           agenix.nixosModules.default
-          ./hosts/vm-forge-runner/configuration.nix
+          ./modules/common-vm
+          ./workloads/forgejo/runner.nix
         ];
       };
       vm-nextcloud-demo = {
@@ -410,7 +411,8 @@
         };
         imports = [
           agenix.nixosModules.default
-          ./hosts/vm-nextcloud-demo/configuration.nix
+          ./modules/common-vm
+          ./workloads/nextcloud-aio
         ];
       };
       vm-nginx = {
@@ -422,7 +424,8 @@
         };
         imports = [
           agenix.nixosModules.default
-          ./hosts/vm-nginx/configuration.nix
+          ./modules/common-vm
+          ./workloads/nginx
         ];
       };
     };
