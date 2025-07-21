@@ -5,6 +5,7 @@ let
     lxc-janitorr = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ4lOxNJsZCGhTkE0FJDURgxU8STg9SzANXTwQKEZxmg root@lxc-janitorr";
     lxc-jellystat = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaQwJYWXawzzXX/YPq+h+3ZZmDM9bA6k+1tcfsB6pk5 root@lxc-jellystat";
     lxc-frigate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfP9PjHHFABiANHHBpNQfknhlSKkK1ZClEDwxp4kJSn root@lxc-frigate";
+    lxc-tubesync = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEGX4QXpbhMLTV+h4nKss+TGYuDOgxYyYqHwEhROJ775 root@lxc-tubesync";
     vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
     vm-forge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxGyLmEz3koB31dZf/F0V5Xa8M2n4X1JQhMEiKhdG73 root@vm-forge";
   };
@@ -27,4 +28,5 @@ in {
   "forgejo-mailer-password.age".publicKeys = [ systems.vm-forge ];
   "forgejo-runner-token.age".publicKeys = [ systems.vm-forge-runner ];
   "ha-mqtt.age".publicKeys = [ systems.lxc-frigate ];
+  "tubesync_env.age".publicKeys = [ systems.lxc-tubesync ];
 }

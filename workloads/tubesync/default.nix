@@ -1,0 +1,58 @@
+{ config, ... }:
+{
+  imports = [
+    ./mounts.nix
+  ];
+
+  age.secrets.tubesync_env.file = ../../secrets/tubesync_env.age;
+
+  virtualisation.oci-containers.containers = {
+    tubesync = {
+      image = "ghcr.io/meeb/tubesync:latest";
+      autoStart = true;
+      ports = [ "4848:4848" ];
+      volumes = [
+          "/data/tubesync-config:/config"
+          "/data/downloads:/downloads"
+         ];
+      environmentFiles = [
+        config.age.secrets.tubesync_env.path
+      ];
+      environment = {
+        TUBESYNC_RENAME_ALL_SOURCES = true;
+        TUBESYNC_POT_IPADDR = 10.0.10.108;
+        TUBESYNC_POT_PORT = 4416;
+        PUID = "99";
+        PGID = "100";
+        TZ = "Europe/Amsterdam";
+      };
+      dependsOn = [
+        "tubesync-db"
+        "tubesync-bgutil-provider"
+      ];
+    };
+    tubesync-bgutil-provider = {
+      image = "ghcr.io/meeb/tubesync:latest";
+      autoStart = true;
+      ports = [ "4416:4416" ];
+      environment = {
+        TOKEN_TTL = 6;
+      };
+    };
+    tubesync-db = {
+      image = "postgres:17";
+      autoStart = true;
+      ports = [ "4416:4416" ];
+      volumes = [
+        "/data/tubesync-db:/var/lib/postgresql/data"
+      ];
+      environmentFiles = [
+        config.age.secrets.tubesync_env.path
+      ];
+      environment = {
+        POSTGRES_DB = "tubesync";
+        POSTGRES_USER = "postgres";
+      };
+    };
+  };
+}
