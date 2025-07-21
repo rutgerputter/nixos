@@ -26,7 +26,7 @@
   services.openssh.enable = false;
 
   # Tailscale VPN
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   # Undervolt CPU
   services.throttled = {

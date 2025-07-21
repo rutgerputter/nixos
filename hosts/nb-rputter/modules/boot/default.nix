@@ -48,7 +48,7 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ { device = "/dev/nvme1n1p2"; } ];
+  swapDevices = [ { device = "/dev/nvme0n1p2"; } ];
 
   # Plymouth config
   boot.plymouth.enable = true;
