@@ -370,6 +370,22 @@
           ./workloads/sonarr
         ];
       };
+      lxc-tubesync = {
+        deployment = {
+          targetHost = "lxc-tubesync.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-tubesync";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/tubesync
+        ];
+      };
       vm-forge = {
         deployment = {
           targetHost = "vm-forge.services.prutser.net";
