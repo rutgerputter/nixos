@@ -42,5 +42,22 @@
       allowedTCPPorts = [ ];
       allowedUDPPorts = [ ];
     };
+
+    wg-quick.interfaces = {
+      "Home" = {
+        address = [ "10.51.82.3/24" ];
+        dns = [ "10.51.82.1" ];
+        privateKey = "bla";
+
+        peers = [
+          {
+            publicKey = "TW3Z6PZ5l4IaJsabP1VpR2vrSnBFKTh3O8CXgeZ00To=";
+            allowedIPs = [ "0.0.0.0/0" "::/0" ];
+            endpoint = "vpn.prutser.net:51820";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    };
   };
 }
