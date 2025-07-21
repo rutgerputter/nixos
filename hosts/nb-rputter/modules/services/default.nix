@@ -23,7 +23,7 @@
   services.printing.enable = true;
 
   # The background OpenSSH daemon for remote SSH access to this host.
-  services.openssh.enable = false;
+  services.openssh.enable = true;
 
   # Tailscale VPN
   services.tailscale.enable = false;

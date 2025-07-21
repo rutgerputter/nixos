@@ -1,6 +1,8 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 {
+  age.secrets.wg_nb-rputter_privkey.file = ../../../../secrets/wg_nb-rputter_privkey.age;
+
   networking = {
     hostName = "nb-rputter";
     # domain = null;
@@ -47,7 +49,7 @@
       "Home" = {
         address = [ "10.51.82.3/24" ];
         dns = [ "10.51.82.1" ];
-        privateKey = "bla";
+        privateKeyFile = config.age.secrets.wg_nb-rputter_privkey.path;
 
         peers = [
           {
