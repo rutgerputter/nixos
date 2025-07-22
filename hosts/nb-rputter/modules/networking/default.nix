@@ -47,7 +47,7 @@
 
     wg-quick.interfaces = {
       "Home" = {
-        address = [ "10.51.82.3/24" ];
+        address = [ "10.51.82.3/32" ];
         dns = [ "10.51.82.1" ];
         privateKeyFile = config.age.secrets.wg_nb-rputter_privkey.path;
 
