@@ -88,7 +88,6 @@
         };
       in {
         "bazarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-bazarr.services.prutser.net" 6767;
-        "code.intern.prutser.net"      = cert "intern.prutser.net" // proxy "forge.services.prutser.net" 8443;
         "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "vaultwarden.services.prutser.net" 81;
         "lidarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-lidarr.services.prutser.net" 8686;
         "openbooks.intern.prutser.net" = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 5228;
@@ -110,7 +109,6 @@
         "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
 
         "books.prutser.net"            = cert "prutser.net" // proxy "arr.services.prutser.net" 8083;
-        "id.prutser.net"               = cert "prutser.net" // proxy "auth.services.prutser.net" 9000;
         "domo.prutser.net"             = cert "prutser.net" // proxy "homeassistant.services.prutser.net" 8123;
         "kuma.prutser.net"             = cert "prutser.net" // proxy "lxc-uptime-kuma.services.prutser.net" 4000;
         "overseerr.prutser.net"        = cert "prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
