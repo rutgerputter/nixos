@@ -386,6 +386,22 @@
           ./workloads/tubesync
         ];
       };
+      lxc-uptime-kuma = {
+        deployment = {
+          targetHost = "lxc-uptime-kuma.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-uptime-kuma";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/uptime-kuma
+        ];
+      };
       vm-forge = {
         deployment = {
           targetHost = "vm-forge.services.prutser.net";
