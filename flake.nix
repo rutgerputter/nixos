@@ -442,6 +442,9 @@
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
+          ({...}: {
+            networking.hostName = "vm-nextcloud-demo";
+          })
           agenix.nixosModules.default
           ./modules/common-vm
           ./workloads/nextcloud-aio
@@ -455,6 +458,9 @@
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
+          ({...}: {
+            networking.hostName = "vm-nginx";
+          })
           agenix.nixosModules.default
           ./modules/common-vm
           ./workloads/nginx
