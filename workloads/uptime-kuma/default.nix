@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./mounts.nix
@@ -7,10 +7,8 @@
   services.uptime-kuma = {
     enable = true;
     settings = {
-      NODE_EXTRA_CA_CERTS = {
-        _type = "literalExpression";
-        text = "config.security.pki.caBundle";
-      };
+      NODE_EXTRA_CA_CERTS = "${config.security.pki.caBundle}";
+      HOST = "0.0.0.0";
       PORT = "4000";
     };
   };
