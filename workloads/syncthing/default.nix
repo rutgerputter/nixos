@@ -8,8 +8,12 @@
     syncthing = {
       image = "lscr.io/linuxserver/syncthing:latest";
       autoStart = true;
-      ports = [ "8989:8989" ];
-      extraOptions = [ "--network=host" ];
+      ports = [
+        "8384:8384"
+        "22000:22000/tcp"
+        "22000:22000/udp"
+        "21027:21027/udp"
+      ];
       volumes = [
         "/data/syncthing-config:/config"
         "/data/video/TV:/sync/TV"
