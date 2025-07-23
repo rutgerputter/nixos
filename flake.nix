@@ -194,6 +194,22 @@
           ./workloads/frigate
         ];
       };
+      lxc-gotify = {
+        deployment = {
+          targetHost = "lxc-gotify.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-gotify";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/gotify
+        ];
+      };
       lxc-janitorr = {
         deployment = {
           targetHost = "lxc-janitorr.services.prutser.net";
