@@ -6,7 +6,7 @@
 
   services.calibre-web = {
     enable = true;
-    listen.port = "8083";
+    listen.port = 8083;
     options.enableBookUploading = true;
     options.calibreLibrary = "/data/ebooks";
   };
