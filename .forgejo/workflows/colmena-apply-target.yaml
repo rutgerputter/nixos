@@ -7,7 +7,12 @@ on:  # yamllint disable-line rule:truthy
       target:
         description: 'Target'
         required: true
-        type: string
+        default: '*'
+        type: choice
+        options:
+          - '*'
+          - 'vm-*'
+          - 'lxc-*'
 jobs:
   colmena-apply:
     runs-on: native
