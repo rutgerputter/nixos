@@ -514,6 +514,22 @@
           ./workloads/forgejo/runner.nix
         ];
       };
+      vm-moodle = {
+        deployment = {
+          targetHost = "vm-moodle.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["vm"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "vm-moodle";
+          })
+          agenix.nixosModules.default
+          ./modules/common-vm
+          ./workloads/moodle-aio
+        ];
+      };
       vm-nextcloud-demo = {
         deployment = {
           targetHost = "vm-nextcloud-demo.services.prutser.net";
