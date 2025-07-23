@@ -88,14 +88,12 @@
         };
       in {
         "bazarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-bazarr.services.prutser.net" 6767;
-        "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-gotify.services.prutser.net" 81;
+        "gotify.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-gotify.services.prutser.net" 8080;
         "lidarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-lidarr.services.prutser.net" 8686;
-        "openbooks.intern.prutser.net" = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 5228;
         "overseerr.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
         "jellystat.intern.prutser.net" = cert "intern.prutser.net" // proxy "lxc-jellystat.services.prutser.net" 3000;
         "prowlarr.intern.prutser.net"  = cert "intern.prutser.net" // proxy "lxc-prowlarr.services.prutser.net" 9696;
         "radarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-radarr.services.prutser.net" 7878;
-        "readarr.intern.prutser.net"   = cert "intern.prutser.net" // proxy "arr.services.prutser.net" 8787;
         "sabnzbd.intern.prutser.net"   = cert "intern.prutser.net" // proxy "lxc-sabnzbd.services.prutser.net" 8080;
         "deluge.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-deluge-vpn.services.prutser.net" 8112;
         "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-sonarr.services.prutser.net" 8989;
@@ -133,7 +131,6 @@
         "mail.groeinaardetoekomst.nl"  = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.groeinaardetoekomst.nl" = cert "groeinaardetoekomst.nl" // proxy "mailcow.services.prutser.net" 88;
-        "cdn.groeinaardetoekomst.nl"   = cert "groeinaardetoekomst.nl" // proxy "wordpress.services.prutser.net" 8081;
       };
   };
 }

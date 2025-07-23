@@ -12,7 +12,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    gotify
+    gotify-server
   ];
 
   networking.firewall = {
