@@ -386,6 +386,22 @@
           ./workloads/sonarr
         ];
       };
+      lxc-spotweb = {
+        deployment = {
+          targetHost = "lxc-spotweb.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-spotweb";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/spotweb
+        ];
+      };
       lxc-syncthing = {
         deployment = {
           targetHost = "lxc-syncthing.services.prutser.net";
