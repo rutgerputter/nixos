@@ -97,7 +97,7 @@
         "sabnzbd.intern.prutser.net"   = cert "intern.prutser.net" // proxy "lxc-sabnzbd.services.prutser.net" 8080;
         "deluge.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-deluge-vpn.services.prutser.net" 8112;
         "sonarr.intern.prutser.net"    = cert "intern.prutser.net" // proxy "lxc-sonarr.services.prutser.net" 8989;
-        "spotweb.intern.prutser.net"   = cert "intern.prutser.net" // proxy "lxc-spotweb.services.prutser.net" 7171;
+        "spotweb.intern.prutser.net"   = cert "intern.prutser.net" // proxy "lxc-spotweb.services.prutser.net" 80;
         "forge.intern.prutser.net"     = cert "intern.prutser.net" // proxy "vm-forge.services.prutser.net" 3000;
         "tubesync.intern.prutser.net"  = cert "intern.prutser.net" // proxy "lxc-tubesync.services.prutser.net" 4848;
 
