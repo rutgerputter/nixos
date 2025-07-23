@@ -418,6 +418,22 @@
           ./workloads/uptime-kuma
         ];
       };
+      lxc-vaultwarden = {
+        deployment = {
+          targetHost = "lxc-vaultwarden.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-vaultwarden";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/vaultwarden
+        ];
+      };
       vm-forge = {
         deployment = {
           targetHost = "vm-forge.services.prutser.net";
