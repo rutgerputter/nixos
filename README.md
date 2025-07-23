@@ -1,11 +1,11 @@
 # NixOS Flake
 
-This flake allows rapid configuration of a local infrastrcture. In includes:
+This flake allows rapid configuration of a local infrastructure. In includes:
 
 - Generators: to generate generic machines like VM's and LXC containers,
 which can later be modified to handle workloads
 - Hosts: to define (mostly) the workstations that need to apply their config locally
-- Modules: all generic system modules that we want to re-use as mucht as possible
+- Modules: all generic system modules that we want to re-use as much as possible
 - Secrets: agenix based secrets management
 - Workloads: all services we might want to run on VM's or containers
 
@@ -16,7 +16,7 @@ The generators include commands and instructions to make and deploy them
 - Colmena is used to deploy workloads to the generic targets.
 - Use `nix shell github:zhaofengli/colmena` to get access to the colmena command.
 - Use `colmena apply` to update or configure all targets.
-- Use `colmena apply --on <target-name>` to specifiy which target.
+- Use `colmena apply --on <target-name>` to specify which target.
 Use of wildcards `*` is allowed here.
 
 To apply this flake to a workstation:
