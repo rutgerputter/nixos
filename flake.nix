@@ -386,6 +386,22 @@
           ./workloads/sonarr
         ];
       };
+      lxc-syncthing = {
+        deployment = {
+          targetHost = "lxc-syncthing.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-syncthing";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/syncthing
+        ];
+      };      
       lxc-tubesync = {
         deployment = {
           targetHost = "lxc-tubesync.services.prutser.net";
