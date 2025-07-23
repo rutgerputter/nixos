@@ -1,6 +1,7 @@
 { config, ... }:
 {
   imports = [
+    ../common/podman
     ./mounts.nix
   ];
 
