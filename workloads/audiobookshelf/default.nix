@@ -13,6 +13,6 @@
     dataDir = "audiobookshelf";
   };
   environment.systemPackages = with pkgs; [
-    audiobookshelf
+    unstable.audiobookshelf
   ];
 }
