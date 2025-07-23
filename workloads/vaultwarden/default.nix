@@ -33,7 +33,7 @@
       LOG_TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S.%3f";
       DISABLE_ADMIN_TOKEN = false;
       SMTP_HOST = "mailcow.services.prutser.net";
-      SMTP_SECURITY = "starttls";
+      SMTP_SECURITY = "off";
       SMTP_PORT = 25;
       SMTP_FROM = "rutger@prutser.net";
       SMTP_FROM_NAME = "Bitwarden_PutterNet";
