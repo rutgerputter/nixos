@@ -106,7 +106,7 @@
         "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "lxc-vaultwarden.services.prutser.net" 8000;
         "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
 
-        "books.prutser.net"            = cert "prutser.net" // proxy "arr.services.prutser.net" 8083;
+        "books.prutser.net"            = cert "prutser.net" // proxy "lxc-calibre-web.services.prutser.net" 8083;
         "domo.prutser.net"             = cert "prutser.net" // proxy "homeassistant.services.prutser.net" 8123;
         "kuma.prutser.net"             = cert "prutser.net" // proxy "lxc-uptime-kuma.services.prutser.net" 4000;
         "overseerr.prutser.net"        = cert "prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;

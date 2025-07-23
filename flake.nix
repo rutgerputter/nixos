@@ -162,6 +162,22 @@
           ./workloads/bazarr
         ];
       };
+      lxc-calibre-web = {
+        deployment = {
+          targetHost = "lxc-calibre-web.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-calibre-web";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/calibre-web
+        ];
+      };
       lxc-deluge-vpn = {
         deployment = {
           targetHost = "lxc-deluge-vpn.services.prutser.net";
