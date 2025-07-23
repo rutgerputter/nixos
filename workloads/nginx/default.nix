@@ -103,7 +103,7 @@
 
         "pve.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pve";
 
-        "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "vaultwarden.services.prutser.net" 80;
+        "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "lxc-vaultwarden.services.prutser.net" 8000;
         "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
 
         "books.prutser.net"            = cert "prutser.net" // proxy "arr.services.prutser.net" 8083;
