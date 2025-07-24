@@ -1,17 +1,18 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  services.printing.drivers = [ pkgs.epson-escpr ];
   hardware.printers = {
     ensurePrinters = [
       {
-        name = "Epson ET-2712";
+        name = "Epson_ET2712";
         location = "Kantoor";
-        deviceUri = "ipp://192.168.1.234/ipp";
-        model = "everywhere";
+        deviceUri = "socket://192.168.1.234:9100";
+        model = "epson-inkjet-printer-escpr/Epson-ET-2710_Series-epson-escpr-en.ppd";
         ppdOptions = {
           PageSize = "A4";
         };
       }
     ];
-    ensureDefaultPrinter = "Epson ET-2712";
+    ensureDefaultPrinter = "Epson_ET2712";
   };
 }

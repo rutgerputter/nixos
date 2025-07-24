@@ -25,11 +25,6 @@
   # Tailscale VPN
   services.tailscale.enable = true;
 
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
-
   # Sunshine
   services.sunshine = {
     enable = true;

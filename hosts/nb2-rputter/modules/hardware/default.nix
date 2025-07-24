@@ -4,6 +4,7 @@
   imports = [
     ../../../../hardware/common/audio/pipewire.nix
     ../../../../hardware/common/audio/upmix.nix
+    ../../../../modules/common-desktop/hardware
   ];
 
   hardware = {

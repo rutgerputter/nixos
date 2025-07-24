@@ -20,8 +20,6 @@
     dmidecode
     easyeffects
     edid-decode
-    epson-escpr
-    epson-escpr2
     epsonscan2
     ethtool
     exfat
