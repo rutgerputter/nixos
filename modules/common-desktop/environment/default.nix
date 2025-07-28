@@ -67,5 +67,9 @@
     yt-dlp
     protontricks
     okteta
+    systemdgenie
+    kodi
+    kodi-wayland
+    kodiPackages.jellyfin
   ];
 }
