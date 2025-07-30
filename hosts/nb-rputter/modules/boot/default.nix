@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./disko.nix
+  ];
   # Bootloader.
 
   # Add TPM2 packages

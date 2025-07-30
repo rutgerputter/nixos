@@ -1,5 +1,7 @@
 {
   inputs = {
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -26,6 +28,7 @@
 
   outputs = {
     self,
+    disko,
     nixpkgs,
     nixos-hardware,
     nixos-generators,
@@ -66,6 +69,7 @@
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
           lsfg-vk-flake.nixosModules.default
+          disko.nixosModules.disko
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
