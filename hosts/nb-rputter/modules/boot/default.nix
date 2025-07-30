@@ -27,32 +27,6 @@
   boot.initrd.supportedFilesystems = [ ];
   boot.initrd.verbose = false;
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d422e02c-ed0b-4bad-94d3-0e289227f847";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/d422e02c-ed0b-4bad-94d3-0e289227f847";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/d422e02c-ed0b-4bad-94d3-0e289227f847";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  swapDevices = [ { device = "/dev/nvme0n1p2"; } ];
-
   # Plymouth config
   boot.plymouth.enable = true;
   boot.plymouth.theme = "bgrt";
