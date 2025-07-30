@@ -5,6 +5,9 @@
   users = {
     mutableUsers = true;
     users = {
+      root = {
+        hashedPassword = "!";
+      };
       rputter = {
         description = "Rutger Putter";
         home = "/home/rputter";
