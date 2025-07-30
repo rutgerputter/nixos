@@ -38,6 +38,7 @@
         hud_no_margin = true;
         table_columns = 14;
         frame_timing = 1;
+        vsync = 3;
       };
     };
     vscode = {

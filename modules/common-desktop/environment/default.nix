@@ -12,7 +12,6 @@
     (hiPrio papirus-icon-theme)
     age
     alsa-plugins
-    android-studio
     android-tools
     android-udev-rules
     btop
