@@ -20,6 +20,12 @@
   # It will just not appear on screen unless a key is pressed
   boot.loader.timeout = 0;
 
+  boot.extraModprobeConfig = ''
+    # Fix slow AX200 card
+    options iwlwifi disable_11ax=Y power_save=0
+    options iwlmvm power_scheme=1
+  '';
+
   # Ensure boot works with all appropriate storage devices and protocols.
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ "kvm-intel" ];
