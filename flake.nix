@@ -3,6 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
+    lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
     colmena.url = "github:zhaofengli/colmena";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
@@ -30,6 +32,7 @@
     nixos-06cb-009a-fingerprint-sensor,
     agenix,
     colmena,
+    lsfg-vk-flake,
     ...
   }:
   {
@@ -62,6 +65,7 @@
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
+          lsfg-vk-flake.nixosModules.default
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
@@ -112,6 +116,7 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-hidpi
+          lsfg-vk-flake.nixosModules.default
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];

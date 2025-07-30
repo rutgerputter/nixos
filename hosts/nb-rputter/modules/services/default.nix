@@ -28,6 +28,11 @@
   # Tailscale VPN
   services.tailscale.enable = false;
 
+  services.lsfg-vk = {
+    enable = true;
+    ui.enable = true; # installs gui for configuring lsfg-vk
+  };
+
   # Undervolt CPU
   services.throttled = {
     enable = true;
