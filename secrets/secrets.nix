@@ -8,7 +8,7 @@ let
     lxc-tubesync = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEGX4QXpbhMLTV+h4nKss+TGYuDOgxYyYqHwEhROJ775 root@lxc-tubesync";
     vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
     vm-forge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxGyLmEz3koB31dZf/F0V5Xa8M2n4X1JQhMEiKhdG73 root@vm-forge";
-    nb-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDHdOsMC1BuuWahcJy8CZc/Xg4pnbbIWdoKulpEy0Ni root@nb-rputter";
+    nb-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJo1AC4dWTp4Hc7ScmsTH51QFDSUraVFN+VpgFn7VkyT root@nb-rputter";
   };
   # put which users should also be able to decrypt the secret
   users = {

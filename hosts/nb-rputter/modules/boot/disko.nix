@@ -76,7 +76,7 @@
                 subvolumes = {
                   # Subvolume name is the same as the mountpoint
                   "/games" = {
-                    mountOptions = [ "compress=zstd" "noatime"];
+                    mountOptions = [ "defaults" "compress=zstd" "noatime"];
                     mountpoint = "/mnt/games";
                   };
                 };
