@@ -3,7 +3,7 @@
   imports = [ ];
 
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
     users = {
       root = {
         hashedPassword = "!";
