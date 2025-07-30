@@ -53,6 +53,7 @@
     python312Packages.pip
     python3Full
     qtscrcpy
+    qpwgraph
     retroarch
     rtl-sdr-librtlsdr
     scrcpy
