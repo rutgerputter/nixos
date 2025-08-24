@@ -5,6 +5,9 @@
     firefox = {
       enable = true;
       languagePacks = [ "en-US" "en-GB" "nl" ];
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
 
       /* ---- POLICIES ---- */
       # Check about:policies#documentation for options.
