@@ -13,7 +13,7 @@
           "/data/subgen/models:/subgen/models"
          ];
       environment = {
-        WHISPER_MODEL = "medium";
+        WHISPER_MODEL = "small";
         WHISPER_THREADS = "6";
         PROCADDEDMEDIA= "True";
         PROCMEDIAONPLAY = "False";
