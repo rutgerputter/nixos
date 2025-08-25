@@ -219,6 +219,22 @@
           ./workloads/frigate
         ];
       };
+      lxc-gatus = {
+        deployment = {
+          targetHost = "lxc-gatus.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-gatus";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/gatus
+        ];
+      };
       lxc-gotify = {
         deployment = {
           targetHost = "lxc-gotify.services.prutser.net";
