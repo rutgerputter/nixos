@@ -22,7 +22,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -38,7 +37,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -54,7 +52,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -70,7 +67,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -86,7 +82,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -102,7 +97,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -119,7 +113,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -135,7 +128,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -151,7 +143,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -167,7 +158,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -183,7 +173,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -199,7 +188,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -215,7 +203,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -231,7 +218,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -247,7 +233,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -263,7 +248,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -279,7 +263,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
           ];
         }
 
@@ -295,7 +278,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -311,7 +293,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -327,7 +308,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -343,7 +323,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -359,7 +338,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -375,7 +353,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -389,7 +366,7 @@
           ];
           url = "192.168.1.1";
           dns = {
-            query-name = "fw-rputter.intern.prutser.net ";
+            query-name = "fw-rputter.intern.prutser.net";
             query-type = "A";
           };
           interval = "1m";
@@ -434,10 +411,10 @@
               type = "gotify";
             }
           ];
-          url = "icmp://fw-rputter.intern.prutser.net";
+          url = "http://fw-rputter.intern.prutser.net";
           interval = "1m";
           conditions = [
-            "[CONNECTED] == true"
+            "[STATUS] == 200"
           ];
         }
 
@@ -453,7 +430,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
           ];
         }
         {
@@ -468,7 +444,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
           ];
         }
         {
@@ -483,7 +458,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
           ];
         }
         {
@@ -498,7 +472,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
           ];
         }
 
@@ -510,7 +483,7 @@
               type = "gotify";
             }
           ];
-          url = "icmp://192.168.1.216";
+          url = "tcp://192.168.1.216:554";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
@@ -524,7 +497,7 @@
               type = "gotify";
             }
           ];
-          url = "icmp://192.168.1.215";
+          url = "tcp://192.168.1.215:554";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
@@ -543,7 +516,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -559,7 +531,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 500"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
@@ -575,7 +546,6 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
-            "[RESPONSE_TIME] < 300"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
