@@ -14,7 +14,7 @@
          ];
       environment = {
         WHISPER_MODEL = "medium";
-        WHISPER_THREADS = "4";
+        WHISPER_THREADS = "6";
         PROCADDEDMEDIA= "True";
         PROCMEDIAONPLAY = "False";
         NAMESUBLANG = "aa";
