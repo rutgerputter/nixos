@@ -5,7 +5,7 @@
   ];
 
   virtualisation.oci-containers.containers = {
-    sungen = {
+    subgen = {
       image = "mccloud/subgen";
       autoStart = true;
       ports = [ "9000:9000" ];
