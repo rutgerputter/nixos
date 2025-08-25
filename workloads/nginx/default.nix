@@ -109,6 +109,7 @@
         "books.prutser.net"            = cert "prutser.net" // proxy "lxc-calibre-web.services.prutser.net" 8083;
         "domo.prutser.net"             = cert "prutser.net" // proxy "homeassistant.services.prutser.net" 8123;
         "kuma.prutser.net"             = cert "prutser.net" // proxy "lxc-uptime-kuma.services.prutser.net" 4000;
+        "gatus.prutser.net"            = cert "prutser.net" // proxy "lxc-gatus.services.prutser.net" 8080;
         "overseerr.prutser.net"        = cert "prutser.net" // proxy "lxc-jellyseerr.services.prutser.net" 5055;
         "jellyfin.prutser.net"         = cert "prutser.net" // proxy "lxc-jellyfin.services.prutser.net" 8096;
         "audiobookshelf.prutser.net"   = cert "prutser.net" // proxy "lxc-audiobookshelf.services.prutser.net" 8000;
