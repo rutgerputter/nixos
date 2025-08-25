@@ -2,6 +2,7 @@
 {
   imports = [
     ./mounts.nix
+    ./subgen.nix
   ];
 
   services.bazarr = {
