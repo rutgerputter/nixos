@@ -13,12 +13,16 @@
         {
           name = "prutser.net";
           group = "websites";
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
           url = "https://www.prutser.net";
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
             "[RESPONSE_TIME] < 300"
-            "[DOMAIN_EXPIRATION] > 720h"
           ];
         }
         {
@@ -29,7 +33,6 @@
           conditions = [
             "[STATUS] == 200"
             "[RESPONSE_TIME] < 300"
-            "[DOMAIN_EXPIRATION] > 720h"
           ];
         }
         {
@@ -40,13 +43,18 @@
           conditions = [
             "[STATUS] == 200"
             "[RESPONSE_TIME] < 300"
-            "[DOMAIN_EXPIRATION] > 720h"
           ];
         }
       ];
       alerting.gotify = {
         server-url = "https://gotify.intern.prutser.net";
         token = "Af6L_5tY7GRc9Xj";
+        default-alert = {
+          description = "health check failed";
+          send-on-resolved = true;
+          failure-threshold = 2;
+          success-threshold = 2;
+        };
       };
     };
   };
