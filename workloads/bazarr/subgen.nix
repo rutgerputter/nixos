@@ -19,10 +19,8 @@
         PROCMEDIAONPLAY = "False";
         NAMESUBLANG = "aa";
         SKIPIFINTERNALSUBLANG = "eng";
-        JELLYFINTOKEN = "token here";
-        JELLYFINSERVER = "https://jellyfin.prutser.net";
         WEBHOOKPORT = "9000";
-        CONCURRENT_TRANSCRIPTIONS = "2";
+        CONCURRENT_TRANSCRIPTIONS = "1";
         WORD_LEVEL_HIGHLIGHT = "False";
         DEBUG = "True";
         USE_PATH_MAPPING = "False";
