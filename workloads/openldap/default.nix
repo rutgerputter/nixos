@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./mounts.nix
@@ -86,6 +86,7 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [ 636 ];
 
   /* ensure openldap is launched after certificates are created */
   systemd.services.openldap = {
