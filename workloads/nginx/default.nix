@@ -46,6 +46,7 @@
         servers = {
           "pve1.services.prutser.net:8006" = { };
           "pve2.services.prutser.net:8006" = { };
+          "pve3.services.prutser.net:8006" = { };
         };
       };
       # Add any further config to match your needs, e.g.:
