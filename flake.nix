@@ -507,11 +507,27 @@
           ./workloads/vaultwarden
         ];
       };
+      vm-auth = {
+        deployment = {
+          targetHost = "vm-auth.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["vm"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "vm-auth";
+          })
+          agenix.nixosModules.default
+          ./modules/common-vm
+          ./workloads/openldap
+        ];
+      };
       vm-forge = {
         deployment = {
           targetHost = "vm-forge.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["vm"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -527,7 +543,7 @@
         deployment = {
           targetHost = "vm-forge-runner.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["vm"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
