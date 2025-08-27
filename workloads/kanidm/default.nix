@@ -15,11 +15,11 @@
       tls_chain = "/var/lib/acme/auth.realiz-it.nl/full.pem";
       role = "WriteReplica";
       ldapbindaddress = "[::]:636";
-      bindaddress = "[::]:8443";
+      bindaddress = "[::]:443";
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 636 8443 ];
+  networking.firewall.allowedTCPPorts = [ 636 443 ];
 
   /* ensure openldap is launched after certificates are created */
   systemd.services.kanidm = {
