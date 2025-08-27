@@ -1,6 +1,9 @@
 { pkgs, ... }:
-
 {
+  imports = [
+    ../../../../modules/common-desktop/services/kanidm.nix
+  ];
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = false;
   services.xserver.displayManager.gdm.enable = true;
