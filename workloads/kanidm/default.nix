@@ -5,7 +5,6 @@
     ./acme.nix
   ];
 
-  age.secrets.kanidm_idm_admin_password.file = ../../secrets/kanidm_idm_admin_password.age;
   services.kanidm = {
     enableServer = true;
     package = pkgs.kanidm_1_6;
@@ -22,6 +21,7 @@
 
   environment.systemPackages = with pkgs; [
     kanidm-provision
+    kanidm
   ];
 
   networking.firewall.allowedTCPPorts = [ 636 443 ];

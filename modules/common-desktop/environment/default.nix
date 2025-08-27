@@ -35,6 +35,7 @@
     hunspellDicts.en_US
     hunspellDicts.nl_NL
     intel-gpu-tools
+    kanidm
     libreoffice
     libva-utils
     lm_sensors
