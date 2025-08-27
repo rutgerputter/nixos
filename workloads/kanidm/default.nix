@@ -18,10 +18,11 @@
       ldapbindaddress = "[::]:636";
       bindaddress = "[::]:443";
     };
-    provision = {
-      idmAdminPasswordFile = config.age.secrets.kanidm_idm_admin_password.path;
-    };
   };
+
+  environment.systemPackages = with pkgs; [
+    kanidm-provision
+  ];
 
   networking.firewall.allowedTCPPorts = [ 636 443 ];
 

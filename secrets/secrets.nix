@@ -29,7 +29,6 @@ in {
   "jellystat_db_pass.age".publicKeys = [ systems.lxc-jellystat ];
   "forgejo-mailer-password.age".publicKeys = [ systems.vm-forge ];
   "forgejo-runner-token.age".publicKeys = [ systems.vm-forge-runner ];
-  "kanidm_idm_admin_password.age".publicKeys = [ systems.vm-auth ];
   "ha-mqtt.age".publicKeys = [ systems.lxc-frigate ];
   "tubesync_env.age".publicKeys = [ systems.lxc-tubesync ];
   "wg_nb-rputter_privkey.age".publicKeys = [ systems.nb-rputter ];
