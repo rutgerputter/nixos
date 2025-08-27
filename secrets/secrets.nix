@@ -6,6 +6,7 @@ let
     lxc-jellystat = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaQwJYWXawzzXX/YPq+h+3ZZmDM9bA6k+1tcfsB6pk5 root@lxc-jellystat";
     lxc-frigate = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfP9PjHHFABiANHHBpNQfknhlSKkK1ZClEDwxp4kJSn root@lxc-frigate";
     lxc-tubesync = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEGX4QXpbhMLTV+h4nKss+TGYuDOgxYyYqHwEhROJ775 root@lxc-tubesync";
+    vm-auth = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC7sx0nT9fxDrbGhlShL/NeM6atUgr57oOf/rpFXynOx root@vm-auth";
     vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
     vm-forge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxGyLmEz3koB31dZf/F0V5Xa8M2n4X1JQhMEiKhdG73 root@vm-forge";
     nb-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJo1AC4dWTp4Hc7ScmsTH51QFDSUraVFN+VpgFn7VkyT root@nb-rputter";
@@ -28,6 +29,7 @@ in {
   "jellystat_db_pass.age".publicKeys = [ systems.lxc-jellystat ];
   "forgejo-mailer-password.age".publicKeys = [ systems.vm-forge ];
   "forgejo-runner-token.age".publicKeys = [ systems.vm-forge-runner ];
+  "kanidm_idm_admin_password.age".publicKeys = [ systems.vm-auth ];
   "ha-mqtt.age".publicKeys = [ systems.lxc-frigate ];
   "tubesync_env.age".publicKeys = [ systems.lxc-tubesync ];
   "wg_nb-rputter_privkey.age".publicKeys = [ systems.nb-rputter ];

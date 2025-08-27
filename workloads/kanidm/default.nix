@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./mounts.nix
     ./acme.nix
   ];
 
+  age.secrets.kanidm_idm_admin_password.file = ../../secrets/kanidm_idm_admin_password.age;
   services.kanidm = {
     enableServer = true;
     package = pkgs.kanidm_1_6;
@@ -16,6 +17,9 @@
       role = "WriteReplica";
       ldapbindaddress = "[::]:636";
       bindaddress = "[::]:443";
+    };
+    provision = {
+      idmAdminPasswordFile = config.age.secrets.kanidm_idm_admin_password.path;
     };
   };
 
