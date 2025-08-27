@@ -458,7 +458,7 @@
           ./modules/common-lxc
           ./workloads/syncthing
         ];
-      };      
+      };
       lxc-tubesync = {
         deployment = {
           targetHost = "lxc-tubesync.services.prutser.net";
@@ -520,7 +520,7 @@
           })
           agenix.nixosModules.default
           ./modules/common-vm
-          ./workloads/openldap
+          ./workloads/kanidm
         ];
       };
       vm-forge = {
