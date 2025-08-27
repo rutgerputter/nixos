@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./mounts.nix
@@ -7,9 +7,10 @@
 
   services.kanidm = {
     enableServer = true;
+    package = pkgs.kanidm_1_6;
     serverSettings = {
-      db_path = "/var/lib/kanidm/kanidm.db";
       domain = "realiz-it.nl";
+      origin = "https://auth.realiz-it.nl";
       tls_key = "/var/lib/acme/auth.realiz-it.nl/key.pem";
       tls_chain = "/var/lib/acme/auth.realiz-it.nl/full.pem";
       role = "WriteReplica";
@@ -25,4 +26,8 @@
     wants = [ "acme-auth.realiz-it.nl.service" ];
     after = [ "acme-auth.realiz-it.nl.service" ];
   };
+
+  /* make acme certificates accessible by kanidm */
+  security.acme.defaults.group = "certs";
+  users.groups.certs.members = [ "kanidm" ];
 }

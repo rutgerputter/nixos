@@ -9,7 +9,7 @@
     defaults.dnsPropagationCheck = true;
     defaults.dnsResolver = "1.1.1.1:53";
     defaults.environmentFile = "/opt/cloudflare.key";
-    defaults.reloadServices = [ "openldap" ];
+    defaults.reloadServices = [ "kanidm" ];
     certs."auth.realiz-it.nl" = {
       domain = "auth.realiz-it.nl";
       extraDomainNames = [ ];
