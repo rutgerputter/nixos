@@ -6,15 +6,16 @@
     package = pkgs.kanidm_1_6;
     clientSettings.uri = "https://auth.realiz-it.nl";
     unixSettings = {
-      pam_allowed_login_groups = ["idm_all_persons"];
+      pam_allowed_login_groups = [ "posix_users" ];
       version = "2";
       default_shell = "/run/current-system/sw/bin/zsh";
       home_prefix = "/home/";
       home_attr = "uuid";
       home_alias = "name";
       uid_attr_map = "name";
+      gid_attr_map = "name";
       kanidm = {
-        pam_allowed_login_groups = ["idm_all_persons"];
+        pam_allowed_login_groups = [ "posix_users" ];
         map_group = [
           {
             local = "wheel";
