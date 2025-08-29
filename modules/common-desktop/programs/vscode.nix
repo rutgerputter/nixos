@@ -1,6 +1,6 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 {
-  vscode = {
+  programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     profiles.default.extensions = with inputs.nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [

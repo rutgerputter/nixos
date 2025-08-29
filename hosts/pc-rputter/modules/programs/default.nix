@@ -5,8 +5,6 @@
     ../../../../modules/common/programs
     ../../../../modules/common-desktop/programs/steam-gaming.nix
     ../../../../modules/common-desktop/programs/firefox.nix
-    ../../../../modules/common-desktop/programs/mangohud.nix
-    ../../../../modules/common-desktop/programs/vscode.nix
   ];
 
   programs = {
