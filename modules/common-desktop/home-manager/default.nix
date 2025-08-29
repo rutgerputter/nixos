@@ -8,7 +8,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      rputter = import ./rputter.nix;
+      "rutger.putter" = import ./rutger.putter.nix;
     };
   };
 }
