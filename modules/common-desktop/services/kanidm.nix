@@ -22,6 +22,18 @@
             "with" = "posix_wheel";
           }
           {
+            local = "libvirtd";
+            "with" = "posix_libvirtd";
+          }
+          {
+            local = "networkmanager";
+            "with" = "posix_networkmanager";
+          }
+          {
+            local = "gamemode";
+            "with" = "posix_gamemode";
+          }
+          {
             local = "users";
             "with" = "posix_users";
           }

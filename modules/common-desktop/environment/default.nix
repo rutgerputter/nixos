@@ -14,6 +14,9 @@
     alsa-plugins
     android-tools
     android-udev-rules
+    boatswain
+    bookworm
+    bottles
     btop
     direnv
     dmidecode
@@ -24,53 +27,72 @@
     exfat
     exfatprogs
     fastfetch
+    finamp
     fzf
     gcc
     gearlever
+    gimp-with-plugins
     git
     google-chrome
+    haruna
     haskellPackages.rtlsdr
+    heroic
     htop
     hunspell
     hunspellDicts.en_US
     hunspellDicts.nl_NL
     intel-gpu-tools
+    isoimagewriter
+    jellyfin-media-player
     kanidm
+    kdePackages.kdenlive
+    kodi
+    kodi-wayland
+    kodiPackages.jellyfin
     libreoffice
     libva-utils
     lm_sensors
     lsd
     lshw
+    mission-center
     mono
+    moonlight-qt
     neovim
+    nextcloud-client
     nil
     nix-search-cli
     nixd
     nixos-generators
+    obs-studio
+    okteta
     parabolic
     pavucontrol
     pciutils
     powershell
+    protontricks
+    protonup-qt
+    prusa-slicer
     python312Packages.pip
     python3Full
-    qtscrcpy
     qpwgraph
+    qtscrcpy
     retroarch
     rtl-sdr-librtlsdr
     scrcpy
     sdrpp
+    signal-desktop
     soapyrtlsdr
     solaar
+    spotube
+    systemdgenie
     tailscale
     tdrop
+    teams-for-linux
     throttled
+    thunderbird-latest
+    unstable.bitwarden-desktop
     usbutils
+    vlc
     yt-dlp
-    protontricks
-    okteta
-    systemdgenie
-    kodi
-    kodi-wayland
-    kodiPackages.jellyfin
   ];
 }
