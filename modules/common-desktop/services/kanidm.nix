@@ -14,15 +14,9 @@
       home_alias = "name";
       uid_attr_map = "name";
       gid_attr_map = "name";
-      # allow_local_account_override = [ "wheel" "libvirtd" "networkmanager" "gamemode" "users" ];
+      allow_local_account_override = [ "wheel" "libvirtd" "networkmanager" "gamemode" "users" ];
       kanidm = {
-        pam_allowed_login_groups = [ "posix_users" ];
-        map_group = [
-          {
-            local = "wheel";
-            "with" = "posix_wheel";
-          }
-        ];
+        pam_allowed_login_groups = [ "users" ];
       };
     };
   };

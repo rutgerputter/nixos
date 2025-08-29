@@ -44,7 +44,7 @@
     intel-gpu-tools
     isoimagewriter
     jellyfin-media-player
-    kanidm
+    unstable.kanidm_1_7
     kdePackages.kdenlive
     kodi
     kodi-wayland
