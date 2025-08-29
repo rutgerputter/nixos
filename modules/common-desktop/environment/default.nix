@@ -35,7 +35,6 @@
     git
     google-chrome
     haruna
-    haskellPackages.rtlsdr
     heroic
     htop
     hunspell
@@ -76,11 +75,8 @@
     qpwgraph
     qtscrcpy
     retroarch
-    rtl-sdr-librtlsdr
     scrcpy
-    sdrpp
     signal-desktop
-    soapyrtlsdr
     solaar
     spotube
     systemdgenie
@@ -88,8 +84,8 @@
     tdrop
     teams-for-linux
     throttled
-    thunderbird-latest
-    unstable.bitwarden-desktop
+    thunderbird
+    bitwarden-desktop
     usbutils
     vlc
     yt-dlp
