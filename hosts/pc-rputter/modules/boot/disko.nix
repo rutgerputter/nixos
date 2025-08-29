@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/3";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_1TB_S5H9NS0NA98574X";
         content = {
           type = "gpt";
           partitions = {
@@ -62,7 +62,7 @@
       };
       games1 = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/1";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_Plus_500GB_S4EVNM0TB07927F";
         content = {
           type = "gpt";
           partitions = {
@@ -87,7 +87,7 @@
       };
       games2 = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/2";
+        device = "/dev/disk/by-id/nvme-KXG50ZNV512G_TOSHIBA_Y8OA72Y0K5YS";
         content = {
           type = "gpt";
           partitions = {
