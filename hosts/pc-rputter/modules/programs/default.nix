@@ -13,7 +13,7 @@
     nix-ld.enable = true;
 
     # Zsh configuration
-	zsh = {
+	  zsh = {
       shellAliases = {
         update = "cd ~/Git/nixos; sudo nixos-rebuild switch --flake .#pc-rputter";
       };

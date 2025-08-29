@@ -2,7 +2,7 @@
 
 {
   # Bootloader.
-  
+
   # Add TPM2 packages
   environment.systemPackages = with pkgs; [
     tpm2-tss

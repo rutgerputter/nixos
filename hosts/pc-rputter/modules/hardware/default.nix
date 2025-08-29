@@ -19,8 +19,8 @@ in
       enable = true;
       powerOnBoot = true;
     };
-    logitech.wireless.enable = true;    
-  
+    logitech.wireless.enable = true;
+
   };
 
   virtualisation.libvirtd.enable = true;

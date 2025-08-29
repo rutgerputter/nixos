@@ -25,9 +25,6 @@
   # The background OpenSSH daemon for remote SSH access to this host.
   services.openssh.enable = false;
 
-  # Tailscale VPN
-  services.tailscale.enable = true;
-
   services.lsfg-vk = {
     enable = true;
     ui.enable = true; # installs gui for configuring lsfg-vk

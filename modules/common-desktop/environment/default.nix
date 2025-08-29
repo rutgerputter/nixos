@@ -63,7 +63,6 @@
     nix-search-cli
     nixd
     nixos-generators
-    obs-studio
     okteta
     parabolic
     pavucontrol
