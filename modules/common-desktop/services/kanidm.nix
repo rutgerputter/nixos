@@ -3,10 +3,10 @@
   services.kanidm = {
     enableClient = true;
     enablePam = true;
-    package = pkgs.kanidm_1_6;
+    package = pkgs.unstable.kanidm_1_7;
     clientSettings.uri = "https://auth.realiz-it.nl";
     unixSettings = {
-      pam_allowed_login_groups = [ "posix_users" ];
+      pam_allowed_login_groups = [ ];
       version = "2";
       default_shell = "/run/current-system/sw/bin/zsh";
       home_prefix = "/home/";
@@ -14,28 +14,13 @@
       home_alias = "name";
       uid_attr_map = "name";
       gid_attr_map = "name";
+      # allow_local_account_override = [ "wheel" "libvirtd" "networkmanager" "gamemode" "users" ];
       kanidm = {
         pam_allowed_login_groups = [ "posix_users" ];
         map_group = [
           {
             local = "wheel";
             "with" = "posix_wheel";
-          }
-          {
-            local = "libvirtd";
-            "with" = "posix_libvirtd";
-          }
-          {
-            local = "networkmanager";
-            "with" = "posix_networkmanager";
-          }
-          {
-            local = "gamemode";
-            "with" = "posix_gamemode";
-          }
-          {
-            local = "users";
-            "with" = "posix_users";
           }
         ];
       };
