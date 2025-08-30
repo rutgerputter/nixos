@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_1TB_S5H9NS0NA98574X";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_Plus_500GB_S4EVNM0TB07927F";
         content = {
           type = "gpt";
           partitions = {
@@ -62,7 +62,7 @@
       };
       games1 = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_Plus_500GB_S4EVNM0TB07927F";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_1TB_S5H9NS0NA98574X";`
         content = {
           type = "gpt";
           partitions = {
@@ -78,31 +78,6 @@
                   "/games1" = {
                     mountOptions = [ "defaults" "compress=zstd" "noatime"];
                     mountpoint = "/mnt/games1";
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-      games2 = {
-        type = "disk";
-        device = "/dev/disk/by-id/nvme-KXG50ZNV512G_TOSHIBA_Y8OA72Y0K5YS";
-        content = {
-          type = "gpt";
-          partitions = {
-            root = {
-              size = "100%";
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ]; # Override existing partition
-                # Subvolumes must set a mountpoint in order to be mounted,
-                # unless their parent is mounted
-                subvolumes = {
-                  # Subvolume name is the same as the mountpoint
-                  "/games2" = {
-                    mountOptions = [ "defaults" "compress=zstd" "noatime"];
-                    mountpoint = "/mnt/games2";
                   };
                 };
               };
