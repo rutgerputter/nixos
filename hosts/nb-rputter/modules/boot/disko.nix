@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/9";
+        device = "/dev/disk/by-id/nvme-SAMSUNG_MZVLW256HEHP-000L7_S35ENX2JA06883";
         content = {
           type = "gpt";
           partitions = {
@@ -62,7 +62,7 @@
       };
       secondary = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/10";
+        device = "/dev/disk/by-id/nvme-E2M2_64GB_MHF737D003EC7";
         content = {
           type = "gpt";
           partitions = {
