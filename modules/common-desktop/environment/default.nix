@@ -80,7 +80,6 @@
     solaar
     spotube
     systemdgenie
-    tailscale
     tdrop
     teams-for-linux
     throttled
@@ -88,6 +87,7 @@
     bitwarden-desktop
     usbutils
     vlc
+    vscodium
     yt-dlp
   ];
 }
