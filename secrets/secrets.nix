@@ -9,7 +9,7 @@ let
     vm-auth = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC7sx0nT9fxDrbGhlShL/NeM6atUgr57oOf/rpFXynOx root@vm-auth";
     vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
     vm-forge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxGyLmEz3koB31dZf/F0V5Xa8M2n4X1JQhMEiKhdG73 root@vm-forge";
-    nb-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJo1AC4dWTp4Hc7ScmsTH51QFDSUraVFN+VpgFn7VkyT root@nb-rputter";
+    nb-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOs8001SyT1tkWDX8T7mMHWmrNQuvy4tErVnu4cXjnRZ root@nb-rputter";
   };
   # put which users should also be able to decrypt the secret
   users = {
