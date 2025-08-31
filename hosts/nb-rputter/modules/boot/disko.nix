@@ -30,6 +30,10 @@
                 subvolumes = {
                   # Subvolume name is different from mountpoint
                   "/rootfs" = {
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/";
                   };
                   # Subvolume name is the same as the mountpoint
@@ -37,8 +41,6 @@
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
                   };
-                  # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
-                  "/home/rputter" = { };
                   # Parent is not mounted so the mountpoint must be set
                   "/nix" = {
                     mountOptions = [
