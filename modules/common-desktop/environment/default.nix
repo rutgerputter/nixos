@@ -18,6 +18,7 @@
     bookworm
     bottles
     btop
+    chezmoi
     direnv
     dmidecode
     easyeffects
