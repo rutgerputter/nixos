@@ -60,7 +60,7 @@
           };
         };
       };
-      secondary = {
+      games = {
         type = "disk";
         device = "/dev/disk/by-id/nvme-E2M2_64GB_MHF737D003EC7";
         content = {
