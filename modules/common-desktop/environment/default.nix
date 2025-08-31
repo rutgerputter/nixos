@@ -49,6 +49,15 @@
     kodi
     kodi-wayland
     kodiPackages.jellyfin
+    kdePackages.filelight
+    kdePackages.kcalc
+    kdePackages.kio
+    kdePackages.kio-extras
+    kdePackages.kio-gdrive 
+    kdePackages.krohnkite
+    kdePackages.kscreenlocker
+    kdePackages.partitionmanager
+    kdePackages.yakuake
     libreoffice
     libva-utils
     lm_sensors
