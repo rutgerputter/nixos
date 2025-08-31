@@ -63,6 +63,7 @@
     lm_sensors
     lsd
     lshw
+    mangohud
     mission-center
     mono
     moonlight-qt
