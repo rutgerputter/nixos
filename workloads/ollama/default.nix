@@ -12,7 +12,6 @@
     host = "[::]";
     loadModels = [
       "gemma3:12b"
-      "mistral:instruct"
     ];
     user = "ollama";
   };
