@@ -2,6 +2,9 @@
 {
   services.ollama = {
     enable = true;
+    environmentVariables = {
+      OLLAMA_KEEP_ALIVE = "-1";
+    };
     package = pkgs.ollama-rocm;
     rocmOverrideGfx = "10.3.0";
     openFirewall = true;
@@ -9,10 +12,6 @@
     host = "[::]";
     loadModels = [
       "gemma3:12b"
-      "llama3.1:8b"
-      "qwen2.5-coder:7b"
-      "deepseek-r1:14b"
-      "mistral:7b"
     ];
     user = "ollama";
   };
