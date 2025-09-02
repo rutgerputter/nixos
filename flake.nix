@@ -138,6 +138,22 @@
         };
         specialArgs = { inherit (self) inputs outputs; };
       };
+      lxc-amd-ai = {
+        deployment = {
+          targetHost = "lxc-amd-ai.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-amd-ai";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/ollama
+        ];
+      };
       lxc-audiobookshelf = {
         deployment = {
           targetHost = "lxc-audiobookshelf.services.prutser.net";
