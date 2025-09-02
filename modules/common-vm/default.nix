@@ -5,7 +5,6 @@
   imports = [
     ./modules/boot
     ./modules/environment
-    ./modules/home-manager
     ./modules/localization
     ./modules/networking
     ./modules/nix
