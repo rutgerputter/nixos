@@ -11,7 +11,7 @@
     acceleration = "rocm";
     host = "[::]";
     loadModels = [
-      "gemma3:12b"
+      "deepseek-r1:14b"
     ];
     user = "ollama";
   };
