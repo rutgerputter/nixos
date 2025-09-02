@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   services.ollama = {
     enable = true;
@@ -6,6 +6,7 @@
     rocmOverrideGfx = "10.3.0";
     openFirewall = true;
     acceleration = "rocm";
+    host = "[::]";
     loadModels = [
       "gemma3:12b"
       "llama3.1:8b"
@@ -13,8 +14,16 @@
       "deepseek-r1:14b"
       "mistral:7b"
     ];
+    user = "ollama";
   };
   environment.systemPackages = with pkgs; [
     ollama-rocm
+    nvtopPackages.amd
   ];
+  users.groups."prox-render" = {
+    name = "prox-render";
+    gid = lib.mkForce 993;
+  };
+
+  users.users.ollama.extraGroups = [ "prox-render" ];
 }
