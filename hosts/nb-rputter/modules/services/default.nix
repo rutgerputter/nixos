@@ -3,6 +3,7 @@
 {
   imports = [
     ../../../../modules/common-desktop/services/kanidm.nix
+    ../../../../modules/common-desktop/services/ollama.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.
@@ -28,9 +29,6 @@
 
   # The background OpenSSH daemon for remote SSH access to this host.
   services.openssh.enable = true;
-
-  # Tailscale VPN
-  services.tailscale.enable = false;
 
   services.lsfg-vk = {
     enable = true;
