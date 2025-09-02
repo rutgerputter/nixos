@@ -417,6 +417,21 @@
             "[STATUS] == 200"
           ];
         }
+        {
+          name = "lxc-amd-ai.services.prutser.net";
+          group = "core";
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+          url = "http://lxc-amd-ai.services.prutser.net:11434";
+          interval = "1m";
+          conditions = [
+            "[STATUS] == 200"
+            "[BODY] == pat(*Ollama is running*)"
+          ];
+        }
 
         {
           name = "ap-kantoor.intern.prutser.net";
