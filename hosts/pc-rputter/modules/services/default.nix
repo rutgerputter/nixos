@@ -2,6 +2,7 @@
 {
   imports = [
     ../../../../modules/common-desktop/services/kanidm.nix
+    ../../../../modules/common-desktop/services/wivrn.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.
