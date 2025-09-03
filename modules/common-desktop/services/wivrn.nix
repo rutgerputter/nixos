@@ -2,9 +2,9 @@
 {
   services.wivrn = {
     enable = true;
-    package = pkgs.wivrn;
+    package = pkgs.unstable.wivrn;
     openFirewall = true;
     defaultRuntime = true;
     autoStart = true;
-  }
+  };
 }
