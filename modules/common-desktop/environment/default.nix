@@ -90,6 +90,7 @@
     signal-desktop
     solaar
     spotube
+    supersonic-wayland
     systemdgenie
     tdrop
     teams-for-linux
