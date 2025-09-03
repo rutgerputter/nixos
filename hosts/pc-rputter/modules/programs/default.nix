@@ -6,6 +6,7 @@
     ../../../../modules/common-desktop/programs/alvr.nix
     ../../../../modules/common-desktop/programs/steam-gaming.nix
     ../../../../modules/common-desktop/programs/firefox.nix
+    ../../../../modules/common-desktop/programs/zen-browser.nix
   ];
 
   programs = {
