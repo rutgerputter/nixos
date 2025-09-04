@@ -4,6 +4,7 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
     lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +35,7 @@
     self,
     disko,
     nixpkgs,
+    nixpkgs-xr,
     nixos-hardware,
     nixos-generators,
     nixos-06cb-009a-fingerprint-sensor,
@@ -125,6 +127,7 @@
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-hidpi
           lsfg-vk-flake.nixosModules.default
+          nixpkgs-xr.nixosModules.nixpkgs-xr
           disko.nixosModules.disko          
           agenix.nixosModules.default
           {
