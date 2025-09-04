@@ -20,7 +20,7 @@ in
       powerOnBoot = true;
     };
     logitech.wireless.enable = true;
-
+    new-lg4ff.enable = true;
   };
 
   virtualisation.libvirtd.enable = true;
