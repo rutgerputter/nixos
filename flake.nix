@@ -84,7 +84,7 @@
           ./hosts/nb-rputter/configuration.nix
         ];
       };
-      nb2-rputter = nixpkgs.lib.nixosSystem {
+      nb-gputter = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit (self) inputs outputs; };
         modules = [
@@ -97,7 +97,7 @@
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
           }
           # > Our main nixos configuration files and modules <
-          ./hosts/nb2-rputter/configuration.nix
+          ./hosts/nb-gputter/configuration.nix
         ];
       };
       tb-rputter = nixpkgs.lib.nixosSystem {

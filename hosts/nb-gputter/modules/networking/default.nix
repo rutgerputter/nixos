@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = "nb2-rputter";
+    hostName = "nb-gputter";
     # domain = null;
     # extraHosts = "";
 

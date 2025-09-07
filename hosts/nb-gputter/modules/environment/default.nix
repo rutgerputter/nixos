@@ -10,8 +10,6 @@
     kdePackages.kcalc
     kdePackages.kscreenlocker
     kdePackages.yakuake
-    maliit-keyboard
-    ktailctl
   ];
 
 }

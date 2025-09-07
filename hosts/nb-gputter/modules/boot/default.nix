@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./disko.nix
+  ];
   # Bootloader.
 
   # Add TPM2 packages
@@ -22,22 +25,6 @@
   boot.initrd.systemd.enable = true;
   boot.initrd.supportedFilesystems = [ ];
   boot.initrd.verbose = false;
-
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/40f2f4c0-13ac-4db1-9d82-5f7af9c1c0a0";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B4B2-B145";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/e7817162-c423-4505-a0ca-efe093197134"; }
-    ];
 
   # Plymouth config
   boot.plymouth.enable = true;
