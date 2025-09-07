@@ -92,6 +92,7 @@
           nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-hidpi
           nixos-hardware.nixosModules.common-pc-ssd
+          disko.nixosModules.disko
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
