@@ -10,6 +10,7 @@
     kdePackages.kcalc
     kdePackages.kscreenlocker
     kdePackages.yakuake
+    prismlauncher # Minecraft
   ];
 
 }
