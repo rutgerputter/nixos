@@ -47,7 +47,7 @@
       };
     };
     tubesync-db = {
-      image = "postgres:17";
+      image = "docker.io/postgres:17";
       autoStart = true;
       ports = [ ];
       volumes = [
