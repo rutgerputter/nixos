@@ -9,7 +9,7 @@
 
   virtualisation.oci-containers.containers = {
     deluge-vpn = {
-      image = "binhex/arch-delugevpn:latest";
+      image = "docker.io/binhex/arch-delugevpn:latest";
       autoStart = true;
       privileged = true;
       extraOptions = [
