@@ -24,7 +24,7 @@
       };
     };
     jellystat-db = {
-      image = "postgres:15.2";
+      image = "docker.io/postgres:15.2";
       autoStart = true;
       ports = [ "5432:5432" ];
       volumes = [ "/data/jellystat-db:/var/lib/postgresql/data" ];
