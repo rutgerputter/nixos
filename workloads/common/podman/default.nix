@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./podman-autoprune.nix
+    ./podman-autoupdate.nix
+  ];
   # Enable container support
   virtualisation = {
     podman = {
