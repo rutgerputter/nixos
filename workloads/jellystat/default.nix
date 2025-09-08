@@ -9,7 +9,7 @@
 
   virtualisation.oci-containers.containers = {
     jellystat = {
-      image = "cyfershepard/jellystat:latest";
+      image = "docker.io/cyfershepard/jellystat:latest";
       autoStart = true;
       ports = [ "3000:3000" ];
       volumes = [ "/data/jellystat-backup-data:/app/backend/backup-data" ];
@@ -22,6 +22,9 @@
         POSTGRES_PORT = "5432";
         TZ = "Europe/Amsterdam";
       };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };      
     };
     jellystat-db = {
       image = "docker.io/postgres:15.2";

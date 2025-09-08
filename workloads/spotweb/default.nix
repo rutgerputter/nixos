@@ -7,7 +7,7 @@
 
   virtualisation.oci-containers.containers = {
     spotweb = {
-      image = "jgeusebroek/spotweb";
+      image = "docker.io/jgeusebroek/spotweb";
       autoStart = true;
       ports = [
         "80:80"
@@ -30,6 +30,9 @@
       dependsOn = [
         "spotweb-mariadb"
       ];
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };      
     };
     spotweb-mariadb = {
       image = "lscr.io/linuxserver/mariadb";

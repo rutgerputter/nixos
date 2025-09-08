@@ -34,6 +34,9 @@
         "tubesync-db"
         "tubesync-bgutil-provider"
       ];
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };      
     };
     tubesync-bgutil-provider = {
       image = "brainicism/bgutil-ytdlp-pot-provider:1.2.2";
@@ -45,6 +48,9 @@
       environment = {
         TOKEN_TTL = "6";
       };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };      
     };
     tubesync-db = {
       image = "docker.io/postgres:17";
