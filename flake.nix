@@ -216,7 +216,7 @@
         deployment = {
           targetHost = "lxc-deluge-vpn.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -328,7 +328,7 @@
         deployment = {
           targetHost = "lxc-jellystat.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -344,7 +344,7 @@
         deployment = {
           targetHost = "lxc-lidarr.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -408,7 +408,7 @@
         deployment = {
           targetHost = "lxc-radarr.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -456,7 +456,7 @@
         deployment = {
           targetHost = "lxc-spotweb.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -472,7 +472,7 @@
         deployment = {
           targetHost = "lxc-syncthing.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
@@ -488,7 +488,7 @@
         deployment = {
           targetHost = "lxc-tubesync.services.prutser.net";
           targetUser = "rputter";
-          tags = ["lxc"];
+          tags = ["lxc" "podman"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [

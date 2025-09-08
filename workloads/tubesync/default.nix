@@ -63,6 +63,9 @@
         POSTGRES_DB = "tubesync";
         POSTGRES_USER = "postgres";
       };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };
     };
   };
 }

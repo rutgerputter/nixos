@@ -34,6 +34,9 @@
       environment = {
         POSTGRES_USER = "postgres";
       };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };
     };
   };
 }

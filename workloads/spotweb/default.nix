@@ -47,6 +47,9 @@
         MYSQL_USER = "spotweb";
         MYSQL_PASSWORD = "spotweb";
       };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };
     };
   };
 }
