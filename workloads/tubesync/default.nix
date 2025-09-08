@@ -36,7 +36,7 @@
       ];
     };
     tubesync-bgutil-provider = {
-      image = "brainicism/bgutil-ytdlp-pot-provider:latest";
+      image = "brainicism/bgutil-ytdlp-pot-provider:1.1.0";
       autoStart = true;
       networks = [
         "podman"
