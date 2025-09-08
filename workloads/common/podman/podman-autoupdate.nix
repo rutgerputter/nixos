@@ -5,7 +5,7 @@
   systemd.timers.update-containers = {
     timerConfig = {
       Unit = "update-containers.service";
-      OnCalendar = "Mon 02:00";  # Set to run every Monday at 2 AM
+      OnCalendar = "Sun 02:00";  # Set to run every Sunday at 2 AM
     };
     wantedBy = [ "timers.target" ];
   };
