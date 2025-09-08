@@ -9,7 +9,7 @@
 
   virtualisation.oci-containers.containers = {
     tubesync = {
-      image = "ghcr.io/meeb/tubesync:0.15.9";
+      image = "ghcr.io/meeb/tubesync:v0.15.9";
       autoStart = true;
       ports = [ "4848:4848" ];
       volumes = [
