@@ -58,7 +58,6 @@
     kdePackages.kscreenlocker
     kdePackages.partitionmanager
     kdePackages.yakuake
-    lact
     libreoffice
     libva-utils
     lm_sensors
