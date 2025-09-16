@@ -1,9 +1,9 @@
 { pkgs, ... }:
-let
-  monitorsXmlContent = builtins.readFile ./monitors.xml;
-  monitorsConfig = pkgs.writeText "gdm_monitors.xml" monitorsXmlContent;
-in
 {
+  imports = [
+    ../../../../modules/common-desktop/services/kanidm.nix
+  ];
+  
   # Enable the GNOME Desktop Environment.
   services.displayManager.defaultSession = "gnome";
   services.displayManager.autoLogin = {
@@ -12,10 +12,6 @@ in
   services.xserver.displayManager.gdm.enable = true;
 
   services.xserver.desktopManager.gnome.enable = true;
-
-  systemd.tmpfiles.rules = [
-    "L+ /run/gdm/.config/monitors.xml - - - - ${monitorsConfig}"
-  ];
 
   # Disable the X11 windowing system.
   services.xserver.enable = false;
@@ -30,8 +26,5 @@ in
 
   # The background OpenSSH daemon for remote SSH access to this host.
   services.openssh.enable = false;
-
-  # Tailscale VPN
-  services.tailscale.enable = true;
 
 }

@@ -7,7 +7,6 @@
     ./modules/boot
     ./modules/environment
     ./modules/hardware
-    ./modules/home-manager
     ./modules/localization
     ./modules/networking
     ./modules/nix
