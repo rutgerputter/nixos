@@ -101,5 +101,6 @@
     vlc
     vscodium
     yt-dlp
+    zsh
   ];
 }

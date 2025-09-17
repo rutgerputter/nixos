@@ -8,7 +8,7 @@
     unixSettings = {
       pam_allowed_login_groups = [ ];
       version = "2";
-      default_shell = "/run/current-system/sw/bin/zsh";
+      default_shell = "${pkgs.zsh}/bin/zsh";
       home_prefix = "/home/";
       home_attr = "uuid";
       home_alias = "name";
