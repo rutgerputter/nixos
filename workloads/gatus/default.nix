@@ -115,6 +115,13 @@
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
           ];
+          maintenance-windows = [
+            {
+              start = "01:55";
+              duration = "35m";
+              timezone = "Europe/Amsterdam";
+            }
+          ]
         }
         {
           name = "bazarr.intern.prutser.net";
@@ -264,6 +271,13 @@
           conditions = [
             "[STATUS] == 200"
           ];
+          maintenance-windows = [
+            {
+              start = "01:55";
+              duration = "35m";
+              timezone = "Europe/Amsterdam";
+            }
+          ]
         }
 
         {
@@ -631,10 +645,11 @@
               type = "gotify";
             }
           ];
-          url = "tcp://mail.maas-opleidingen.nl:465";
+          url = "tls://mail.maas-opleidingen.nl:465";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
+            "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
 
