@@ -7,6 +7,7 @@
   services.gatus = {
     enable = true;
     openFirewall = true;
+    package = pkgs.unstable.gatus;
     settings = {
       web.port = 8080;
       endpoints = [
@@ -654,6 +655,9 @@
         }
 
       ];
+      ui = {
+        title = "Realiz-IT System Health";
+      };
       alerting.gotify = {
         server-url = "https://gotify.intern.prutser.net";
         token = "Af6L_5tY7GRc9Xj";
@@ -668,6 +672,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    gatus
+    unstable.gatus
   ];
 }
