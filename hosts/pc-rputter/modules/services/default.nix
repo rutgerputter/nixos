@@ -4,16 +4,22 @@
     ../../../../modules/common-desktop/services/kanidm.nix
     ../../../../modules/common-desktop/services/wivrn.nix
     ../../../../modules/common-desktop/services/lact.nix
+    ../../../../modules/common-desktop/services/lightdm.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = false;
-  services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   services.displayManager.defaultSession = "plasma";
   services.displayManager.autoLogin = {
     enable = false;
   };
+  #services.xserver.displayManager.gdm.settings = {
+  #  greeter = {
+  #    Include = "rutger.putter";
+  #  };
+  #};
   # Disable the X11 windowing system.
   services.xserver.enable = false;
 
