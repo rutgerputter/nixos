@@ -657,6 +657,7 @@
       ];
       ui = {
         title = "Realiz-IT System Health";
+        default-sort-by = "group";
       };
       alerting.gotify = {
         server-url = "https://gotify.intern.prutser.net";
