@@ -391,6 +391,22 @@
           ];
         }
         {
+          name = "kanidm";
+          group = "core";
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+          url = "https://auth.realiz-it.nl/status";
+          interval = "1m";
+          conditions = [
+            "[CONNECTED] == true"
+            "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*true*)"
+          ];
+        }        
+        {
           name = "vm-forge-runner.services.prutser.net";
           group = "core";
           alerts = [
