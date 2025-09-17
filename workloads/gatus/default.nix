@@ -121,7 +121,7 @@
               duration = "35m";
               timezone = "Europe/Amsterdam";
             }
-          ]
+          ];
         }
         {
           name = "bazarr.intern.prutser.net";
@@ -277,7 +277,7 @@
               duration = "35m";
               timezone = "Europe/Amsterdam";
             }
-          ]
+          ];
         }
 
         {
