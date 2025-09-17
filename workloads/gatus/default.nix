@@ -601,10 +601,11 @@
               type = "gotify";
             }
           ];
-          url = "tcp://mail.maas-opleidingen.nl:993";
+          url = "tls://mail.maas-opleidingen.nl:993";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
+            "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
         {
@@ -615,10 +616,11 @@
               type = "gotify";
             }
           ];
-          url = "tcp://mail.maas-opleidingen.nl:25";
+          url = "starttls://mail.maas-opleidingen.nl:25";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
+            "[CERTIFICATE_EXPIRATION] > 30d"
           ];
         }
         {
