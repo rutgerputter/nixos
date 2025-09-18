@@ -37,6 +37,9 @@
         PGID = "100";
         TZ = "Europe/Amsterdam";
       };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };
     };
   };
 }
