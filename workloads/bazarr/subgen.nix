@@ -6,7 +6,7 @@
 
   virtualisation.oci-containers.containers = {
     subgen = {
-      image = "mccloud/subgen";
+      image = "mccloud/subgen:cpu";
       autoStart = true;
       ports = [ "9000:9000" ];
       volumes = [
