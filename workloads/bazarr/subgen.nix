@@ -41,5 +41,21 @@
         "io.containers.autoupdate" = "registry";
       };
     };
+    rocm-whisper-api-service = {
+      image = "docker.io/jjajjara/rocm-whisper-api:latest";
+      autoStart = true;
+      ports = [ "8080:8080" ];
+      environment = {
+        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+        WHISPER_MODEL = "medium";
+      };
+      devices = {
+        "/dev/kfd:/dev/kfd"
+        "/dev/dri:/dev/dri"
+      };
+      labels = {
+        "io.containers.autoupdate" = "registry";
+      };      
+    };
   };
 }
