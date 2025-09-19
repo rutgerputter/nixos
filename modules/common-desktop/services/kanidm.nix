@@ -20,4 +20,10 @@
       };
     };
   };
+
+  /* ensure display-manager is started after kanidm to allow direct logins */
+  systemd.services.display-manager = {
+    wants = [ "kanidm-unixd.service" ];
+    after = [ "kanidm-unixd.service" ];
+  };  
 }
