@@ -9,7 +9,8 @@
   services.displayManager.sddm.enable = true;
   services.displayManager.defaultSession = "plasma";
   services.displayManager.autoLogin = {
-    enable = false;
+    enable = true;
+    user = "gabriel.putter";
   };
   # Disable the X11 windowing system.
   services.xserver.enable = false;
