@@ -57,6 +57,7 @@
     kdePackages.krohnkite
     kdePackages.kscreenlocker
     kdePackages.partitionmanager
+    kdePackages.qtmultimedia
     kdePackages.yakuake
     libreoffice
     libva-utils
