@@ -24,6 +24,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<a rel=\"me\" href=\"https://mastodon.nl/@rutgerputter\">Mastodon</a>*)"
           ];
         }
         {
@@ -39,6 +40,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Prutser's Blog</title>*)"
           ];
         }
         {
@@ -54,6 +56,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Groei naar de Toekomst</title>*)"
           ];
         }
         {
@@ -69,6 +72,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Jasper trouwt &#8211; Trouwambtenaar &#8211; BABS &#8211; dynamisch met humor</title>*)"
           ];
         }
         {
@@ -84,6 +88,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>RawbirdPhotos &#8211; Photographic art company</title>*)"
           ];
         }
         {
@@ -99,6 +104,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<img src=\"realiz infra.png\" class=\"center\"/>*)"
           ];
         }
 
@@ -115,10 +121,11 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Jellyfin</title>*)"
           ];
           maintenance-windows = [
             {
-              start = "01:55";
+              start = "04:25";
               duration = "35m";
               timezone = "Europe/Amsterdam";
             }
@@ -137,6 +144,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Bazarr</title>*)"
           ];
         }
         {
@@ -152,6 +160,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Deluge WebUI*)"
           ];
         }
         {
@@ -167,6 +176,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Lidarr</title>*)"
           ];
         }
         {
@@ -182,6 +192,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Sign In - Jellyseerr</title>*)"
           ];
         }
         {
@@ -197,6 +208,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Prowlarr</title>*)"
           ];
         }
         {
@@ -212,6 +224,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Radarr</title>*)"
           ];
         }
         {
@@ -227,6 +240,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title data-bind=\"text: title\">SABnzbd</title>*)"
           ];
         }
         {
@@ -242,6 +256,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Sonarr</title>*)"
           ];
         }
         {
@@ -257,6 +272,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>SpotWeb - overview</title>*)"
           ];
         }
         {
@@ -271,6 +287,7 @@
           interval = "1m";
           conditions = [
             "[STATUS] == 200"
+            "[BODY] == pat(*<title>Tvheadend</title>*)"
           ];
           maintenance-windows = [
             {
@@ -294,6 +311,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title page-title>Vaultwarden Web</title>*)"
           ];
         }
         {
@@ -309,6 +327,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Forgejo: Beyond coding. We Forge.</title>*)"
           ];
         }
         {
@@ -324,6 +343,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>pve1 - Proxmox Virtual Environment</title>*)"
           ];
         }
         {
@@ -339,8 +359,25 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>pve2 - Proxmox Virtual Environment</title>*)"
           ];
         }
+        {
+          name = "pve3.services.prutser.net";
+          group = "core";
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+          url = "https://pve3.services.prutser.net:8006";
+          interval = "1m";
+          conditions = [
+            "[STATUS] == 200"
+            "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>pve3 - Proxmox Virtual Environment</title>*)"
+          ];
+        }        
         {
           name = "truenas.services.prutser.net";
           group = "core";
@@ -354,6 +391,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title id=\"main-page-title\"></title>*)"
           ];
         }
         {
@@ -369,6 +407,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Home Assistant</title>*)"
           ];
         }
         {
@@ -403,7 +442,7 @@
           conditions = [
             "[CONNECTED] == true"
             "[CERTIFICATE_EXPIRATION] > 30d"
-            "[BODY] == pat(*true*)"
+            "[BODY] == true"
           ];
         }        
         {
@@ -442,10 +481,11 @@
               type = "gotify";
             }
           ];
-          url = "http://fw-rputter.intern.prutser.net";
+          url = "http://fw-rputter.intern.prutser.net/cgi-bin/luci/";
           interval = "1m";
           conditions = [
-            "[STATUS] == 200"
+            "[STATUS] == 403"
+            "[BODY] == pat(*<title>FW-RPUTTER - LuCI</title>*)"
           ];
         }
         {
@@ -472,10 +512,11 @@
               type = "gotify";
             }
           ];
-          url = "http://192.168.1.203";
+          url = "http://192.168.1.203/cgi-bin/luci/";
           interval = "1m";
           conditions = [
-            "[STATUS] == 200"
+            "[STATUS] == 403"
+            "[BODY] == pat(*<title>AP-KANTOOR - LuCI</title>*)"
           ];
         }
         {
@@ -486,10 +527,11 @@
               type = "gotify";
             }
           ];
-          url = "http://192.168.1.204";
+          url = "http://192.168.1.204/cgi-bin/luci/";
           interval = "1m";
           conditions = [
-            "[STATUS] == 200"
+            "[STATUS] == 403"
+            "[BODY] == pat(*<title>AP-METERKAST - LuCI</title>*)"
           ];
         }
         {
@@ -500,10 +542,11 @@
               type = "gotify";
             }
           ];
-          url = "http://192.168.1.202";
+          url = "http://192.168.1.202/cgi-bin/luci/";
           interval = "1m";
           conditions = [
-            "[STATUS] == 200"
+            "[STATUS] == 403"
+            "[BODY] == pat(*<title>AP-SLAAPKAMER - LuCI</title>*)"
           ];
         }
         {
@@ -514,10 +557,11 @@
               type = "gotify";
             }
           ];
-          url = "http://192.168.1.201";
+          url = "http://192.168.1.201/cgi-bin/luci/";
           interval = "1m";
           conditions = [
-            "[STATUS] == 200"
+            "[STATUS] == 403"
+            "[BODY] == pat(*<title>AP-WOONKAMER - LuCI</title>*)"
           ];
         }
 
@@ -563,6 +607,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Maas-Opleidingen</title>*)"
           ];
         }
         {
@@ -578,6 +623,8 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>
+			Login – Centrale Werkomgeving		</title>*)"
           ];
         }
         {
@@ -593,6 +640,7 @@
           conditions = [
             "[STATUS] == 200"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*<title>Maas-Opleidingen Mail</title>*)"
           ];
         }
         {
@@ -632,11 +680,13 @@
               type = "gotify";
             }
           ];
+          body = "CAPABILITY";
           url = "tls://mail.maas-opleidingen.nl:993";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*Dovecot ready*)"
           ];
         }
         {
@@ -662,11 +712,13 @@
               type = "gotify";
             }
           ];
+          body = "HELO gatus.prutser.net";
           url = "tls://mail.maas-opleidingen.nl:465";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[BODY] == pat(*ESMTP Postcow*)"
           ];
         }
 
