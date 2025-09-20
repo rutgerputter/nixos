@@ -11,6 +11,7 @@
     kdePackages.kscreenlocker
     kdePackages.yakuake
     prismlauncher # Minecraft
+    mcpelauncher-ui-qt
   ];
 
 }
