@@ -3,7 +3,6 @@
 {
   imports = [
     ../../../../modules/common-desktop/services/kanidm.nix
-    ../../../../modules/common-desktop/services/ollama.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.
