@@ -49,6 +49,11 @@
           "pve3.services.prutser.net:8006" = { };
         };
       };
+      upstreams."pmg" = {
+        servers = {
+          "pmg.services.prutser.net:8006" = { };
+        };
+      };      
       # Add any further config to match your needs, e.g.:
       virtualHosts = let
         base = locations: {
@@ -103,6 +108,7 @@
         "tubesync.intern.prutser.net"  = cert "intern.prutser.net" // proxy "lxc-tubesync.services.prutser.net" 4848;
 
         "pve.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pve";
+        "pmg.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pmg";
 
         "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "lxc-vaultwarden.services.prutser.net" 8000;
         "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
