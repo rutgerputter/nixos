@@ -697,7 +697,7 @@
               type = "gotify";
             }
           ];
-          url = "starttls://mail.maas-opleidingen.nl:25";
+          url = "starttls://mail.realiz-it.nl:25";
           interval = "1m";
           conditions = [
             "[CONNECTED] == true"
