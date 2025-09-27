@@ -36,7 +36,6 @@
     git
     google-chrome
     haruna
-    heroic
     htop
     hunspell
     hunspellDicts.en_US
@@ -99,6 +98,7 @@
     throttled
     thunderbird
     bitwarden-desktop
+    unstable.heroic
     usbutils
     vlc
     vscodium
