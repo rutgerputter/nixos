@@ -6,6 +6,7 @@
     openFirewall = true;
     defaultRuntime = true;
     autoStart = false;
+    highPriority = true;
   };
 
   environment.systemPackages = with pkgs; [
