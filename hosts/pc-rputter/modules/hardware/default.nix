@@ -15,12 +15,13 @@ in
 
     # enable the open source drivers if the package supports it
     nvidia.open = lib.mkOverride 990 (nvidiaPackage ? open && nvidiaPackage ? firmware);
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
     };
     logitech.wireless.enable = true;
-    new-lg4ff.enable = true;
+    new-lg4ff.enable = false;
   };
 
   virtualisation.libvirtd.enable = true;

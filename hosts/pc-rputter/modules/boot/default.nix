@@ -33,6 +33,7 @@
   boot.plymouth.logo = "${pkgs.nixos-icons}/share/icons/hicolor/48x48/apps/nix-snowflake-white.png";
 
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.extraModulePackages = [ ];
 
   # Enable "Silent Boot"

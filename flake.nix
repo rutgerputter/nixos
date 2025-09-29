@@ -120,7 +120,6 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-hardware.nixosModules.common-hidpi
-          lsfg-vk-flake.nixosModules.default
           disko.nixosModules.disko          
           agenix.nixosModules.default
           {
