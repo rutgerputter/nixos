@@ -49,6 +49,7 @@
     kodi-wayland
     kodiPackages.jellyfin
     kdePackages.filelight
+    kdePackages.kasts
     kdePackages.kcalc
     kdePackages.kio
     kdePackages.kio-extras
