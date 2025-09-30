@@ -15,8 +15,8 @@
     fsType = "nfs";
     options = [ "nfsvers=4.2" "nolock" "soft" "rw" "nconnect=6" ];
   };
-  fileSystems."/data/audiobooks" = {
-    device = "10.0.99.10:/mnt/hdd_pool/audiobooks";
+  fileSystems."/data/books" = {
+    device = "10.0.99.10:/mnt/hdd_pool/books";
     fsType = "nfs";
     options = [ "nfsvers=4.2" "nolock" "soft" "rw" "nconnect=6" ];
   };
