@@ -46,6 +46,8 @@
         HISTSIZE=10000;
         SAVEHIST=10000;
         setopt appendhistory;
+
+        export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
         '';
     };
   };
