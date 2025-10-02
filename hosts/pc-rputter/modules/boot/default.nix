@@ -19,6 +19,7 @@
   # It's still possible to open the bootloader list by pressing any key
   # It will just not appear on screen unless a key is pressed
   boot.loader.timeout = 0;
+  boot.loader.systemd-boot.consoleMode = "max";
 
   # Ensure boot works with all appropriate storage devices and protocols.
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
