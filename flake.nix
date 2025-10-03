@@ -155,22 +155,6 @@
           ./workloads/ollama
         ];
       };
-      lxc-audiobookshelf = {
-        deployment = {
-          targetHost = "lxc-audiobookshelf.services.prutser.net";
-          targetUser = "rputter";
-          tags = ["lxc"];
-          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
-        };
-        imports = [
-          ({...}: {
-            networking.hostName = "lxc-audiobookshelf";
-          })
-          agenix.nixosModules.default
-          ./modules/common-lxc
-          ./workloads/audiobookshelf
-        ];
-      };
       lxc-bazarr = {
         deployment = {
           targetHost = "lxc-bazarr.services.prutser.net";
@@ -489,22 +473,6 @@
           agenix.nixosModules.default
           ./modules/common-lxc
           ./workloads/tubesync
-        ];
-      };
-      lxc-uptime-kuma = {
-        deployment = {
-          targetHost = "lxc-uptime-kuma.services.prutser.net";
-          targetUser = "rputter";
-          tags = ["lxc"];
-          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
-        };
-        imports = [
-          ({...}: {
-            networking.hostName = "lxc-uptime-kuma";
-          })
-          agenix.nixosModules.default
-          ./modules/common-lxc
-          ./workloads/uptime-kuma
         ];
       };
       lxc-vaultwarden = {
