@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -18,6 +18,10 @@
 
   # Enable fwupd
   services.fwupd.enable = lib.mkDefault true;
+
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan;
 
   # Thunderbolt Service
   services.hardware.bolt.enable = true;
