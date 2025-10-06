@@ -129,6 +129,23 @@
           ./hosts/pc-rputter/configuration.nix
         ];
       };
+      x1-rputter = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit (self) inputs outputs; };
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1-extreme-gen2
+          nixos-hardware.nixosModules.common-hidpi
+          nixos-hardware.nixosModules.common-pc-ssd
+          lsfg-vk-flake.nixosModules.default
+          disko.nixosModules.disko
+          agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
+          }
+          # > Our main nixos configuration files and modules <
+          ./hosts/x1-rputter/configuration.nix
+        ];
+      };      
     };
     colmenaHive = colmena.lib.makeHive self.outputs.colmena;
 
