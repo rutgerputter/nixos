@@ -6,8 +6,8 @@
   ];
 
   virtualisation.oci-containers.containers = {
-    spotweb = {
-      image = "docker.io/jganeshlab/opodsync";
+    opodsync = {
+      image = "docker.io/ganeshlab/opodsync:latest";
       autoStart = true;
       ports = [
         "8080:8080"
