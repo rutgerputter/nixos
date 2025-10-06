@@ -21,6 +21,9 @@
     };
   };
 
+  # Allow to cache user accounts
+  services.accounts-daemon.enable = true;
+
   /* ensure display-manager is started after kanidm to allow direct logins */
   systemd.services.display-manager = {
     after = [ "kanidm-unixd.service" ];
