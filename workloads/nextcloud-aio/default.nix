@@ -1,5 +1,9 @@
 { pkgs, config, ... }:
 {
+  imports = [
+    ./mounts.nix
+  ];
+
   environment.etc."nextcloud-admin-pass".text = "ChangeMe!";
   services.nextcloud = {
     enable = true;

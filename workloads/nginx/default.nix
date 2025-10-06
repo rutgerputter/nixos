@@ -121,8 +121,7 @@
         "jellyfin.prutser.net"         = cert "prutser.net" // proxy "lxc-jellyfin.services.prutser.net" 8096;
         "www.prutser.net"              = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080 // { default = true; };
         "prutser.net"                  = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080;
-        "cloud.prutser.net"            = cert "prutser.net" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
-        "ncdemo.prutser.net"           = cert "prutser.net" // proxy-nextcloud "vm-nextcloud-demo.services.prutser.net" 80;
+        "cloud.prutser.net"            = cert "prutser.net" // proxy-nextcloud "vm-nextcloud-demo.services.prutser.net" 80;
         "mail.prutser.net"             = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.prutser.net"     = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
