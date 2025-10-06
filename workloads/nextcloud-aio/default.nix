@@ -6,9 +6,9 @@
     enableImagemagick = true;
     appstoreEnable = false;
     configureRedis = true;
-    datadir = "/mnt/nextcloud";
+    datadir = "/data/ncdata";
     package = pkgs.nextcloud31;
-    hostName = "ncdemo.prutser.net";
+    hostName = "cloud.prutser.net";
     database.createLocally = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
@@ -38,18 +38,18 @@
     };
     extraAppsEnable = true;
     notify_push.enable = true;
-    notify_push.nextcloudUrl = "http://vm-nextcloud-demo.services.prutser.net";
+    notify_push.nextcloudUrl = "http://vm-nextcloud.services.prutser.net";
     config = {
       adminpassFile = "/etc/nextcloud-admin-pass";
       dbtype = "pgsql";
     };
-    maxUploadSize = "1G";
+    maxUploadSize = "75G";
     phpOptions = {
       "opcache.interned_strings_buffer" = "32";
       "opcache.revalidate_freq" = "60";
     };
     settings = {
-      trusted_domains = [ "ncdemo.prutser.net" "vm-nextcloud-demo.services.prutser.net" ];
+      trusted_domains = [ "cloud.prutser.net" "vm-nextcloud.services.prutser.net" ];
       trusted_proxies = [ "10.0.10.102" "10.0.10.113" ];
       log_type = "file";
       default_phone_region = "NL";
@@ -70,6 +70,9 @@
     };
   };
   services.nextcloud-whiteboard-server.enable = true;
-
   networking.firewall.allowedTCPPorts = [ 80 ];
+
+  environment.systemPackages = with pkgs; [
+    nextcloud-spreed-signaling
+  ];
 }
