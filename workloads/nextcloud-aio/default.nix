@@ -100,8 +100,4 @@
     after = [ "nextcloud-setup.service" ];
     wantedBy = [ "multi-user.target" ];
   };
-
-  environment.systemPackages = with pkgs; [
-    nextcloud-spreed-signaling
-  ];
 }
