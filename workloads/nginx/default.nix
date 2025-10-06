@@ -111,7 +111,7 @@
         "pmg.intern.prutser.net"       = cert "intern.prutser.net" // proxy-s "pmg";
 
         "bitwarden.realiz-it.nl"       = cert "realiz-it.nl" // proxy "lxc-vaultwarden.services.prutser.net" 8000;
-        "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "nextcloud.services.prutser.net" 11000;
+        "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "vm-nextcloud.services.prutser.net" 80;
 
         "books.prutser.net"            = cert "prutser.net" // proxy "lxc-calibre-web.services.prutser.net" 8083;
         "domo.prutser.net"             = cert "prutser.net" // proxy "homeassistant.services.prutser.net" 8123;
@@ -121,7 +121,7 @@
         "jellyfin.prutser.net"         = cert "prutser.net" // proxy "lxc-jellyfin.services.prutser.net" 8096;
         "www.prutser.net"              = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080 // { default = true; };
         "prutser.net"                  = cert "prutser.net" // proxy "wordpress.services.prutser.net" 8080;
-        "cloud.prutser.net"            = cert "prutser.net" // proxy-nextcloud "vm-nextcloud-demo.services.prutser.net" 80;
+        "cloud.prutser.net"            = cert "prutser.net" // proxy-nextcloud "vm-nextcloud.services.prutser.net" 80;
         "mail.prutser.net"             = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autodiscover.prutser.net"     = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;
         "autoconfig.prutser.net"       = cert "prutser.net" // proxy "mailcow.services.prutser.net" 88;

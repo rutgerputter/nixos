@@ -35,10 +35,10 @@
       notify_push
       previewgenerator
       richdocuments
-      sociallogin
       spreed
       tasks
       twofactor_webauthn
+      user_oidc
       whiteboard;
     };
     extraAppsEnable = true;
@@ -54,7 +54,7 @@
       "opcache.revalidate_freq" = "60";
     };
     settings = {
-      trusted_domains = [ "cloud.prutser.net" "vm-nextcloud.services.prutser.net" ];
+      trusted_domains = [ "cloud.prutser.net" "cloud.realiz-it.nl" "vm-nextcloud.services.prutser.net" ];
       trusted_proxies = [ "10.0.10.102" "10.0.10.113" ];
       log_type = "file";
       default_phone_region = "NL";
@@ -74,8 +74,29 @@
       ];
     };
   };
-  services.nextcloud-whiteboard-server.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 ];
+  networking.firewall.allowedTCPPorts = [ 80 3002 ];
+
+  environment.etc."nextcloud-whiteboard-secret".text = ''
+    JWT_SECRET_KEY=test123
+  '';
+
+  services.nextcloud-whiteboard-server = {
+    enable = true;
+    settings.NEXTCLOUD_URL = "https://whiteboard-cloud.realiz-it.nl";
+    secrets = [ "/etc/nextcloud-whiteboard-secret" ];
+  };
+
+  systemd.services.nextcloud-custom-config = {
+    path = [
+      config.services.nextcloud.occ
+    ];
+    script = ''
+      nextcloud-occ config:app:set whiteboard collabBackendUrl --value="http://localhost:3002"
+      nextcloud-occ config:app:set whiteboard jwt_secret_key --value="test123"
+    '';
+    after = [ "nextcloud-setup.service" ];
+    wantedBy = [ "multi-user.target" ];
+  };
 
   environment.systemPackages = with pkgs; [
     nextcloud-spreed-signaling
