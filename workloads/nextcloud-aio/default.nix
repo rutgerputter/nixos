@@ -2,6 +2,7 @@
 {
   imports = [
     ./mounts.nix
+    ./talk-hpb.nix
   ];
 
   environment.etc."nextcloud-admin-pass".text = "ChangeMe!";
@@ -43,7 +44,7 @@
     };
     extraAppsEnable = true;
     notify_push.enable = true;
-    notify_push.nextcloudUrl = "http://vm-nextcloud.services.prutser.net";
+    notify_push.nextcloudUrl = "https://cloud.realiz-it.nl";
     config = {
       adminpassFile = "/etc/nextcloud-admin-pass";
       dbtype = "pgsql";
@@ -54,7 +55,7 @@
       "opcache.revalidate_freq" = "60";
     };
     settings = {
-      trusted_domains = [ "cloud.prutser.net" "cloud.realiz-it.nl" "vm-nextcloud.services.prutser.net" ];
+      trusted_domains = [ "cloud.realiz-it.nl" "cloud.prutser.net" "vm-nextcloud.services.prutser.net" ];
       trusted_proxies = [ "10.0.10.102" "10.0.10.113" ];
       log_type = "file";
       default_phone_region = "NL";
@@ -82,7 +83,7 @@
 
   services.nextcloud-whiteboard-server = {
     enable = true;
-    settings.NEXTCLOUD_URL = "https://whiteboard-cloud.realiz-it.nl";
+    settings.NEXTCLOUD_URL = "https://cloud.realiz-it.nl";
     secrets = [ "/etc/nextcloud-whiteboard-secret" ];
   };
 
@@ -91,8 +92,10 @@
       config.services.nextcloud.occ
     ];
     script = ''
-      nextcloud-occ config:app:set whiteboard collabBackendUrl --value="http://localhost:3002"
+      nextcloud-occ config:app:set whiteboard collabBackendUrl --value="https://whiteboard.realiz-it.nl"
       nextcloud-occ config:app:set whiteboard jwt_secret_key --value="test123"
+      nextcloud-occ config:system:set maintenance_window_start --type=integer --value=23
+
     '';
     after = [ "nextcloud-setup.service" ];
     wantedBy = [ "multi-user.target" ];
