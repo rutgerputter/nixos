@@ -114,6 +114,7 @@
         "cloud.realiz-it.nl"           = cert "realiz-it.nl" // proxy-nextcloud "vm-nextcloud.services.prutser.net" 80;
         "signaling.realiz-it.nl"       = cert "realiz-it.nl" // proxy "vm-nextcloud.services.prutser.net" 8081;
         "whiteboard.realiz-it.nl"      = cert "realiz-it.nl" // proxy "vm-nextcloud.services.prutser.net" 3002;
+        "wopi.realiz-it.nl"            = cert "realiz-it.nl" // proxy "vm-nextcloud.services.prutser.net" 8000;
 
         "books.prutser.net"            = cert "prutser.net" // proxy "lxc-calibre-web.services.prutser.net" 8083;
         "domo.prutser.net"             = cert "prutser.net" // proxy "homeassistant.services.prutser.net" 8123;

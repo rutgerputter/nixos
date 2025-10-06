@@ -14,7 +14,7 @@
     home = "/var/lib/nextcloud";
     datadir = "/data/ncdata";
     package = pkgs.nextcloud31;
-    hostName = "cloud.prutser.net";
+    hostName = "cloud.realiz-it.nl";
     database.createLocally = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
@@ -34,8 +34,8 @@
       news
       notes
       notify_push
+      onlyoffice
       previewgenerator
-      richdocuments
       spreed
       tasks
       twofactor_webauthn
@@ -56,7 +56,7 @@
     };
     settings = {
       trusted_domains = [ "cloud.realiz-it.nl" "cloud.prutser.net" "vm-nextcloud.services.prutser.net" ];
-      trusted_proxies = [ "10.0.10.102" "10.0.10.113" ];
+      trusted_proxies = [ "127.0.0.1" "10.0.10.102" "10.0.10.113" ];
       log_type = "file";
       default_phone_region = "NL";
       overwriteprotocol = "https";
@@ -75,7 +75,7 @@
       ];
     };
   };
-  networking.firewall.allowedTCPPorts = [ 80 3002 ];
+  networking.firewall.allowedTCPPorts = [ 80 3002 8000 ];
 
   environment.etc."nextcloud-whiteboard-secret".text = ''
     JWT_SECRET_KEY=test123
@@ -85,6 +85,16 @@
     enable = true;
     settings.NEXTCLOUD_URL = "https://cloud.realiz-it.nl";
     secrets = [ "/etc/nextcloud-whiteboard-secret" ];
+  };
+
+  environment.etc."nextcloud-onlyoffice-secret".text = ''
+    test123
+  '';
+
+  services.onlyoffice = {
+    enable = true;
+    hostname = "localhost";
+    jwtSecretFile = "/etc/nextcloud-onlyoffice-secret";
   };
 
   systemd.services.nextcloud-custom-config = {
