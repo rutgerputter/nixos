@@ -380,6 +380,22 @@
           ./workloads/music-assistant
         ];
       };
+      lxc-opodsync = {
+        deployment = {
+          targetHost = "lxc-opodsync.services.prutser.net";
+          targetUser = "rputter";
+          tags = ["lxc"];
+          sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
+        };
+        imports = [
+          ({...}: {
+            networking.hostName = "lxc-opodsync";
+          })
+          agenix.nixosModules.default
+          ./modules/common-lxc
+          ./workloads/opodsync
+        ];
+      };      
       lxc-prowlarr = {
         deployment = {
           targetHost = "lxc-prowlarr.services.prutser.net";
