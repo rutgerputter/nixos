@@ -10,6 +10,7 @@
     enableImagemagick = true;
     appstoreEnable = false;
     configureRedis = true;
+    home = "/var/lib/nextcloud";
     datadir = "/data/ncdata";
     package = pkgs.nextcloud31;
     hostName = "cloud.prutser.net";
