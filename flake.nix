@@ -588,16 +588,16 @@
           ./workloads/moodle-aio
         ];
       };
-      vm-nextcloud-demo = {
+      vm-nextcloud = {
         deployment = {
-          targetHost = "vm-nextcloud-demo.services.prutser.net";
+          targetHost = "vm-nextcloud.services.prutser.net";
           targetUser = "rputter";
           tags = ["vm"];
           sshOptions = [ "-o BatchMode=yes" "-o StrictHostKeyChecking=no" "-o UserKnownHostsFile=/dev/null" ];
         };
         imports = [
           ({...}: {
-            networking.hostName = "vm-nextcloud-demo";
+            networking.hostName = "vm-nextcloud";
           })
           agenix.nixosModules.default
           ./modules/common-vm
