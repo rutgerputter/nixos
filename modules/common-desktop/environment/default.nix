@@ -74,6 +74,7 @@
     nil
     nix-search-cli
     nixd
+    nixfmt-rfc-style
     nixos-generators
     okteta
     parabolic
