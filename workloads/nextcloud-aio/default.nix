@@ -1,8 +1,10 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ../common/podman
     ./mounts.nix
     ./talk-hpb.nix
+    ./collabora.nix
   ];
 
   environment.etc."nextcloud-admin-pass".text = "ChangeMe!";
@@ -34,8 +36,8 @@
         news
         notes
         notify_push
-        onlyoffice
         previewgenerator
+        richdocuments
         spreed
         tasks
         twofactor_webauthn
@@ -62,8 +64,8 @@
         "vm-nextcloud.services.prutser.net"
       ];
       trusted_proxies = [
-        "127.0.0.1"
-        "10.0.10.102"
+        "10.0.10.1"
+        "10.0.10.116"
         "10.0.10.113"
       ];
       log_type = "file";
@@ -98,16 +100,6 @@
     enable = true;
     settings.NEXTCLOUD_URL = "https://cloud.realiz-it.nl";
     secrets = [ "/etc/nextcloud-whiteboard-secret" ];
-  };
-
-  environment.etc."nextcloud-onlyoffice-secret".text = ''
-    test123
-  '';
-
-  services.onlyoffice = {
-    enable = true;
-    hostname = "localhost";
-    jwtSecretFile = "/etc/nextcloud-onlyoffice-secret";
   };
 
   systemd.services.nextcloud-custom-config = {
