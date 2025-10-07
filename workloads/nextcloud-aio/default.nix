@@ -5,6 +5,7 @@
     ./mounts.nix
     ./talk-hpb.nix
     ./collabora.nix
+    ./whiteboard.nix
   ];
 
   environment.etc."nextcloud-admin-pass".text = "ChangeMe!";
@@ -88,27 +89,13 @@
   };
   networking.firewall.allowedTCPPorts = [
     80
-    3002
-    8000
   ];
-
-  environment.etc."nextcloud-whiteboard-secret".text = ''
-    JWT_SECRET_KEY=test123
-  '';
-
-  services.nextcloud-whiteboard-server = {
-    enable = true;
-    settings.NEXTCLOUD_URL = "https://cloud.realiz-it.nl";
-    secrets = [ "/etc/nextcloud-whiteboard-secret" ];
-  };
 
   systemd.services.nextcloud-custom-config = {
     path = [
       config.services.nextcloud.occ
     ];
     script = ''
-      nextcloud-occ config:app:set whiteboard collabBackendUrl --value="https://whiteboard.realiz-it.nl"
-      nextcloud-occ config:app:set whiteboard jwt_secret_key --value="test123"
       nextcloud-occ config:system:set maintenance_window_start --type=integer --value=23
 
     '';
