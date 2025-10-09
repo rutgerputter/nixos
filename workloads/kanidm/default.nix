@@ -7,7 +7,7 @@
 
   services.kanidm = {
     enableServer = true;
-    package = pkgs.unstable.kanidm_1_7;
+    package = pkgs.kanidm_1_7;
     serverSettings = {
       domain = "realiz-it.nl";
       origin = "https://auth.realiz-it.nl";

@@ -7,7 +7,7 @@
   services.gatus = {
     enable = true;
     openFirewall = true;
-    package = pkgs.unstable.gatus;
+    package = pkgs.gatus;
     settings = {
       web.port = 8080;
       endpoints = [
@@ -741,6 +741,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.gatus
+    gatus
   ];
 }

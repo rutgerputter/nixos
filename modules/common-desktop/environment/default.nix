@@ -15,7 +15,6 @@
     android-tools
     android-udev-rules
     boatswain
-    bookworm
     bottles
     btop
     chezmoi
@@ -23,7 +22,6 @@
     dmidecode
     easyeffects
     edid-decode
-    epsonscan2
     ethtool
     exfat
     exfatprogs
@@ -40,14 +38,9 @@
     hunspell
     hunspellDicts.en_US
     hunspellDicts.nl_NL
-    intel-gpu-tools
     isoimagewriter
-    jellyfin-media-player
-    unstable.kanidm_1_7
+    kanidm_1_7
     kdePackages.kdenlive
-    kodi
-    kodi-wayland
-    kodiPackages.jellyfin
     kdePackages.filelight
     kdePackages.kasts
     kdePackages.kcalc
@@ -85,7 +78,7 @@
     protonup-qt
     prusa-slicer
     python312Packages.pip
-    python3Full
+    python3
     qpwgraph
     qtscrcpy
     retroarch
@@ -94,13 +87,12 @@
     solaar
     spotube
     supersonic-wayland
-    systemdgenie
     tdrop
     teams-for-linux
     throttled
     thunderbird
     bitwarden-desktop
-    unstable.heroic
+    heroic
     usbutils
     vlc
     vscodium

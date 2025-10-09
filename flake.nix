@@ -2,8 +2,8 @@
   inputs = {
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
     lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
@@ -114,7 +114,7 @@
           modules = [
             nixos-hardware.nixosModules.common-pc
             nixos-hardware.nixosModules.common-pc-ssd
-            nixos-hardware.nixosModules.common-cpu-intel
+            nixos-hardware.nixosModules.common-cpu-intel-cpu-only
             nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
             nixos-hardware.nixosModules.common-hidpi
             disko.nixosModules.disko

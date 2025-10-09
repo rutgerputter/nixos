@@ -3,7 +3,7 @@
   services.kanidm = {
     enableClient = true;
     enablePam = true;
-    package = pkgs.unstable.kanidm_1_7;
+    package = pkgs.kanidm_1_7;
     clientSettings.uri = "https://auth.realiz-it.nl";
     unixSettings = {
       pam_allowed_login_groups = [ ];
