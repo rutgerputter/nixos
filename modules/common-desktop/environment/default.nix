@@ -52,6 +52,7 @@
     kdePackages.partitionmanager
     kdePackages.qtmultimedia
     kdePackages.sddm-kcm
+    kdePackages.tokodon
     kdePackages.yakuake
     libreoffice
     libva-utils
