@@ -16,5 +16,6 @@
     ./modules/services
     ./modules/system
     ./modules/users
+    ./intel-gc-overlay.nix
   ];
 }
