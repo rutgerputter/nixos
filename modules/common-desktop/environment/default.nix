@@ -49,6 +49,7 @@
     kdePackages.kio-gdrive 
     kdePackages.krohnkite
     kdePackages.kscreenlocker
+    kdePackages.kwidgetsaddons
     kdePackages.partitionmanager
     kdePackages.qtmultimedia
     kdePackages.sddm-kcm
