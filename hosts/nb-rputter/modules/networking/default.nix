@@ -22,7 +22,6 @@
       enable = true;
       dhcp = "internal";
       dns = "default";
-      enableStrongSwan = false;
       wifi = {
         backend = "wpa_supplicant";
         macAddress = "preserve";

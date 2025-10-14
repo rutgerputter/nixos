@@ -7,11 +7,6 @@
     ../../../../modules/common-desktop/hardware
   ];
 
-  services."06cb-009a-fingerprint-sensor" = {
-    enable = true;
-    backend = "python-validity";
-  };
-
   hardware = {
     bluetooth = {
       enable = true;

@@ -12,10 +12,6 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-06cb-009a-fingerprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +26,6 @@
       nixpkgs,
       nixos-hardware,
       nixos-generators,
-      nixos-06cb-009a-fingerprint-sensor,
       agenix,
       colmena,
       lsfg-vk-flake,
@@ -61,7 +56,6 @@
             nixos-hardware.nixosModules.lenovo-thinkpad-p52
             nixos-hardware.nixosModules.common-hidpi
             nixos-hardware.nixosModules.common-pc-ssd
-            nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
             lsfg-vk-flake.nixosModules.default
             disko.nixosModules.disko
             agenix.nixosModules.default
