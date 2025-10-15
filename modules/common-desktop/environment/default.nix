@@ -22,6 +22,7 @@
     dmidecode
     easyeffects
     edid-decode
+    endless-sky
     ethtool
     exfat
     exfatprogs
