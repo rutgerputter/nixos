@@ -702,6 +702,7 @@
           conditions = [
             "[CONNECTED] == true"
             "[CERTIFICATE_EXPIRATION] > 30d"
+            "[RESPONSE_TIME] < 750"
           ];
         }
         {
@@ -719,6 +720,7 @@
             "[CONNECTED] == true"
             "[CERTIFICATE_EXPIRATION] > 30d"
             "[BODY] == pat(*ESMTP Postcow*)"
+
           ];
         }
 
