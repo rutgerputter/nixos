@@ -5,7 +5,6 @@
   # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "intel-media-sdk-23.2.2"
   ];
 
   nixpkgs.overlays = [
