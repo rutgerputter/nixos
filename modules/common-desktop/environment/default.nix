@@ -97,6 +97,7 @@
     bitwarden-desktop
     heroic
     usbutils
+    uv
     vlc
     vscodium
     yt-dlp
