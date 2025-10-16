@@ -20,7 +20,7 @@
   systemd.timers."jellyfin-backup" = {
     wantedBy = [ "timers.target" ];
       timerConfig = {
-        OnCalendar = "*-*-* 4:45:00";
+        OnCalendar = "*-*-* 1:45:00";
         Persistent = true;
         Unit = "jellyfin-backup.service";
       };
