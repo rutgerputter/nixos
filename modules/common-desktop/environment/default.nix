@@ -18,6 +18,7 @@
     bottles
     btop
     chezmoi
+    chromium-bsu
     direnv
     dmidecode
     easyeffects
@@ -65,6 +66,7 @@
     mission-center
     mono
     moonlight-qt
+    naev
     neovim
     nextcloud-client
     nil
@@ -73,6 +75,7 @@
     nixfmt-rfc-style
     nixos-generators
     okteta
+    openomf
     parabolic
     pavucontrol
     pciutils
@@ -100,6 +103,7 @@
     uv
     vlc
     vscodium
+    xonotic
     yt-dlp
     zsh
   ];
