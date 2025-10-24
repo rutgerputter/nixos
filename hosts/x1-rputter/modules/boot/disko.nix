@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/???";
+        device = "/dev/disk/by-id/nvme-SAMSUNG_MZVLB1T0HBLR-000L7_S4EMNF0M904617";
         content = {
           type = "gpt";
           partitions = {
@@ -53,33 +53,8 @@
                   "/swap" = {
                     mountpoint = "/.swapvol";
                     swap = {
-                      swapfile.size = "8G";
+                      swapfile.size = "32G";
                     };
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-      data = {
-        type = "disk";
-        device = "/dev/disk/by-id/???";
-        content = {
-          type = "gpt";
-          partitions = {
-            root = {
-              size = "100%";
-              content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ]; # Override existing partition
-                # Subvolumes must set a mountpoint in order to be mounted,
-                # unless their parent is mounted
-                subvolumes = {
-                  # Subvolume name is the same as the mountpoint
-                  "/games" = {
-                    mountOptions = [ "defaults" "compress=zstd" "noatime"];
-                    mountpoint = "/mnt/games";
                   };
                 };
               };
