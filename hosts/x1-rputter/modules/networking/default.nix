@@ -1,11 +1,7 @@
 { lib, config, ... }:
 
 {
-<<<<<<< HEAD
-  age.secrets.wg_nb-rputter_privkey.file = ../../../../secrets/wg_x1-rputter_privkey.age;
-=======
   age.secrets.wg_x1-rputter_privkey.file = ../../../../secrets/wg_x1-rputter_privkey.age;
->>>>>>> f89888e (chore(x1): fix build)
 
   networking = {
     hostName = "x1-rputter";
