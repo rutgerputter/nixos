@@ -61,4 +61,9 @@
       };
     };
   };
+  systemd.services = {
+    wg-quick-Home = {
+      wantedBy = lib.mkForce [ ];
+    };
+  };
 }
