@@ -66,9 +66,7 @@
     mission-center
     mono
     moonlight-qt
-    naev
     neovim
-    nextcloud-client
     nil
     nix-search-cli
     nixd

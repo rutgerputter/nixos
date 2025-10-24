@@ -62,6 +62,31 @@
           };
         };
       };
+      secondary = {
+        type = "disk";
+        device = "/dev/disk/by-id/nvme-KBG40ZNV256G_KIOXIA_91EPH7MPQW82";
+        content = {
+          type = "gpt";
+          partitions = {
+            root = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ]; # Override existing partition
+                # Subvolumes must set a mountpoint in order to be mounted,
+                # unless their parent is mounted
+                subvolumes = {
+                  # Subvolume name is the same as the mountpoint
+                  "/games" = {
+                    mountOptions = [ "defaults" "compress=zstd" "noatime"];
+                    mountpoint = "/mnt/games";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
     };
   };
 }

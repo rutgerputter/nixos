@@ -1,7 +1,11 @@
 { lib, config, ... }:
 
 {
-  age.secrets.wg_nb-rputter_privkey.file = ../../../../secrets/wg_nb-rputter_privkey.age;
+<<<<<<< HEAD
+  age.secrets.wg_nb-rputter_privkey.file = ../../../../secrets/wg_x1-rputter_privkey.age;
+=======
+  age.secrets.wg_x1-rputter_privkey.file = ../../../../secrets/wg_x1-rputter_privkey.age;
+>>>>>>> f89888e (chore(x1): fix build)
 
   networking = {
     hostName = "x1-rputter";
@@ -22,7 +26,6 @@
       enable = true;
       dhcp = "internal";
       dns = "default";
-      enableStrongSwan = false;
       wifi = {
         backend = "wpa_supplicant";
         macAddress = "preserve";
@@ -47,9 +50,9 @@
 
     wg-quick.interfaces = {
       "Home" = {
-        address = [ "10.51.82.3/32" ];
+        address = [ "10.51.82.5/32" ];
         dns = [ "10.51.82.1" ];
-        privateKeyFile = config.age.secrets.wg_nb-rputter_privkey.path;
+        privateKeyFile = config.age.secrets.wg_x1-rputter_privkey.path;
 
         peers = [
           {

@@ -10,6 +10,7 @@ let
     vm-forge-runner = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOcDTl9jSUnmR4OhfgYopjgb+wR1E2sZUz0HRD/66oco root@vm-forge-runner";
     vm-forge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxGyLmEz3koB31dZf/F0V5Xa8M2n4X1JQhMEiKhdG73 root@vm-forge";
     nb-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOs8001SyT1tkWDX8T7mMHWmrNQuvy4tErVnu4cXjnRZ root@nb-rputter";
+    x1-rputter = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDEmuxeGgpa1gg2TJ/NIuNBOCNt6pohyeFJmKZK5gnY1 root@x1-rputter";
   };
   # put which users should also be able to decrypt the secret
   users = {
@@ -32,4 +33,5 @@ in {
   "ha-mqtt.age".publicKeys = [ systems.lxc-frigate ];
   "tubesync_env.age".publicKeys = [ systems.lxc-tubesync ];
   "wg_nb-rputter_privkey.age".publicKeys = [ systems.nb-rputter ];
+  "wg_x1-rputter_privkey.age".publicKeys = [ systems.x1-rputter ];
 }

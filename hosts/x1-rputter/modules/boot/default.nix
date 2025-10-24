@@ -35,11 +35,6 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  # OLED Brightness enable
-  boot.extraModprobeConfig = [
-    "options i915 enable_dpcd_backlight=1"
-  ];
-
   # Enable "Silent Boot"
   boot.kernelParams = [
     "quiet"
