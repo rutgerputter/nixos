@@ -21,6 +21,7 @@
     };
   };
 
+  hardware.enableAllFirmware = true;
   services.fprintd.enable = true;
 
   # Enable fwupd

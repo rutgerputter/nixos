@@ -16,7 +16,6 @@
       gid_attr_map = "name";
       allow_local_account_override = [ "wheel" "libvirtd" "networkmanager" "gamemode" "users" ];
       kanidm = {
-        conn_timeout = 1;
         pam_allowed_login_groups = [ "users" ];
       };
     };

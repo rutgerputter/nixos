@@ -22,7 +22,7 @@
 
   # Ensure boot works with all appropriate storage devices and protocols.
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
-  boot.initrd.kernelModules = [ "kvm-intel" ];
+  boot.initrd.kernelModules = [ "kvm-intel" "btintel" ];
   boot.initrd.systemd.enable = true;
   boot.initrd.supportedFilesystems = [ ];
   boot.initrd.verbose = false;
