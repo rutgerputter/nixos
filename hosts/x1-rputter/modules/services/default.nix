@@ -3,6 +3,7 @@
 {
   imports = [
     ../../../../modules/common-desktop/services/kanidm.nix
+    ../../../../modules/common-desktop/services/lact.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.

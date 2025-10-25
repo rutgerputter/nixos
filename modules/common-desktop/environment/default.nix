@@ -41,6 +41,7 @@
     hunspellDicts.en_US
     hunspellDicts.nl_NL
     isoimagewriter
+    jellyfin-mpv-shim
     kanidm_1_7
     kdePackages.kdenlive
     kdePackages.filelight
