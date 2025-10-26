@@ -13,7 +13,6 @@
     age
     alsa-plugins
     android-tools
-    android-udev-rules
     boatswain
     bottles
     btop

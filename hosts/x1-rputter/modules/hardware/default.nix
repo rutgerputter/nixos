@@ -8,6 +8,7 @@
   ];
 
   hardware = {
+    sensor.iio.enable = true;
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -15,10 +16,6 @@
     logitech.wireless.enable = true;
     # NVIDIA
     nvidia.open = true;
-    nvidia.prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
   };
 
   hardware.enableAllFirmware = true;

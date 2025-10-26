@@ -35,6 +35,10 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.extraModprobeConfig = ''
+    options psmouse synaptics_intertouch=0
+  '';
+
   # Enable "Silent Boot"
   boot.kernelParams = [
     "quiet"

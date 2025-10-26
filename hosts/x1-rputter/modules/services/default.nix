@@ -1,18 +1,19 @@
 { ... }:
-
 {
   imports = [
     ../../../../modules/common-desktop/services/kanidm.nix
     ../../../../modules/common-desktop/services/lact.nix
+    ../../../../modules/common-desktop/services/tuned.nix
   ];
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = false;
   services.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "plasma";
-  services.displayManager.autoLogin = {
-    enable = false;
-  };
+
+#   systemd.tmpfiles.rules = [
+#     "L  /var/lib/AccountsService/users/rutger.putter - - - - ${rutger-user-config}"
+#   ];
+
   # Disable the X11 windowing system.
   services.xserver.enable = false;
 
