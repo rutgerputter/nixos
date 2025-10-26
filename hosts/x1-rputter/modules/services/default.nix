@@ -7,8 +7,8 @@
   ];
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.gdm.enable = false;
+  services.displayManager.sddm.enable = false;
+  services.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "plasma";
   services.displayManager.autoLogin = {
     enable = false;
