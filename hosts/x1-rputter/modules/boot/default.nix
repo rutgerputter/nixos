@@ -12,7 +12,6 @@
     tpm2-tools
     tpm2-tss
   ];
-  boot.initrd.systemd.enable = true;
 
   # Use the 'systemd-boot EFI' boot loader.
   boot.loader.systemd-boot.enable = true;
