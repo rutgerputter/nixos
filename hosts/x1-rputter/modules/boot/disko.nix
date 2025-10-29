@@ -1,5 +1,4 @@
 {
-  crypttabExtraOpts = [ "tpm2-device=auto" ];
   disko.devices = {
     disk = {
       main = {
