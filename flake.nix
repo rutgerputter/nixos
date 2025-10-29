@@ -125,7 +125,7 @@
           specialArgs = { inherit (self) inputs outputs; };
           modules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-extreme-gen2
-            nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+            nixos-hardware.nixosModules.common-gpu-nvidia
             nixos-hardware.nixosModules.common-hidpi
             nixos-hardware.nixosModules.common-pc-ssd
             lsfg-vk-flake.nixosModules.default
