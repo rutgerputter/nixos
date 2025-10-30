@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.services.forgejo;
   srv = cfg.settings.server;
@@ -18,6 +18,7 @@ in
 
   services.forgejo = {
     enable = true;
+    package = pkgs.stable.forgejo;
     database.type = "postgres";
     # Enable support for Git Large File Storage
     lfs.enable = true;
