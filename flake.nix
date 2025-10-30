@@ -5,6 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
     lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
     colmena.url = "github:zhaofengli/colmena";
@@ -23,6 +29,7 @@
     {
       self,
       disko,
+      lanzaboote,
       nixpkgs,
       nixos-hardware,
       nixos-generators,
@@ -130,6 +137,7 @@
             nixos-hardware.nixosModules.common-pc-ssd
             lsfg-vk-flake.nixosModules.default
             disko.nixosModules.disko
+            lanzaboote.nixosModules.lanzaboote
             agenix.nixosModules.default
             {
               environment.systemPackages = [ agenix.packages."x86_64-linux".default ];
