@@ -13,6 +13,8 @@ on:  # yamllint disable-line rule:truthy
           - '*'
           - 'vm-*'
           - 'lxc-*'
+          - '@arr'
+          - '@prod'
           - 'lxc-audiobookshelf'
           - 'lxc-bazarr'
           - 'lxc-calibre-web'
