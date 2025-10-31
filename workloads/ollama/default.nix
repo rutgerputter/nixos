@@ -12,6 +12,9 @@
     host = "[::]";
     loadModels = [
       "deepseek-r1:14b"
+      "qwen3:8b"
+      "llama3.2-vision:11b"
+      "gemma2:9b"
     ];
     user = "ollama";
   };
