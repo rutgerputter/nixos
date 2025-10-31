@@ -36,7 +36,6 @@
         maps
         news
         notes
-        notify_push
         previewgenerator
         richdocuments
         spreed
