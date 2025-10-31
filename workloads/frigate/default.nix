@@ -27,6 +27,7 @@
 
   services.frigate = {
     enable = true;
+    checkConfig = false;
     hostname = "lxc-frigate";
 
     settings = {
