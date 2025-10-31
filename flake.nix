@@ -10,6 +10,11 @@
 
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     lsfg-vk-flake.url = "github:pabloaul/lsfg-vk-flake/main";
     lsfg-vk-flake.inputs.nixpkgs.follows = "nixpkgs";
@@ -565,7 +570,7 @@
           deployment = {
             targetHost = "lxc-sabnzbd.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" ];
+            tags = [ "lxc" "arr" ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
