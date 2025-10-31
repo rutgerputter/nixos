@@ -18,6 +18,7 @@
     btop
     chezmoi
     chromium-bsu
+    ctags
     direnv
     dmidecode
     easyeffects
