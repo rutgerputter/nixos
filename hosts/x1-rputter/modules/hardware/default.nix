@@ -7,6 +7,17 @@
     ../../../../modules/common-desktop/hardware
   ];
 
+  systemd.services = builtins.listToAttrs (map (service: {
+      name = service;
+      value.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+    }) [
+      "systemd-suspend"
+      "systemd-hibernate"
+      "systemd-hybrid-sleep"
+      "systemd-suspend-then-hibernate-sleep"
+    ]);
+
+
   hardware = {
     sensor.iio.enable = true;
     bluetooth = {
@@ -16,6 +27,7 @@
     logitech.wireless.enable = true;
     # NVIDIA
     nvidia.open = true;
+    nvidia.powerManagement.enable = true;
     nvidia.prime = {
       # Make sure to use the correct Bus ID values for your system!
       intelBusId = "PCI:0:2:0";

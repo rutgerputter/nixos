@@ -163,7 +163,10 @@
           deployment = {
             targetHost = "lxc-amd-ai.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "ai" ];
+            tags = [
+              "lxc"
+              "ai"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -186,7 +189,10 @@
           deployment = {
             targetHost = "lxc-bazarr.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -209,7 +215,10 @@
           deployment = {
             targetHost = "lxc-calibre-web.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -259,7 +268,10 @@
           deployment = {
             targetHost = "lxc-frigate.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "prod" ];
+            tags = [
+              "lxc"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -282,7 +294,10 @@
           deployment = {
             targetHost = "lxc-gatus.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "prod" ];
+            tags = [
+              "lxc"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -305,7 +320,10 @@
           deployment = {
             targetHost = "lxc-gotify.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "prod" ];
+            tags = [
+              "lxc"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -328,7 +346,10 @@
           deployment = {
             targetHost = "lxc-janitorr.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -351,7 +372,10 @@
           deployment = {
             targetHost = "lxc-jellyfin.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "prod" ];
+            tags = [
+              "lxc"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -374,7 +398,10 @@
           deployment = {
             targetHost = "lxc-jellyseerr.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -520,7 +547,10 @@
           deployment = {
             targetHost = "lxc-prowlarr.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -570,7 +600,10 @@
           deployment = {
             targetHost = "lxc-sabnzbd.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -593,7 +626,10 @@
           deployment = {
             targetHost = "lxc-sonarr.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "arr" ];
+            tags = [
+              "lxc"
+              "arr"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -696,7 +732,10 @@
           deployment = {
             targetHost = "lxc-vaultwarden.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "lxc" "prod" ];
+            tags = [
+              "lxc"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -719,7 +758,10 @@
           deployment = {
             targetHost = "vm-auth.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "vm" "prod" ];
+            tags = [
+              "vm"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -742,7 +784,10 @@
           deployment = {
             targetHost = "vm-forge.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "vm" "prod" ];
+            tags = [
+              "vm"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -765,7 +810,10 @@
           deployment = {
             targetHost = "vm-forge-runner.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "vm" "prod" ];
+            tags = [
+              "vm"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -788,7 +836,10 @@
           deployment = {
             targetHost = "vm-moodle.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "vm" "prod" ];
+            tags = [
+              "vm"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"
@@ -811,7 +862,10 @@
           deployment = {
             targetHost = "vm-nextcloud.services.prutser.net";
             targetUser = "rputter";
-            tags = [ "vm" "prod" ];
+            tags = [
+              "vm"
+              "prod"
+            ];
             sshOptions = [
               "-o BatchMode=yes"
               "-o StrictHostKeyChecking=no"

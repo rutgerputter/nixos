@@ -68,6 +68,11 @@
         "10.0.10.116"
         "10.0.10.113"
       ];
+      allow_local_remote_servers = true;
+      allow_user_to_change_display_name = false;
+      allow_user_to_change_email = false;
+      lost_password_link = false;
+      oidc_login_auto_redirect = true;
       log_type = "file";
       default_phone_region = "NL";
       overwriteprotocol = "https";
