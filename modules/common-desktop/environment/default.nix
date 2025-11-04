@@ -5,7 +5,7 @@
   ];
   environment.variables = {
     SSH_AUTH_SOCK = "$HOME/.bitwarden-ssh-agent.sock";
-    NIXOS_OZONE_WL=1;
+    NIXOS_OZONE_WL = 1;
     NIX_REMOTE = "daemon";
   };
   environment.systemPackages = with pkgs; [
@@ -19,6 +19,7 @@
     chezmoi
     chromium-bsu
     ctags
+    cubicsdr
     direnv
     dmidecode
     easyeffects
@@ -49,7 +50,7 @@
     kdePackages.kcalc
     kdePackages.kio
     kdePackages.kio-extras
-    kdePackages.kio-gdrive 
+    kdePackages.kio-gdrive
     kdePackages.krohnkite
     kdePackages.kscreenlocker
     kdePackages.kwidgetsaddons
